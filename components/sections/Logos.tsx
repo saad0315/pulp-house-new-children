@@ -13,24 +13,38 @@ const logos = [
 
 export default function Logos() {
   return (
-    <section className="bg-zinc-50 border-y border-zinc-200 py-12">
-      <div className="container mx-auto px-6">
-        <p className="text-center text-xs font-bold uppercase tracking-[0.3em] text-zinc-400 mb-8">
+    <section className="bg-zinc-50 border-y border-zinc-200 py-12 overflow-hidden relative">
+      <div className="container mx-auto px-6 mb-8">
+        <p className="text-center text-xs font-bold uppercase tracking-[0.3em] text-zinc-400">
           Our authors are featured on & distributed by
         </p>
-        <div className="flex flex-wrap justify-center items-center gap-12 lg:gap-24">
-          {logos.map((logo) => (
-            <motion.div
-              key={logo.id}
-              whileHover={{ scale: 1.05 }}
-              className="group flex items-center justify-center grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-default"
+      </div>
+
+      <div className="relative flex w-full overflow-hidden mask-gradient-x">
+        {/* Gradient Masks for fading edges */}
+        <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-zinc-50 to-transparent z-10" />
+        <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-zinc-50 to-transparent z-10" />
+
+        <motion.div
+          className="flex whitespace-nowrap gap-16 lg:gap-32 min-w-full"
+          animate={{ x: ["0%", "-50%"] }}
+          transition={{
+            repeat: Infinity,
+            ease: "linear",
+            duration: 20, // Adjust speed here
+          }}
+        >
+          {[...logos, ...logos].map((logo, index) => (
+            <div
+              key={`${logo.id}-${index}`}
+              className="flex items-center justify-center grayscale opacity-50 hover:grayscale-0 hover:opacity-100 transition-all duration-300 cursor-default shrink-0"
             >
-              <span className="text-xl lg:text-2xl font-black tracking-tighter text-zinc-800 group-hover:text-black">
+              <span className="text-2xl lg:text-3xl font-black tracking-tighter text-zinc-800 hover:text-black">
                 {logo.name}
               </span>
-            </motion.div>
+            </div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

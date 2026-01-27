@@ -41,24 +41,31 @@ export default function Navbar() {
 
         {/* Right: Actions */}
         <div className="flex items-center gap-3">
-          <Button 
-            variant="outline" 
-            size="sm" 
-            className="group hidden sm:flex border-zinc-200 hover:border-zinc-300 hover:bg-zinc-50 transition-all duration-300"
-          >
-            <MessageCircle className="w-4 h-4 mr-2 text-zinc-500 group-hover:text-black transition-colors" />
-            <span className="text-zinc-600 group-hover:text-black font-medium">Live Chat</span>
-          </Button>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Button 
+              variant="outline" 
+              size="sm" 
+              className="group hidden sm:flex border-zinc-200 hover:border-black/20 hover:bg-zinc-50 transition-all duration-300 font-medium text-zinc-600 hover:text-black"
+            >
+              <MessageCircle className="w-4 h-4 mr-2 text-zinc-400 group-hover:text-black transition-colors" />
+              Live Chat
+            </Button>
+          </motion.div>
 
-          <Button 
-            variant="primary" 
-            size="sm" 
-            className="group shadow-sm hover:shadow-md transition-all duration-300 bg-black hover:bg-zinc-800"
-            onClick={() => window.location.href = 'tel:+15550000000'}
-          >
-            <Phone className="w-4 h-4 mr-2 text-white/80 group-hover:text-white" />
-            <span className="font-medium">+1 (555) 000-0000</span>
-          </Button>
+          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+            <Button 
+              variant="primary" 
+              size="sm" 
+              className="relative overflow-hidden group shadow-lg hover:shadow-xl transition-all duration-300 bg-black hover:bg-zinc-900 border border-transparent hover:border-zinc-700"
+              onClick={() => window.location.href = 'tel:+15550000000'}
+            >
+              {/* Shine Effect */}
+              <div className="absolute inset-0 -translate-x-full group-hover:animate-[shimmer_1.5s_infinite] bg-gradient-to-r from-transparent via-white/10 to-transparent z-10" />
+              
+              <Phone className="w-4 h-4 mr-2 text-white/90 group-hover:text-white relative z-20" />
+              <span className="font-bold relative z-20">+1 (555) 000-0000</span>
+            </Button>
+          </motion.div>
         </div>
       </div>
     </motion.header>

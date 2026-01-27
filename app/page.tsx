@@ -6,6 +6,7 @@ import HumanAnchor from "@/components/sections/HumanAnchor";
 import Timeline from "@/components/sections/Timeline";
 import BillOfRights from "@/components/sections/BillOfRights";
 import Comparison from "@/components/sections/Comparison";
+import TrustCertifications from "@/components/sections/TrustCertifications";
 import ConversionForm from "@/components/sections/ConversionForm";
 
 export default function Home() {
@@ -19,6 +20,7 @@ export default function Home() {
       <Timeline />
       <BillOfRights />
       <Comparison />
+      <TrustCertifications />
       <ConversionForm />
       
       {/* Simple Footer */}
