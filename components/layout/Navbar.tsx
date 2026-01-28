@@ -73,12 +73,12 @@ export default function Navbar() {
         {/* Right: Actions */}
         <div className="flex items-center gap-2 md:gap-4">
           {/* BBB Badge - Mobile Only */}
-          <div className="block md:hidden relative w-16 h-8 mr-2">
+          <div className="block md:hidden relative w-16 h-8">
             <Image 
                  src="/bbbBadge.webp" 
                  alt="BBB" 
                  fill
-                 className="object-contain"
+                 className="object-contain object-right"
                  sizes="64px"
                />
           </div>
@@ -101,8 +101,8 @@ export default function Navbar() {
             </Button>
           </motion.div>
 
-          {/* Phone Button - Polished */}
-          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+          {/* Phone Button - Tablet & Desktop Only */}
+          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="hidden md:block">
             <Button 
               size="lg" 
               className={cn(

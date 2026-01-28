@@ -57,17 +57,15 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-6 mt-4">
-            <div className="relative group">
-              {/* Aggressive Pulse Effect */}
-              <div className="absolute -inset-1 bg-brand/30 rounded-full blur opacity-75 group-hover:opacity-100 animate-pulse duration-1000" />
+            <div className="relative">
               <Button 
                 variant="vibrant" 
                 size="xl" 
-                className="relative w-full sm:w-auto shadow-xl hover:scale-[1.02] transition-transform duration-300" 
+                className="w-full sm:w-auto" 
                 onClick={openModal}
               >
                 Get Your Publishing Roadmap
-                <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>
             

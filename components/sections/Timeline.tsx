@@ -1,9 +1,22 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useTransform, animate } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useModal } from "@/components/providers/ModalProvider";
 import { FileText, Palette, Globe, Rocket, ArrowDown, Clock } from "lucide-react";
+import { useEffect } from "react";
+
+function Counter({ from, to }: { from: number; to: number }) {
+  const count = useMotionValue(from);
+  const rounded = useTransform(count, (latest) => Math.round(latest));
+  
+  useEffect(() => {
+    const controls = animate(count, to, { duration: 2, ease: "easeOut" });
+    return controls.stop;
+  }, [count, to]);
+
+  return <motion.span>{rounded}</motion.span>;
+}
 
 const phases = [
   {
@@ -184,7 +197,9 @@ export default function Timeline() {
                  
                  <div className="relative z-10 flex flex-col items-center gap-4">
                     <div className="flex items-baseline gap-2">
-                       <span className="text-6xl lg:text-7xl font-black text-brand tracking-tighter">90</span>
+                       <span className="text-6xl lg:text-7xl font-black text-brand tracking-tighter">
+                          <Counter from={0} to={90} />
+                       </span>
                        <span className="text-2xl font-bold uppercase tracking-widest text-muted-foreground">Days</span>
                     </div>
                     <p className="text-muted-foreground font-medium uppercase tracking-widest text-sm">

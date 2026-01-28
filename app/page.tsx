@@ -8,24 +8,46 @@ import HumanAnchor from "@/components/sections/HumanAnchor";
 import Timeline from "@/components/sections/Timeline";
 import BillOfRights from "@/components/sections/BillOfRights";
 import Comparison from "@/components/sections/Comparison";
+import AuthorSuccessSpotlight from "@/components/sections/AuthorSuccessSpotlight";
 import TrustCertifications from "@/components/sections/TrustCertifications";
+import KillerFAQ from "@/components/sections/KillerFAQ";
 import ConversionForm from "@/components/sections/ConversionForm";
-import { CompareDemo } from "@/components/sections/compareDemo";
+import StickyCTA from "@/components/layout/StickyCTA";
+import ActionBreak from "@/components/sections/ActionBreak";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
+      <StickyCTA />
       <Hero />
       <Logos />
       <MadeInUSA />
       <Portfolio />
       <PainMirror />
       <BeforeAfter />
+      
+      <ActionBreak 
+        headline="Don't Let Your Story Fade Away."
+        subheadline="Every day you wait is another day your book remains just a dream. Let's make it real."
+        buttonText="Start Your Journey"
+        variant="light"
+      />
+
       <HumanAnchor />
       <Timeline />
       <BillOfRights />
+      
+      <ActionBreak 
+        headline="100% Ownership. 0% Risk."
+        subheadline="We've removed all the guesswork. You keep the rights, the royalties, and the peace of mind."
+        buttonText="Secure Your Roadmap"
+        variant="dark"
+      />
+
       <Comparison />
+      <AuthorSuccessSpotlight />
       <TrustCertifications />
+      <KillerFAQ />
       <ConversionForm />
       
       {/* Simple Footer */}

@@ -44,9 +44,9 @@ export default function BillOfRights() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-4 -mx-6 px-6 scrollbar-hide md:grid md:grid-cols-2 md:gap-8 md:overflow-visible md:pb-0 md:mx-0 md:px-0">
           {rights.map((right, index) => (
-            <div key={index} className="p-8 border border-zinc-200 rounded-3xl hover:border-black transition-colors duration-500 bg-zinc-50/50">
+            <div key={index} className="min-w-[85vw] snap-center p-8 border border-zinc-200 rounded-3xl hover:border-black transition-colors duration-500 bg-zinc-50/50 md:min-w-0">
               <div className="flex items-start gap-6">
                 <div className="p-4 bg-white rounded-2xl shadow-sm">
                   {right.icon}

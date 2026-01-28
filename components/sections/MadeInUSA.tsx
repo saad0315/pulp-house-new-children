@@ -12,8 +12,8 @@ export default function MadeInUSA() {
   return (
     <section className="bg-zinc-50 py-24 px-6 lg:px-12 relative overflow-hidden border-b border-zinc-200">
       {/* Absolute USA Flag - Top Left */}
-      <div className="absolute top-8 left-8 md:top-12 md:left-12">
-        <div className="relative w-12 h-8 md:w-16 md:h-10 shadow-md rounded-sm overflow-hidden border border-white/20">
+      <div className="absolute top-0 left-0">
+        <div className="relative w-72 h-28 md:w-2xl md:h-100  overflow-hidden">
           <Image src="/usa-flag.webp" alt="USA Flag" fill className="object-cover" />
         </div>
       </div>
@@ -25,7 +25,7 @@ export default function MadeInUSA() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-bold uppercase tracking-widest mb-6 border border-blue-100"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 text-brand text-xs font-bold uppercase tracking-widest mb-6 border border-blue-100"
           >
             <ShieldCheck className="w-3.5 h-3.5" />
             Federal & State Verified
@@ -38,7 +38,7 @@ export default function MadeInUSA() {
             transition={{ delay: 0.1 }}
             className="text-4xl lg:text-5xl font-black text-zinc-900 mb-6 leading-tight"
           >
-            Proudly Made in the <span className="text-blue-700">USA</span>
+            Proudly Made in the <span className="text-brand">USA</span>
           </motion.h2>
           
           <motion.p
@@ -62,9 +62,9 @@ export default function MadeInUSA() {
             viewport={{ once: true }}
             className="md:col-span-2 md:row-span-2 bg-white rounded-3xl p-8 flex flex-col items-center justify-center border border-zinc-200 shadow-sm group hover:shadow-xl transition-all duration-500"
           >
-            <div className="relative w-full h-full min-h-[200px] grayscale group-hover:grayscale-0 transition-all duration-500">
+            <div className="relative w-full h-full min-h-[200px] group-hover:grayscale transition-all duration-500">
                <Image 
-                 src="/idpa-img.webp" 
+                 src="/DBA.webp" 
                  alt="IBPA Member" 
                  fill 
                  className="object-contain"
@@ -81,9 +81,9 @@ export default function MadeInUSA() {
             transition={{ delay: 0.1 }}
             className="md:col-span-2 bg-white rounded-3xl p-8 flex items-center justify-center border border-zinc-200 shadow-sm group hover:shadow-xl transition-all duration-500"
           >
-            <div className="relative w-full h-full min-h-[120px] grayscale group-hover:grayscale-0 transition-all duration-500">
+            <div className="relative w-full h-full min-h-[120px] group-hover:grayscale transition-all duration-500">
                <Image 
-                 src="/DBA.webp" 
+                 src="/idpa-img.webp" 
                  alt="State of Texas DBA" 
                  fill 
                  className="object-contain"
@@ -99,7 +99,7 @@ export default function MadeInUSA() {
             transition={{ delay: 0.2 }}
             className="bg-white rounded-3xl p-8 flex items-center justify-center border border-zinc-200 shadow-sm group hover:shadow-xl transition-all duration-500"
           >
-            <div className="relative w-full h-full min-h-[100px] grayscale group-hover:grayscale-0 transition-all duration-500">
+            <div className="relative w-full h-full min-h-[100px] group-hover:grayscale transition-all duration-500">
                <Image 
                  src="/duns.webp" 
                  alt="D-U-N-S" 
@@ -117,7 +117,7 @@ export default function MadeInUSA() {
             transition={{ delay: 0.3 }}
             className="bg-white rounded-3xl p-8 flex items-center justify-center border border-zinc-200 shadow-sm group hover:shadow-xl transition-all duration-500"
           >
-            <div className="relative w-full h-full min-h-[100px] grayscale group-hover:grayscale-0 transition-all duration-500">
+            <div className="relative w-full h-full min-h-[100px] group-hover:grayscale transition-all duration-500">
                <Image 
                  src="/certificate.webp" 
                  alt="Amazon Certificate" 
