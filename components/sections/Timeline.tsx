@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { useModal } from "@/components/providers/ModalProvider";
 import { FileText, Palette, Globe, Rocket, ArrowDown, Clock } from "lucide-react";
 import { useEffect } from "react";
+import Badge from "@/components/ui/badge";
 
 function Counter({ from, to }: { from: number; to: number }) {
   const count = useMotionValue(from);
@@ -66,15 +67,7 @@ export default function Timeline() {
 
       <div className="container mx-auto max-w-6xl relative z-10">
         <div className="text-center mb-24">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-zinc-100 text-zinc-600 font-bold uppercase tracking-widest text-xs mb-6"
-          >
-            <Clock className="w-3 h-3" />
-            Speed & Precision
-          </motion.div>
+          <Badge icon={Clock} text="Speed & Precision" variant="zinc" />
           
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}

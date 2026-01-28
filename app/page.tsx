@@ -1,5 +1,5 @@
 import Hero from "@/components/sections/Hero";
-import Logos from "@/components/sections/Logos";
+import TrustAnchor from "@/components/sections/TrustAnchor";
 import MadeInUSA from "@/components/sections/MadeInUSA";
 import Portfolio from "@/components/sections/Portfolio";
 import PainMirror from "@/components/sections/PainMirror";
@@ -20,7 +20,7 @@ export default function Home() {
     <main className="min-h-screen bg-white">
       <StickyCTA />
       <Hero />
-      <Logos />
+      <TrustAnchor />
       <MadeInUSA />
       <Portfolio />
       <PainMirror />

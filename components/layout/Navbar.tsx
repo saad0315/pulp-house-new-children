@@ -35,7 +35,7 @@ export default function Navbar() {
         <div className="flex items-center gap-4 md:gap-6">
           {/* Main Logo */}
           <Link href="/" className="relative block hover:opacity-90 transition-opacity">
-            <div className="relative w-32 h-10 md:w-40 md:h-12">
+            <div className="relative w-32 h-10 md:w-48 md:h-12">
                <Image 
                  src="/logo.webp" 
                  alt="The Pulp House" 
@@ -61,8 +61,8 @@ export default function Navbar() {
                  src="/bbbBadge.webp" 
                  alt="BBB A+ Rating" 
                  fill
-                 className="object-contain object-left mix-blend-multiply"
-                 sizes="96px"
+                 className="object-contain object-left mix-blend-multiply w-56 h-8"
+                //  sizes="120px"
                />
                {/* Shine effect on hover */}
                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/40 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700" />

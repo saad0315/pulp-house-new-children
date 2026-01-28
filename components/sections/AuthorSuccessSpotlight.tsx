@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Star, Award } from "lucide-react";
 import { useState } from "react";
+import Badge from "@/components/ui/badge";
 
 const testimonials = [
   {
@@ -56,15 +57,7 @@ export default function AuthorSuccessSpotlight() {
     <section className="py-24 bg-zinc-50 overflow-hidden">
       <div className="container mx-auto px-6 mb-12">
         <div className="text-center max-w-3xl mx-auto">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand/10 text-brand text-sm font-bold uppercase tracking-wider mb-6"
-          >
-            <Star className="w-4 h-4 fill-current" />
-            <span>Success Stories</span>
-          </motion.div>
+          <Badge icon={Star} text="Success Stories" />
           
           <motion.h2 
             initial={{ opacity: 0, y: 20 }}
