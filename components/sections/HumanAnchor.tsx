@@ -24,12 +24,12 @@ export default function HumanAnchor() {
             </motion.div>
             
             {/* Decorative background element */}
-            <div className="absolute -top-12 -left-12 w-64 h-64 bg-orange-500/10 rounded-full blur-3xl -z-10" />
+            <div className="absolute -top-12 -left-12 w-64 h-64 bg-brand/10 rounded-full blur-3xl -z-10" />
           </div>
 
           {/* Text Content Column */}
           <div className="lg:col-span-7 flex flex-col gap-6 lg:pl-12">
-            <div className="w-12 h-1 bg-orange-500" />
+            <div className="w-12 h-1 bg-brand" />
             <h2 className="text-3xl lg:text-4xl font-black text-black leading-tight">
               &quot;We don&apos;t just &apos;publish&apos; books. <br />
               We architect legacies.&quot;

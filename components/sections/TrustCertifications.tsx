@@ -17,7 +17,7 @@ const certifications = [
     id: "amazon",
     title: "Amazon KDP Partner",
     label: "Authorized Network",
-    icon: <Globe2 className="w-8 h-8 text-orange-500" />,
+    icon: <Globe2 className="w-8 h-8 text-brand" />,
     description: "Official partner for global Kindle and paperback distribution.",
     color: "bg-orange-50 border-orange-100",
   },

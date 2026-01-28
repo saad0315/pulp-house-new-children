@@ -56,7 +56,7 @@ export default function Comparison() {
             {/* Header */}
             <div className="p-6 font-bold text-zinc-500 uppercase tracking-widest text-xs hidden md:block">Feature</div>
             <div className="p-6 font-bold text-zinc-500 uppercase tracking-widest text-xs text-center hidden md:block">Generic Publishers</div>
-            <div className="p-6 font-bold text-orange-500 uppercase tracking-widest text-xs text-center hidden md:block">The Pulp House</div>
+            <div className="p-6 font-bold text-brand uppercase tracking-widest text-xs text-center hidden md:block">The Pulp House</div>
 
             {features.map((feature, index) => (
               <div key={index} className="contents group">
@@ -77,8 +77,8 @@ export default function Comparison() {
                 </div>
                 
                 {/* Pulp House */}
-                <div className="p-6 border-t border-zinc-800 bg-orange-500/5 flex items-center justify-center md:justify-center gap-3 font-black text-white">
-                  <Check className="w-6 h-6 text-orange-500 shrink-0" />
+                <div className="p-6 border-t border-zinc-800 bg-brand/5 flex items-center justify-center md:justify-center gap-3 font-black text-white">
+                  <Check className="w-6 h-6 text-brand shrink-0" />
                   <span className="text-center">{feature.pulp}</span>
                 </div>
               </div>

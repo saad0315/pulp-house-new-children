@@ -11,13 +11,13 @@ export default function PainMirror() {
     <section className="bg-zinc-950 py-24 px-6 lg:px-12 text-white overflow-hidden">
       <div className="container mx-auto">
         <div className="max-w-3xl mb-16">
-          <div className="flex items-center gap-2 text-orange-500 font-bold mb-4 uppercase tracking-widest text-sm">
+          <div className="flex items-center gap-2 text-brand font-bold mb-4 uppercase tracking-widest text-sm">
             <AlertTriangle className="w-5 h-5" />
             The Hard Truth
           </div>
           <h2 className="text-4xl lg:text-5xl font-black mb-6 leading-tight">
             Cheap Publishing is the <br />
-            <span className="text-orange-500">Most Expensive Mistake</span> You Can Make.
+            <span className="text-brand">Most Expensive Mistake</span> You Can Make.
           </h2>
           <p className="text-xl text-zinc-400 font-medium">
             95% of self-published books fail because they look &quot;self-published.&quot; 
@@ -52,7 +52,7 @@ export default function PainMirror() {
 
           {/* The Pulp House Route */}
           <div className="bg-white text-black p-8 rounded-3xl relative overflow-hidden flex flex-col h-full">
-            <div className="absolute top-0 right-0 bg-orange-500 text-white px-6 py-2 font-black text-sm uppercase tracking-widest">
+            <div className="absolute top-0 right-0 bg-brand text-white px-6 py-2 font-black text-sm uppercase tracking-widest">
               The Gold Standard
             </div>
             <h3 className="text-2xl font-bold mb-8 flex items-center gap-3">

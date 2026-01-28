@@ -1,5 +1,7 @@
 import Hero from "@/components/sections/Hero";
 import Logos from "@/components/sections/Logos";
+import MadeInUSA from "@/components/sections/MadeInUSA";
+import Portfolio from "@/components/sections/Portfolio";
 import PainMirror from "@/components/sections/PainMirror";
 import BeforeAfter from "@/components/sections/BeforeAfter";
 import HumanAnchor from "@/components/sections/HumanAnchor";
@@ -8,12 +10,15 @@ import BillOfRights from "@/components/sections/BillOfRights";
 import Comparison from "@/components/sections/Comparison";
 import TrustCertifications from "@/components/sections/TrustCertifications";
 import ConversionForm from "@/components/sections/ConversionForm";
+import { CompareDemo } from "@/components/sections/compareDemo";
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-white">
       <Hero />
       <Logos />
+      <MadeInUSA />
+      <Portfolio />
       <PainMirror />
       <BeforeAfter />
       <HumanAnchor />
