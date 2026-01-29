@@ -170,7 +170,7 @@ export default function MadeInUSA() {
                     alt={item.alt} 
                     fill 
                     className="object-contain"
-                    sizes="(max-width: 768px) 100vw, 300px"
+                    sizes="(max-width: 768px) 70vw, 300px"
                   />
                 </div>
                 {item.label && (
@@ -219,9 +219,9 @@ export default function MadeInUSA() {
           </Button>
           
           <Button 
-            variant="outline" 
+            variant="black" 
             size="xl" 
-            className="w-full sm:w-auto bg-white hover:bg-zinc-50 text-zinc-700 border-zinc-300 px-12"
+            className="w-full sm:w-auto  px-12"
             onClick={() => window.location.href = 'tel:+15550000000'}
           >
             <Phone className="mr-2 w-5 h-5" /> Speak to an Expert

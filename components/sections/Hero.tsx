@@ -94,7 +94,7 @@ export default function Hero() {
               fill
               priority
               className="object-contain"
-              sizes="(max-width: 768px) 90vw, (max-width: 1200px) 50vw, 600px"
+              sizes="(max-width: 768px) 80vw, (max-width: 1200px) 50vw, 600px"
             />
           </div>
         </m.div>
