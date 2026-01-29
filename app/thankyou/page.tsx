@@ -1,7 +1,7 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { CheckCircle2, ArrowRight } from "lucide-react";
+import { m } from "framer-motion";
+import { CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
