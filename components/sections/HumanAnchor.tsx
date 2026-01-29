@@ -1,6 +1,7 @@
 "use client";
 
 import { m } from "framer-motion";
+import Image from "next/image";
 
 export default function HumanAnchor() {
   return (
@@ -16,11 +17,14 @@ export default function HumanAnchor() {
               viewport={{ once: true }}
               className="relative aspect-square md:aspect-[4/5] bg-zinc-100 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-2xl z-10"
             >
-              {/* Placeholder for Lead Editor Photo */}
+              <Image
+                src="/side.webp"
+                alt="Bestselling Book Example"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 40vw, 500px"
+              />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent z-10" />
-              <div className="absolute inset-0 flex items-center justify-center text-zinc-300">
-                <span className="text-xs md:text-sm font-bold uppercase tracking-widest">Professional Portrait</span>
-              </div>
             </m.div>
             
             {/* Decorative background element */}

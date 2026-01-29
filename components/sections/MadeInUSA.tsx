@@ -32,7 +32,7 @@ export default function MadeInUSA() {
       {/* Absolute USA Flag - Top Left */}
       <div className="absolute top-0 left-0">
         <div className="relative w-72 h-28 md:w-2xl md:h-100  overflow-hidden">
-          <Image src="/usa-flag.webp" alt="USA Flag" fill className="object-cover" />
+          <Image src="/usa-flag.webp" alt="USA Flag" fill className="object-cover" sizes="(max-width: 768px) 300px, 672px" />
         </div>
       </div>
 
@@ -86,6 +86,7 @@ export default function MadeInUSA() {
                  alt="IBPA Member" 
                  fill 
                  className="object-contain"
+                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
                />
             </div>
             <p className="mt-4 text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em]">Verified Industry Leader</p>
@@ -105,6 +106,7 @@ export default function MadeInUSA() {
                  alt="State of Texas DBA" 
                  fill 
                  className="object-contain"
+                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 300px"
                />
             </div>
           </m.div>
@@ -123,6 +125,7 @@ export default function MadeInUSA() {
                  alt="D-U-N-S" 
                  fill 
                  className="object-contain"
+                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 300px"
                />
             </div>
           </m.div>
@@ -141,6 +144,7 @@ export default function MadeInUSA() {
                  alt="Amazon Certificate" 
                  fill 
                  className="object-contain"
+                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 300px"
                />
             </div>
           </m.div>
@@ -166,6 +170,7 @@ export default function MadeInUSA() {
                     alt={item.alt} 
                     fill 
                     className="object-contain"
+                    sizes="(max-width: 768px) 100vw, 300px"
                   />
                 </div>
                 {item.label && (

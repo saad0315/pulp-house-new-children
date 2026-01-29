@@ -50,7 +50,7 @@ export default function TrustAnchor() {
             <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-zinc-950 to-transparent z-10 pointer-events-none" />
             
             <div className="flex flex-col gap-4">
-              <p className="text-zinc-200 text-sm lg:text-base font-bold uppercase tracking-[0.2em] mb-2 text-center lg:text-left drop-shadow-md">
+              <p className="text-zinc-200 text-sm lg:text-base font-bold uppercase tracking-[0.2em] mb-2  drop-shadow-md text-center">
                 Our Authors & Books Featured In:
               </p>
               
