@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -36,7 +36,7 @@ export default function StickyCTA() {
       {isVisible && (
         <>
           {/* Mobile Bottom Bar */}
-          <motion.div
+          <m.div
             initial={{ y: 100 }}
             animate={{ y: 0 }}
             exit={{ y: 100 }}
@@ -58,10 +58,10 @@ export default function StickyCTA() {
                  <ArrowRight className="w-4 h-4" />
                </Button>
             </div>
-          </motion.div>
+          </m.div>
 
           {/* Desktop Floating Pill (Bottom Right) */}
-          <motion.div
+          <m.div
             initial={{ y: 100, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 100, opacity: 0 }}
@@ -76,7 +76,7 @@ export default function StickyCTA() {
                 <span className="text-lg">Get Free Roadmap</span>
                 <ArrowRight className="w-5 h-5" />
              </Button>
-          </motion.div>
+          </m.div>
         </>
       )}
     </AnimatePresence>

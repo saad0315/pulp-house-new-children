@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 
 const logos = [
   { name: "Amazon Kindle", id: "amazon" },
@@ -13,7 +13,7 @@ const logos = [
 
 export default function Logos() {
   return (
-    <section className="bg-zinc-50 border-y border-zinc-200 py-12 overflow-hidden relative">
+    <section className="bg-zinc-50 border-y border-zinc-200 py-8 overflow-hidden relative">
       <div className="container mx-auto px-6 mb-8">
         <p className="text-center text-xs font-bold uppercase tracking-[0.3em] text-zinc-400">
           Our authors are featured on & distributed by
@@ -25,7 +25,7 @@ export default function Logos() {
         <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-zinc-50 to-transparent z-10" />
         <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-zinc-50 to-transparent z-10" />
 
-        <motion.div
+        <m.div
           className="flex whitespace-nowrap gap-16 lg:gap-32 min-w-full"
           animate={{ x: ["0%", "-50%"] }}
           transition={{
@@ -44,7 +44,7 @@ export default function Logos() {
               </span>
             </div>
           ))}
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

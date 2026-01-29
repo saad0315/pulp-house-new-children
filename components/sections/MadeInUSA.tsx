@@ -3,14 +3,32 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, ShieldCheck } from "lucide-react";
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { useModal } from "@/components/providers/ModalProvider";
+import { useState, useRef, useEffect } from "react";
+
+const items = [
+  { src: "/DBA.webp", alt: "IBPA Member", label: "Verified Industry Leader", isWide: false },
+  { src: "/idpa-img.webp", alt: "State of Texas DBA", label: null, isWide: true },
+  { src: "/duns.webp", alt: "D-U-N-S", label: null, isWide: false },
+  { src: "/certificate.webp", alt: "Amazon Certificate", label: null, isWide: false },
+];
 
 export default function MadeInUSA() {
   const { openModal } = useModal();
+  const [activeSlide, setActiveSlide] = useState(0);
+  const scrollRef = useRef<HTMLDivElement>(null);
+
+  const handleScroll = () => {
+    if (scrollRef.current) {
+      const { scrollLeft, clientWidth } = scrollRef.current;
+      const index = Math.round(scrollLeft / clientWidth);
+      setActiveSlide(index);
+    }
+  };
 
   return (
-    <section className="bg-zinc-50 py-24 px-6 lg:px-12 relative overflow-hidden border-b border-zinc-200">
+    <section className="bg-white py-12 px-6 lg:px-12 relative overflow-hidden border-b border-zinc-200">
       {/* Absolute USA Flag - Top Left */}
       <div className="absolute top-0 left-0">
         <div className="relative w-72 h-28 md:w-2xl md:h-100  overflow-hidden">
@@ -21,7 +39,7 @@ export default function MadeInUSA() {
       <div className="container mx-auto max-w-6xl">
         {/* Header Section (Reverted to Center) */}
         <div className="text-center mb-16">
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -29,9 +47,9 @@ export default function MadeInUSA() {
           >
             <ShieldCheck className="w-3.5 h-3.5" />
             Federal & State Verified
-          </motion.div>
+          </m.div>
           
-          <motion.h2
+          <m.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -39,9 +57,9 @@ export default function MadeInUSA() {
             className="text-4xl lg:text-5xl font-black text-zinc-900 mb-6 leading-tight"
           >
             Proudly Made in the <span className="text-brand">USA</span>
-          </motion.h2>
+          </m.h2>
           
-          <motion.p
+          <m.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -49,14 +67,14 @@ export default function MadeInUSA() {
             className="text-xl text-zinc-600 max-w-3xl mx-auto font-medium"
           >
             We don&apos;t outsource your legacy. Every editor, designer, and strategist is based right here in the United States, ensuring the highest quality standards and legal protection for your work.
-          </motion.p>
+          </m.p>
         </div>
 
-        {/* Bento Grid for Images */}
-        <div className="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 h-auto md:h-[500px] mb-16">
+        {/* Desktop Grid Layout */}
+        <div className="hidden md:grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 h-auto md:h-[500px] mb-16">
           
           {/* Item 1: IBPA (Featured) */}
-          <motion.div 
+          <m.div 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -71,10 +89,10 @@ export default function MadeInUSA() {
                />
             </div>
             <p className="mt-4 text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em]">Verified Industry Leader</p>
-          </motion.div>
+          </m.div>
 
           {/* Item 2: DBA (Wide) */}
-          <motion.div 
+          <m.div 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -89,10 +107,10 @@ export default function MadeInUSA() {
                  className="object-contain"
                />
             </div>
-          </motion.div>
+          </m.div>
 
           {/* Item 3: DUNS (Square) */}
-          <motion.div 
+          <m.div 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -107,10 +125,10 @@ export default function MadeInUSA() {
                  className="object-contain"
                />
             </div>
-          </motion.div>
+          </m.div>
 
           {/* Item 4: Certificate (Square) */}
-          <motion.div 
+          <m.div 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -125,12 +143,62 @@ export default function MadeInUSA() {
                  className="object-contain"
                />
             </div>
-          </motion.div>
+          </m.div>
 
         </div>
 
+        {/* Mobile Slider Layout */}
+        <div className="block md:hidden mb-16 relative">
+          <div 
+            ref={scrollRef}
+            onScroll={handleScroll}
+            className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-8 hide-scrollbar touch-pan-x"
+            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+          >
+            {items.map((item, idx) => (
+              <div 
+                key={idx}
+                className="min-w-full snap-center bg-white rounded-3xl p-8 flex flex-col items-center justify-center border border-zinc-200 shadow-sm h-[300px]"
+              >
+                <div className="relative w-full h-full max-h-[180px]">
+                  <Image 
+                    src={item.src} 
+                    alt={item.alt} 
+                    fill 
+                    className="object-contain"
+                  />
+                </div>
+                {item.label && (
+                   <p className="mt-4 text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em]">{item.label}</p>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Pagination Dots */}
+          <div className="flex justify-center gap-2 mt-2">
+            {items.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => {
+                  if (scrollRef.current) {
+                    scrollRef.current.scrollTo({
+                      left: idx * scrollRef.current.clientWidth,
+                      behavior: 'smooth'
+                    });
+                  }
+                }}
+                className={`h-2 rounded-full transition-all duration-300 ${
+                  activeSlide === idx ? "w-6 bg-brand" : "w-2 bg-zinc-300"
+                }`}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+
         {/* Action Buttons */}
-        <motion.div 
+        <m.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -153,7 +221,7 @@ export default function MadeInUSA() {
           >
             <Phone className="mr-2 w-5 h-5" /> Speak to an Expert
           </Button>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );

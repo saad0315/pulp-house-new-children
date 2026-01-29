@@ -31,9 +31,9 @@ const rights = [
 
 export default function BillOfRights() {
   return (
-    <section className="bg-white py-24 px-6 lg:px-12 border-t border-zinc-100">
+    <section className="bg-white py-12 px-6 lg:px-12 border-t border-zinc-100">
       <div className="container mx-auto max-w-6xl">
-        <div className="flex flex-col items-center text-center mb-16">
+        <div className="flex flex-col items-center text-center mb-10">
           <div className="p-3 bg-zinc-100 rounded-2xl mb-6">
             <ShieldCheck className="w-8 h-8 text-black" />
           </div>

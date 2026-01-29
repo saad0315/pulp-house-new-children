@@ -71,6 +71,16 @@
     transform: translate(-50%, -40%) scale(1);
   }
 }
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@keyframes pulse-slow {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.8; transform: scale(0.98); }
+}
 :root {
   --radius: 0.625rem;
   --background: oklch(1 0 0);
@@ -168,5 +178,15 @@
   }
   .scrollbar-hide::-webkit-scrollbar {
     display: none;  /* Chrome, Safari and Opera */
+  }
+  .animate-float {
+    animation: float 4s ease-in-out infinite;
+  }
+  .animate-float-delayed {
+    animation: float 4s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+  .animate-pulse-slow {
+    animation: pulse-slow 4s ease-in-out infinite;
   }
 }

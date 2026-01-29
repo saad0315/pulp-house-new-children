@@ -1,19 +1,28 @@
+import dynamic from "next/dynamic";
 import Hero from "@/components/sections/Hero";
 import TrustAnchor from "@/components/sections/TrustAnchor";
-import MadeInUSA from "@/components/sections/MadeInUSA";
-import Portfolio from "@/components/sections/Portfolio";
-import PainMirror from "@/components/sections/PainMirror";
-import BeforeAfter from "@/components/sections/BeforeAfter";
-import HumanAnchor from "@/components/sections/HumanAnchor";
-import Timeline from "@/components/sections/Timeline";
-import BillOfRights from "@/components/sections/BillOfRights";
-import Comparison from "@/components/sections/Comparison";
-import AuthorSuccessSpotlight from "@/components/sections/AuthorSuccessSpotlight";
-import TrustCertifications from "@/components/sections/TrustCertifications";
-import KillerFAQ from "@/components/sections/KillerFAQ";
-import ConversionForm from "@/components/sections/ConversionForm";
 import StickyCTA from "@/components/layout/StickyCTA";
-import ActionBreak from "@/components/sections/ActionBreak";
+
+// Lazy Load Components
+const MadeInUSA = dynamic(() => import("@/components/sections/MadeInUSA"));
+// const Portfolio = dynamic(() => import("@/components/sections/Portfolio"));
+const PainMirror = dynamic(() => import("@/components/sections/PainMirror"));
+const BeforeAfter = dynamic(() => import("@/components/sections/BeforeAfter"));
+const ActionBreak = dynamic(() => import("@/components/sections/ActionBreak"));
+const HumanAnchor = dynamic(() => import("@/components/sections/HumanAnchor"));
+const Timeline = dynamic(() => import("@/components/sections/Timeline"));
+const BillOfRights = dynamic(
+  () => import("@/components/sections/BillOfRights"),
+);
+const Comparison = dynamic(() => import("@/components/sections/Comparison"));
+const AuthorSuccessSpotlight = dynamic(
+  () => import("@/components/sections/AuthorSuccessSpotlight"),
+);
+// const TrustCertifications = dynamic(() => import("@/components/sections/TrustCertifications"));
+// const KillerFAQ = dynamic(() => import("@/components/sections/KillerFAQ"));
+const ConversionForm = dynamic(
+  () => import("@/components/sections/ConversionForm"),
+);
 
 export default function Home() {
   return (
@@ -22,11 +31,13 @@ export default function Home() {
       <Hero />
       <TrustAnchor />
       <MadeInUSA />
-      <Portfolio />
+      <AuthorSuccessSpotlight />
+
+      {/* <Portfolio /> */}
       <PainMirror />
       <BeforeAfter />
-      
-      <ActionBreak 
+
+      <ActionBreak
         headline="Don't Let Your Story Fade Away."
         subheadline="Every day you wait is another day your book remains just a dream. Let's make it real."
         buttonText="Start Your Journey"
@@ -35,32 +46,40 @@ export default function Home() {
 
       <HumanAnchor />
       <Timeline />
-      <BillOfRights />
-      
-      <ActionBreak 
+      <ActionBreak
         headline="100% Ownership. 0% Risk."
         subheadline="We've removed all the guesswork. You keep the rights, the royalties, and the peace of mind."
         buttonText="Secure Your Roadmap"
         variant="dark"
       />
+      <BillOfRights />
 
       <Comparison />
-      <AuthorSuccessSpotlight />
-      <TrustCertifications />
-      <KillerFAQ />
+      {/* <TrustCertifications /> */}
+      {/* <KillerFAQ /> */}
       <ConversionForm />
-      
+
       {/* Simple Footer */}
       <footer className="bg-white border-t border-zinc-100 py-12 px-6">
         <div className="container mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
           <div className="flex flex-col gap-2">
-            <p className="text-xl font-black tracking-tighter text-black uppercase">The Pulp House</p>
-            <p className="text-zinc-400 text-sm font-medium">© 2026 The Pulp House Publishing LLC. All Rights Reserved.</p>
+            <p className="text-xl font-black tracking-tighter text-black uppercase">
+              The Pulp House
+            </p>
+            <p className="text-zinc-400 text-sm font-medium">
+              © 2026 The Pulp House Publishing LLC. All Rights Reserved.
+            </p>
           </div>
           <div className="flex gap-8 text-sm font-bold uppercase tracking-widest text-zinc-400">
-            <a href="#" className="hover:text-black transition-colors">Privacy</a>
-            <a href="#" className="hover:text-black transition-colors">Terms</a>
-            <a href="#" className="hover:text-black transition-colors">Contact</a>
+            <a href="#" className="hover:text-black transition-colors">
+              Privacy
+            </a>
+            <a href="#" className="hover:text-black transition-colors">
+              Terms
+            </a>
+            <a href="#" className="hover:text-black transition-colors">
+              Contact
+            </a>
           </div>
         </div>
       </footer>

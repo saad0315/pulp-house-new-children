@@ -1,23 +1,11 @@
 "use client";
 
-import { motion, useMotionValue, useTransform, animate } from "framer-motion";
+import { m, useScroll, useTransform, useSpring } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useModal } from "@/components/providers/ModalProvider";
-import { FileText, Palette, Globe, Rocket, ArrowDown, Clock } from "lucide-react";
-import { useEffect } from "react";
+import { FileText, Palette, Globe, Rocket, ArrowDown, Clock, CheckCircle2, Trophy } from "lucide-react";
+import { useRef } from "react";
 import Badge from "@/components/ui/badge";
-
-function Counter({ from, to }: { from: number; to: number }) {
-  const count = useMotionValue(from);
-  const rounded = useTransform(count, (latest) => Math.round(latest));
-  
-  useEffect(() => {
-    const controls = animate(count, to, { duration: 2, ease: "easeOut" });
-    return controls.stop;
-  }, [count, to]);
-
-  return <motion.span>{rounded}</motion.span>;
-}
 
 const phases = [
   {
@@ -27,6 +15,7 @@ const phases = [
     duration: "21 Days",
     outcome: "Manuscript Finalized",
     description: "Our editors perform structural and line editing to ensure your story flows perfectly and resonates with your target audience.",
+    color: "bg-blue-500",
   },
   {
     icon: Palette,
@@ -35,6 +24,7 @@ const phases = [
     duration: "14 Days",
     outcome: "Print-Ready Files",
     description: "While the final copy-edit happens, our design team creates your custom cover and interior layout for all formats.",
+    color: "bg-purple-500",
   },
   {
     icon: Globe,
@@ -43,6 +33,7 @@ const phases = [
     duration: "25 Days",
     outcome: "Global Retailer Lock",
     description: "We build your Amazon presence, optimize keywords, and set up your global distribution network through 40,000+ retailers.",
+    color: "bg-amber-500",
   },
   {
     icon: Rocket,
@@ -51,164 +42,212 @@ const phases = [
     duration: "30 Days",
     outcome: "Published & Selling",
     description: "The official launch phase. We trigger our proprietary marketing sequence to climb the category rankings on day one.",
+    color: "bg-emerald-500",
   },
 ];
 
 export default function Timeline() {
   const { openModal } = useModal();
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end end"],
+  });
+
+  const scaleY = useSpring(scrollYProgress, {
+    stiffness: 100,
+    damping: 30,
+    restDelta: 0.001
+  });
 
   return (
-    <section className="bg-white py-24 px-6 lg:px-12 relative overflow-hidden">
+    <section ref={containerRef} className="bg-zinc-50 py-16 relative">
       {/* Background Decor */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none opacity-50">
-        <div className="absolute top-20 left-10 w-64 h-64 bg-zinc-100 rounded-full blur-3xl" />
-        <div className="absolute bottom-20 right-10 w-96 h-96 bg-orange-50 rounded-full blur-3xl" />
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none opacity-50 overflow-hidden">
+        <div className="absolute top-20 left-10 w-96 h-96 bg-zinc-100 rounded-full blur-3xl mix-blend-multiply" />
+        <div className="absolute bottom-1/3 right-10 w-[500px] h-[500px] bg-orange-50 rounded-full blur-3xl mix-blend-multiply" />
       </div>
 
-      <div className="container mx-auto max-w-6xl relative z-10">
-        <div className="text-center mb-24">
-          <Badge icon={Clock} text="Speed & Precision" variant="zinc" />
+      <div className="container mx-auto px-6 lg:px-12 relative z-10">
+        <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
           
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-            className="text-4xl lg:text-6xl font-black text-black mb-6"
-          >
-            The 90-Day <span className="text-brand">Validator</span>
-          </motion.h2>
-          
-          <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="text-xl text-muted-foreground max-w-2xl mx-auto font-medium"
-          >
-            Publishing isn&apos;t a black box. It&apos;s a precise 4-phase machine designed to turn your manuscript into a market leader.
-          </motion.p>
-        </div>
+          {/* LEFT COLUMN: Sticky Content & Visual */}
+          <div className="lg:w-5/12 lg:h-screen lg:sticky lg:top-0 flex flex-col justify-center py-12 lg:py-0">
+            <div className="space-y-8">
+              <div className="space-y-6">
+                <Badge icon={Clock} text="Speed & Precision" variant="zinc" />
+                <h2 className="text-4xl lg:text-5xl xl:text-6xl font-black text-black leading-tight">
+                  The 90-Day <span className="text-brand">Validator</span>
+                </h2>
+                <p className="text-lg lg:text-xl text-muted-foreground font-medium leading-relaxed max-w-md">
+                  Publishing isn&apos;t a black box. It&apos;s a precise 4-phase machine designed to turn your manuscript into a market leader.
+                </p>
+              </div>
 
-        <div className="relative">
-          {/* Central Line (Desktop) */}
-          <div className="absolute left-8 lg:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-zinc-200 via-zinc-300 to-zinc-200 -translate-x-1/2 hidden md:block" />
-          {/* Central Line (Mobile) */}
-          <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-zinc-200 via-zinc-300 to-zinc-200 -translate-x-1/2 block md:hidden" />
-          
-          <div className="space-y-16 lg:space-y-0">
+              {/* Progress Visual */}
+              <div className="relative pl-8 pt-4 hidden lg:block">
+                <div className="absolute left-3 top-2 bottom-2 w-0.5 bg-zinc-100" />
+                <m.div 
+                  style={{ scaleY, transformOrigin: "top" }} 
+                  className="absolute left-3 top-2 bottom-2 w-0.5 bg-brand"
+                />
+                
+                <div className="space-y-12">
+                  {phases.map((phase, idx) => (
+                    <div key={idx} className="relative flex items-center gap-4 group">
+                      <div className="absolute -left-[29px] w-4 h-4 rounded-full border-2 border-zinc-200 bg-white group-hover:border-brand transition-colors z-10" />
+                      <span className="text-sm font-bold text-zinc-400 uppercase tracking-widest group-hover:text-zinc-800 transition-colors">
+                        Phase 0{idx + 1}
+                      </span>
+                    </div>
+                  ))}
+                  <div className="relative flex items-center gap-4 group pt-4">
+                     <div className="absolute -left-[29px] w-4 h-4 rounded-full bg-brand shadow-[0_0_0_4px_rgba(0,0,0,0.05)] z-10" />
+                     <span className="text-sm font-black text-brand uppercase tracking-widest">
+                        Goal Reached
+                     </span>
+                  </div>
+                </div>
+              </div>
+
+               {/* Mobile Call to Action (Optional) */}
+               <div className="block lg:hidden">
+                 <Button onClick={openModal} className="w-full">Get Started</Button>
+               </div>
+            </div>
+          </div>
+
+          {/* RIGHT COLUMN: Stacking Cards */}
+          <div className="lg:w-7/12 flex flex-col pb-16 lg:pb-32 pt-0 lg:pt-16">
             {phases.map((phase, index) => {
               const Icon = phase.icon;
               return (
-                <motion.div
-                  key={index}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: "-100px" }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className={`relative flex flex-col md:flex-row items-start md:items-center gap-8 md:gap-16 ${
-                    index % 2 === 0 ? "lg:flex-row-reverse" : ""
-                  }`}
+                <div 
+                  key={index} 
+                  className="sticky"
+                  style={{ 
+                    top: `calc(15vh + ${index * 30}px)`,
+                    marginBottom: '40vh', 
+                    zIndex: index + 10
+                  }}
                 >
-                  {/* Card Content */}
-                  <div className="w-full pl-20 md:pl-0 md:w-1/2">
-                    <div className={`
-                      group relative bg-white p-8 rounded-3xl border border-zinc-100 shadow-xl shadow-zinc-200/50 
-                      hover:shadow-2xl hover:shadow-brand/10 hover:-translate-y-1 transition-all duration-300
-                      ${index % 2 === 0 ? "lg:text-left" : "lg:text-right"}
-                    `}>
-                      {/* Floating Number Background */}
-                      <div className={`
-                        absolute -top-6 text-[120px] font-black text-zinc-50 opacity-50 select-none z-0 leading-none
-                        ${index % 2 === 0 ? "lg:right-4 right-4" : "lg:left-4 right-4"}
-                      `}>
-                        {index + 1}
-                      </div>
+                  <m.div
+                    initial={{ opacity: 0, y: 50, scale: 0.95 }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                    viewport={{ once: true, margin: "-10%" }}
+                    transition={{ duration: 0.5, ease: "easeOut" }}
+                    className="relative bg-white rounded-[2rem] p-8 lg:p-10 shadow-[0_30px_100px_-10px_rgba(0,0,0,0.1)] border border-zinc-100 overflow-hidden hover:shadow-[0_40px_120px_-10px_rgba(0,0,0,0.15)] transition-shadow duration-500"
+                  >
+                    {/* Decorative Number */}
+                    <div className="absolute -right-4 -top-8 text-[180px] font-black text-zinc-50 select-none -z-0 leading-none pointer-events-none">
+                      {index + 1}
+                    </div>
 
-                      <div className="relative z-10">
-                        {/* Header */}
-                        <div className={`flex flex-col gap-2 mb-6 ${
-                          index % 2 === 0 ? "lg:items-start" : "lg:items-end"
-                        }`}>
-                          <span className="text-brand font-bold uppercase tracking-widest text-xs mb-1">
+                    <div className="relative z-10">
+                      <div className="flex items-center gap-4 mb-6">
+                        <div className={`p-3 rounded-xl ${phase.color} bg-opacity-10 text-brand`}>
+                           <Icon className="w-8 h-8" strokeWidth={1.5} />
+                        </div>
+                        <div className="flex flex-col">
+                           <span className="text-brand font-bold uppercase tracking-wider text-xs">
                              {phase.duration}
-                          </span>
-                          <h3 className="text-2xl font-black text-black leading-tight">
-                            {phase.title}
-                          </h3>
-                          <p className="text-sm font-bold text-zinc-400 uppercase tracking-tight">
-                            {phase.subtitle}
-                          </p>
+                           </span>
+                           <h3 className="text-2xl lg:text-3xl font-bold text-zinc-900">
+                             {phase.title}
+                           </h3>
                         </div>
+                      </div>
 
-                        {/* Description */}
-                        <p className="text-zinc-600 mb-8 leading-relaxed font-medium">
-                          {phase.description}
-                        </p>
+                      <p className="text-zinc-600 text-lg leading-relaxed mb-8">
+                        {phase.description}
+                      </p>
 
-                        {/* Outcome Box */}
-                        <div className={`flex items-center gap-3 ${
-                           index % 2 === 0 ? "lg:justify-start" : "lg:justify-end"
-                        }`}>
-                          <div className="px-4 py-2 bg-zinc-900 text-white rounded-lg text-sm font-bold flex items-center gap-2 shadow-lg">
-                            <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" />
-                            {phase.outcome}
-                          </div>
+                      <div className="flex flex-wrap items-center justify-between gap-4 pt-6 border-t border-zinc-100">
+                        <div className="flex flex-col">
+                           <span className="text-xs font-semibold text-zinc-400 uppercase tracking-wider mb-1">Sub-Focus</span>
+                           <span className="text-zinc-800 font-semibold">{phase.subtitle}</span>
+                        </div>
+                        <div className="bg-zinc-900 text-white px-4 py-2 rounded-full text-sm font-medium flex items-center gap-2 shadow-lg">
+                          <CheckCircle2 className="w-4 h-4 text-brand" />
+                          {phase.outcome}
                         </div>
                       </div>
                     </div>
-                  </div>
-
-                  {/* Center Marker */}
-                  <div className="absolute left-8 md:left-1/2 -translate-x-1/2 flex items-center justify-center z-20">
-                    <div className="w-16 h-16 rounded-full bg-white border-4 border-zinc-100 shadow-lg flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
-                      <Icon className="w-6 h-6 text-zinc-800" strokeWidth={2.5} />
-                    </div>
-                  </div>
-
-                  {/* Empty space for alignment on Desktop */}
-                  <div className="hidden md:block md:w-1/2" />
-                </motion.div>
+                  </m.div>
+                </div>
               );
             })}
-          </div>
-        </div>
 
-        {/* Total Time Summary */}
-        <div className="mt-24 lg:mt-32 relative text-center">
-           <motion.div 
-             initial={{ scale: 0.9, opacity: 0 }}
-             whileInView={{ scale: 1, opacity: 1 }}
-             viewport={{ once: true }}
-             className="inline-flex flex-col items-center justify-center"
-           >
-              <div className="w-px h-16 bg-gradient-to-b from-zinc-300 to-black mb-8 mx-auto" />
-              
-              <div className="relative bg-surface-black text-white p-10 rounded-[2.5rem] shadow-2xl overflow-hidden group">
-                 <div className="absolute inset-0 bg-gradient-to-br from-surface-dark to-black z-0" />
-                 <div className="absolute -right-10 -top-10 w-40 h-40 bg-brand/20 blur-[50px] rounded-full group-hover:bg-brand/30 transition-colors" />
-                 
-                 <div className="relative z-10 flex flex-col items-center gap-4">
-                    <div className="flex items-baseline gap-2">
-                       <span className="text-6xl lg:text-7xl font-black text-brand tracking-tighter">
-                          <Counter from={0} to={90} />
-                       </span>
-                       <span className="text-2xl font-bold uppercase tracking-widest text-muted-foreground">Days</span>
-                    </div>
-                    <p className="text-muted-foreground font-medium uppercase tracking-widest text-sm">
-                       From Manuscript to Bestseller
-                    </p>
-                    <Button 
-                      variant="vibrant" 
-                      size="lg" 
-                      className="mt-6 w-full md:w-auto min-w-[200px]"
-                      onClick={openModal}
+            {/* FINAL SUMMARY CARD */}
+            <div className="sticky top-[30vh] z-50 mt-[10vh]">
+               <m.div
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true, margin: "-100px" }}
+                  transition={{ 
+                    type: "spring", 
+                    stiffness: 100, 
+                    damping: 20, 
+                    delay: 0.2 
+                  }}
+                  className="relative bg-zinc-900 text-white rounded-3xl p-10 lg:p-14 shadow-2xl text-center overflow-hidden border border-zinc-800"
+               >
+                  {/* Dynamic Gradient Background */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-zinc-800 to-black z-0" />
+                  <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay" />
+                  
+                  {/* Glowing blobs & Decoration */}
+                  <m.div 
+                    animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.5, 0.3] }}
+                    transition={{ duration: 5, repeat: Infinity }}
+                    className="absolute -top-32 -right-32 w-96 h-96 bg-brand/40 rounded-full blur-[100px]" 
+                  />
+                  <div className="absolute bottom-0 left-0 w-full h-1/2 bg-gradient-to-t from-black/80 to-transparent" />
+                  
+                  {/* Giant Trophy Icon in Background */}
+                  <Trophy className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] text-brand/5 rotate-12 blur-sm pointer-events-none" />
+
+                  <div className="relative z-10 flex flex-col items-center">
+                    <m.div
+                       initial={{ y: 20, opacity: 0 }}
+                       whileInView={{ y: 0, opacity: 1 }}
+                       transition={{ delay: 0.3 }}
                     >
-                      Start Your Timeline <ArrowDown className="ml-2 w-4 h-4" />
-                    </Button>
-                 </div>
-              </div>
-           </motion.div>
+                      <Badge icon={Trophy} text="Goal Achieved" variant="brand" className="mb-8 bg-brand text-white border-brand shadow-[0_0_20px_rgba(255,100,0,0.3)]" />
+                    </m.div>
+                    
+                    <m.h3 
+                      initial={{ scale: 0.9, opacity: 0 }}
+                      whileInView={{ scale: 1, opacity: 1 }}
+                      transition={{ type: "spring", delay: 0.4 }}
+                      className="text-6xl lg:text-8xl font-black mb-6 tracking-tighter leading-none"
+                    >
+                      <span className="text-transparent bg-clip-text bg-gradient-to-b from-white via-zinc-200 to-zinc-500 drop-shadow-2xl">
+                        90 Days
+                      </span>
+                    </m.h3>
+                    
+                    <p className="text-zinc-400 text-lg lg:text-xl max-w-lg mx-auto mb-10 leading-relaxed font-medium">
+                      From a rough manuscript to a globally distributed, bestseller-ready book. Your legacy begins now.
+                    </p>
+
+                    <m.div
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                    >
+                      <Button 
+                        size="xl" 
+                        className="w-full sm:w-auto min-w-[260px] bg-brand text-white hover:bg-brand/90 hover:shadow-[0_0_40px_rgba(255,100,0,0.4)] transition-all duration-300 rounded-full text-lg h-16 px-10"
+                        onClick={openModal}
+                      >
+                        Start Your Journey
+                      </Button>
+                    </m.div>
+                  </div>
+               </m.div>
+            </div>
+
+          </div>
         </div>
       </div>
     </section>

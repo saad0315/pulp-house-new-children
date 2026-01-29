@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { LucideIcon } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -19,7 +19,7 @@ export default function Badge({ icon: Icon, text, className, variant = "brand" }
   };
 
   return (
-    <motion.div
+    <m.div
       initial={{ opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
@@ -31,6 +31,6 @@ export default function Badge({ icon: Icon, text, className, variant = "brand" }
     >
       {Icon && <Icon className="w-3.5 h-3.5 fill-current opacity-80" />}
       <span>{text}</span>
-    </motion.div>
+    </m.div>
   );
 }

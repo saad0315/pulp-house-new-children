@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { Plus, Minus, HelpCircle, ShieldCheck } from "lucide-react";
 
 const faqs = [
@@ -31,10 +31,10 @@ export default function KillerFAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   return (
-    <section className="py-24 bg-white border-t border-zinc-100">
+    <section className="py-12 bg-white border-t border-zinc-100">
       <div className="container mx-auto px-6 max-w-4xl">
-        <div className="text-center mb-16">
-          <motion.div
+        <div className="text-center mb-10">
+          <m.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -42,9 +42,9 @@ export default function KillerFAQ() {
           >
             <HelpCircle className="w-4 h-4" />
             <span>Clear Answers</span>
-          </motion.div>
+          </m.div>
           
-          <motion.h2 
+          <m.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -52,9 +52,9 @@ export default function KillerFAQ() {
             className="text-4xl md:text-5xl font-black text-zinc-900 tracking-tighter mb-6"
           >
             Your Questions, <span className="text-zinc-400">Answered.</span>
-          </motion.h2>
+          </m.h2>
           
-          <motion.p 
+          <m.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -62,12 +62,12 @@ export default function KillerFAQ() {
             className="text-xl text-zinc-600 font-medium"
           >
             No hidden clauses. No fine print. Just the truth.
-          </motion.p>
+          </m.p>
         </div>
 
         <div className="space-y-4">
           {faqs.map((faq, index) => (
-            <motion.div
+            <m.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -89,7 +89,7 @@ export default function KillerFAQ() {
               
               <AnimatePresence>
                 {openIndex === index && (
-                  <motion.div
+                  <m.div
                     initial={{ height: 0, opacity: 0 }}
                     animate={{ height: "auto", opacity: 1 }}
                     exit={{ height: 0, opacity: 0 }}
@@ -101,10 +101,10 @@ export default function KillerFAQ() {
                          <span>{faq.answer}</span>
                       </div>
                     </div>
-                  </motion.div>
+                  </m.div>
                 )}
               </AnimatePresence>
-            </motion.div>
+            </m.div>
           ))}
         </div>
       </div>

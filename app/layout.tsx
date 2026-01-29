@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins, Lora } from "next/font/google";
 import "./globals.css";
 import { ModalProvider } from "@/components/providers/ModalProvider";
+import { LazyMotionProvider } from "@/components/providers/LazyMotionProvider";
 import Navbar from "@/components/layout/Navbar";
 import { Spotlight } from "@/components/ui/spotlight";
 
@@ -44,8 +45,10 @@ export default function RootLayout({
           fill="oklch(0.705 0.213 47.6)"
         />
         <ModalProvider>
-          <Navbar />
-          {children}
+          <LazyMotionProvider>
+            <Navbar />
+            {children}
+          </LazyMotionProvider>
         </ModalProvider>
       </body>
     </html>

@@ -18,10 +18,10 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     };
 
     const sizes = {
-      sm: "h-9 px-4 text-xs font-bold uppercase tracking-wider",
-      md: "h-11 px-6 text-sm font-bold uppercase tracking-wider",
-      lg: "h-14 px-8 text-base font-bold uppercase tracking-wide",
-      xl: "h-16 px-10 text-lg font-black uppercase tracking-tight",
+      sm: "h-9 px-4 text-xs !font-normal uppercase tracking-wider",
+      md: "h-11 px-6 text-sm !font-normal uppercase tracking-wider",
+      lg: "h-14 px-8 text-base !font-normal uppercase tracking-wide",
+      xl: "h-16 px-10 text-lg !font-normal font-black uppercase tracking-tight",
     };
 
     return (

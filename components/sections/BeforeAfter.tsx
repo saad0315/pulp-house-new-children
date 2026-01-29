@@ -5,9 +5,9 @@ import { Compare } from "@/components/ui/compare";
 
 export default function BeforeAfter() {
   return (
-    <section className="bg-zinc-50 py-24 px-6 lg:px-12 overflow-hidden">
+    <section className="bg-white py-12 px-6 lg:px-12 overflow-hidden">
       <div className="container mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <h2 className="text-4xl lg:text-5xl font-black text-black mb-6 z-40">
             From Amateur to <span className="text-brand">Authority</span>
           </h2>
@@ -22,7 +22,7 @@ export default function BeforeAfter() {
           <Compare
             className="w-full h-[500px] md:h-[600px]" 
             slideMode="hover"
-            autoplay={true}
+            autoplay={false}
             autoplayDuration={4000}
             firstImage={
               // BEFORE Image (Foreground Layer - Clipped)

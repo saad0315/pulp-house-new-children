@@ -2,7 +2,7 @@
 
 import { Star, Trophy, TrendingUp, ChevronLeft, ChevronRight } from "lucide-react";
 import { useRef, useState, useEffect, useCallback } from "react";
-import { motion, useMotionValue, animate, useSpring, PanInfo } from "framer-motion";
+import { m, useMotionValue, animate, useSpring, PanInfo } from "framer-motion";
 
 const books = [
   {
@@ -164,9 +164,9 @@ export default function Portfolio() {
   };
 
   return (
-    <section className="bg-white py-24 px-6 lg:px-12 border-b border-zinc-100 overflow-hidden">
+    <section className="bg-zinc-50 py-12 px-6 lg:px-12 border-b border-zinc-100 overflow-hidden">
       <div className="container mx-auto">
-        <div className="text-center mb-16">
+        <div className="text-center mb-10">
           <h2 className="text-4xl lg:text-5xl font-black text-black mb-6">
             Bestsellers We've <span className="text-brand">Built</span>
           </h2>
@@ -195,7 +195,7 @@ export default function Portfolio() {
            </div>
 
           <div ref={containerRef} className="overflow-hidden p-4 -m-4">
-            <motion.div 
+            <m.div 
               style={{ x }}
               drag="x"
               dragConstraints={{ left: -10000, right: 10000 }} // Allow free drag, we handle snap
@@ -204,7 +204,7 @@ export default function Portfolio() {
               className="flex gap-4 md:gap-8 w-fit cursor-grab"
             >
               {infiniteBooks.map((book, i) => (
-                <motion.div 
+                <m.div 
                   key={i} 
                   className="group/card relative flex flex-col items-center shrink-0 w-64 md:w-72"
                   animate={{
@@ -256,9 +256,9 @@ export default function Portfolio() {
                       {book.stat}
                     </div>
                   </div>
-                </motion.div>
+                </m.div>
               ))}
-            </motion.div>
+            </m.div>
           </div>
         </div>
 

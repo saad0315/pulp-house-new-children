@@ -2,7 +2,7 @@
 
 import { MessageCircle, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { motion, useScroll, useMotionValueEvent } from "framer-motion";
+import { m, useScroll, useMotionValueEvent } from "framer-motion";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
@@ -20,7 +20,7 @@ export default function Navbar() {
   });
 
   return (
-    <motion.header
+    <m.header
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className={cn(
@@ -84,7 +84,7 @@ export default function Navbar() {
           </div>
 
           {/* Live Chat - Desktop */}
-          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                      <m.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
             <Button 
               variant="outline" 
               size="lg" 
@@ -99,10 +99,10 @@ export default function Navbar() {
               </div>
               Live Chat
             </Button>
-          </motion.div>
+          </m.div>
 
           {/* Phone Button - Tablet & Desktop Only */}
-          <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="hidden md:block">
+          <m.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} className="hidden md:block">
             <Button 
               size="lg" 
               className={cn(
@@ -123,9 +123,9 @@ export default function Navbar() {
                 <span className="sm:hidden">Call Now</span>
               </div>
             </Button>
-          </motion.div>
+          </m.div>
         </div>
       </div>
-    </motion.header>
+    </m.header>
   );
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import Image from "next/image";
 import { Star, Award } from "lucide-react";
 import { useState } from "react";
@@ -54,12 +54,12 @@ const MARQUEE_ITEMS = [...testimonials, ...testimonials, ...testimonials];
 
 export default function AuthorSuccessSpotlight() {
   return (
-    <section className="py-24 bg-zinc-50 overflow-hidden">
+    <section className="py-12 bg-white overflow-hidden">
       <div className="container mx-auto px-6 mb-12">
         <div className="text-center max-w-3xl mx-auto">
           <Badge icon={Star} text="Success Stories" />
           
-          <motion.h2 
+          <m.h2 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -67,9 +67,9 @@ export default function AuthorSuccessSpotlight() {
             className="text-4xl md:text-5xl font-black text-zinc-900 tracking-tighter mb-6"
           >
             Real Authors. <span className="text-brand">Real Results.</span>
-          </motion.h2>
+          </m.h2>
           
-          <motion.p 
+          <m.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -77,7 +77,7 @@ export default function AuthorSuccessSpotlight() {
             className="text-xl text-zinc-600 font-medium"
           >
             Don&apos;t just take our word for it. See what happens when you choose professional execution.
-          </motion.p>
+          </m.p>
         </div>
       </div>
 

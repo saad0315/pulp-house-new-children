@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ShieldCheck, Award, FileCheck, Landmark, Globe2, CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -57,11 +57,11 @@ const certifications = [
 
 export default function TrustCertifications() {
   return (
-    <section className="bg-zinc-50 py-24 px-6 lg:px-12 border-t border-zinc-200">
+    <section className="bg-zinc-50 py-12 px-6 lg:px-12 border-t border-zinc-200">
       <div className="container mx-auto">
         {/* Header */}
-        <div className="text-center mb-16 max-w-3xl mx-auto">
-          <motion.div 
+        <div className="text-center mb-10 max-w-3xl mx-auto">
+          <m.div 
             initial={{ opacity: 0, y: 10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
@@ -69,7 +69,7 @@ export default function TrustCertifications() {
           >
             <ShieldCheck className="w-3 h-3" />
             100% Verified & Secure
-          </motion.div>
+          </m.div>
           <h2 className="text-3xl lg:text-4xl font-black text-black mb-4">
             We&apos;re Not Just Claiming It — We&apos;re Certified.
           </h2>
@@ -81,7 +81,7 @@ export default function TrustCertifications() {
         {/* Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-6xl mx-auto">
           {certifications.map((cert, index) => (
-            <motion.div
+            <m.div
               key={cert.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -116,7 +116,7 @@ export default function TrustCertifications() {
                   <CheckCircle2 className="w-3 h-3" /> Verified
                 </div>
               </div>
-            </motion.div>
+            </m.div>
           ))}
         </div>
 

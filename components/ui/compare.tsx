@@ -4,6 +4,7 @@ import { SparklesCore } from "@/components/ui/sparkles";
 import { AnimatePresence, motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import { IconDotsVertical } from "@tabler/icons-react";
+import { m } from "framer-motion";
 
 interface CompareProps {
   firstImage?: string | React.ReactNode;
@@ -125,26 +126,22 @@ export const Compare = ({
 
   const handleTouchStart = useCallback(
     (e: React.TouchEvent) => {
-      if (!autoplay) {
-        handleStart(e.touches[0].clientX);
-      }
+      stopAutoplay();
+      handleStart(e.touches[0].clientX);
     },
-    [handleStart, autoplay]
+    [handleStart, stopAutoplay]
   );
 
   const handleTouchEnd = useCallback(() => {
-    if (!autoplay) {
-      handleEnd();
-    }
-  }, [handleEnd, autoplay]);
+    handleEnd();
+    startAutoplay();
+  }, [handleEnd, startAutoplay]);
 
   const handleTouchMove = useCallback(
     (e: React.TouchEvent) => {
-      if (!autoplay) {
-        handleMove(e.touches[0].clientX);
-      }
+      handleMove(e.touches[0].clientX);
     },
-    [handleMove, autoplay]
+    [handleMove]
   );
 
   return (
@@ -165,7 +162,7 @@ export const Compare = ({
       onTouchMove={handleTouchMove}
     >
       <AnimatePresence initial={false}>
-        <motion.div
+        <m.div
           className="h-full w-px absolute top-0 m-auto z-30 bg-gradient-to-b from-transparent from-[5%] to-[95%] via-indigo-500 to-transparent"
           style={{
             left: `${sliderXPercent}%`,
@@ -191,12 +188,12 @@ export const Compare = ({
               <IconDotsVertical className="h-4 w-4 text-black" />
             </div>
           )}
-        </motion.div>
+        </m.div>
       </AnimatePresence>
       <div className="overflow-hidden w-full h-full relative z-20 pointer-events-none">
         <AnimatePresence initial={false}>
           {firstImage ? (
-            <motion.div
+            <m.div
               className={cn(
                 "absolute inset-0 z-20 rounded-2xl shrink-0 w-full h-full select-none overflow-hidden",
                 firstImageClassName
@@ -219,7 +216,7 @@ export const Compare = ({
               ) : (
                 firstImage
               )}
-            </motion.div>
+            </m.div>
           ) : null}
         </AnimatePresence>
       </div>
@@ -227,7 +224,7 @@ export const Compare = ({
       <AnimatePresence initial={false}>
         {secondImage ? (
           typeof secondImage === "string" ? (
-            <motion.img
+            <m.img
               className={cn(
                 "absolute top-0 left-0 z-[19]  rounded-2xl w-full h-full select-none",
                 secondImageClassname

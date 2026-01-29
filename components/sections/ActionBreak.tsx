@@ -1,6 +1,6 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { m } from "framer-motion";
 import { ArrowRight, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -22,9 +22,9 @@ export default function ActionBreak({ headline, subheadline, buttonText, variant
   const isDark = variant === "dark";
 
   return (
-    <section className={`py-20 ${isDark ? "bg-zinc-900 text-white" : "bg-orange-50 text-zinc-900"}`}>
+    <section className={`py-12 ${isDark ? "bg-zinc-900 text-white" : "bg-orange-50 text-zinc-900"}`}>
       <div className="container mx-auto px-6 text-center">
-        <motion.div
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
@@ -53,7 +53,7 @@ export default function ActionBreak({ headline, subheadline, buttonText, variant
             {buttonText}
             <ArrowRight className="w-5 h-5" />
           </Button>
-        </motion.div>
+        </m.div>
       </div>
     </section>
   );
