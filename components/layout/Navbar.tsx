@@ -20,9 +20,7 @@ export default function Navbar() {
   });
 
   return (
-    <m.header
-      initial={{ y: -100 }}
-      animate={{ y: 0 }}
+    <header
       className={cn(
         "fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out border-b border-transparent",
         scrolled
@@ -52,7 +50,7 @@ export default function Navbar() {
 
           {/* BBB Badge - Trust Signal */}
           <Link 
-            href="#" // User to replace with actual BBB link
+            href="https://www.bbb.org/us/tx/austin/profile/book-publishers/the-pulp-house-publishing-0825-1000248365/#sealclick" // User to replace with actual BBB link
             target="_blank"
             className="hidden md:block relative group hover:opacity-100 transition-all duration-300 opacity-90"
           >
@@ -126,6 +124,6 @@ export default function Navbar() {
           </m.div>
         </div>
       </div>
-    </m.header>
+    </header>
   );
 }

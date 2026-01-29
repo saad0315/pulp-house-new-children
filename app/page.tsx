@@ -23,6 +23,7 @@ const AuthorSuccessSpotlight = dynamic(
 const ConversionForm = dynamic(
   () => import("@/components/sections/ConversionForm"),
 );
+const InlineLeadForm = dynamic(() => import("@/components/sections/InlineLeadForm"));
 
 export default function Home() {
   return (
@@ -35,17 +36,12 @@ export default function Home() {
 
       {/* <Portfolio /> */}
       <PainMirror />
+      <Timeline />
       <BeforeAfter />
 
-      <ActionBreak
-        headline="Don't Let Your Story Fade Away."
-        subheadline="Every day you wait is another day your book remains just a dream. Let's make it real."
-        buttonText="Start Your Journey"
-        variant="light"
-      />
+      <InlineLeadForm />
 
       <HumanAnchor />
-      <Timeline />
       <ActionBreak
         headline="100% Ownership. 0% Risk."
         subheadline="We've removed all the guesswork. You keep the rights, the royalties, and the peace of mind."

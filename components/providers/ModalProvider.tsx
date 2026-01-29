@@ -1,6 +1,6 @@
 "use client";
 
-import React, { createContext, useContext, useState, ReactNode } from "react";
+import React, { createContext, useContext, useState, ReactNode, useEffect } from "react";
 import { LeadModal } from "@/components/ui/lead-modal";
 
 interface ModalContextType {
@@ -15,6 +15,14 @@ export function ModalProvider({ children }: { children: ReactNode }) {
 
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      openModal();
+    }, 15000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <ModalContext.Provider value={{ openModal, closeModal }}>

@@ -1,0 +1,26 @@
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /testing/childrens/
+
+  # Serve the index.html for the root of the subfolder
+  RewriteRule ^index\.html$ - [L]
+
+  # If the request is for a file or directory that exists, serve it directly
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  
+  # Otherwise, forward everything to index.html (Client Side Routing)
+  # But since this is a static export with trailingSlash: true, 
+  # Next.js generates folders like /thankyou/index.html
+  
+  # Try to find the HTML file matching the request
+  RewriteCond %{REQUEST_FILENAME}.html -f
+  RewriteRule ^(.*)$ $1.html [L]
+  
+  # If it's a directory request without trailing slash, add it
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^(.*[^/])$ $1/ [L,R=301]
+
+  # Handle 404s
+  ErrorDocument 404 /testing/childrens/404.html
+</IfModule>

@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { m, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { CheckCircle2, ChevronRight, ChevronLeft, ShieldCheck, Loader2 } from "lucide-react";
+import { ChevronRight, ChevronLeft, ShieldCheck, Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 const steps = [
@@ -103,7 +103,7 @@ export default function ConversionForm() {
 
     return (
 
-      <section id="conversion-form" className="bg-zinc-50 py-8 md:py-12 px-6 lg:px-12">
+      <section id="conversion-form" className=" py-8 md:py-12 px-6 lg:px-12 ">
 
         <div className="container mx-auto max-w-2xl">
 
@@ -117,7 +117,7 @@ export default function ConversionForm() {
 
   
 
-          <div className="bg-white rounded-[2rem] md:rounded-[2.5rem] shadow-2xl shadow-zinc-200/50 overflow-hidden border border-zinc-100">
+          <div className="bg-zinc-100 rounded-[2rem] md:rounded-[2.5rem] shadow-2xl shadow-zinc-200/50 overflow-hidden border border-zinc-100 ">
 
             {/* Progress Bar */}
 

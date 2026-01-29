@@ -38,7 +38,6 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <link rel="preconnect" href="https://grainy-gradients.vercel.app" crossOrigin="anonymous" />
       </head>
       <body
         className={`${poppins.variable} ${lora.variable} antialiased font-sans bg-white text-zinc-900`}
@@ -47,12 +46,12 @@ export default function RootLayout({
           className="-top-40 left-0 md:-top-20 md:left-60"
           fill="oklch(0.705 0.213 47.6)"
         />
-        <ModalProvider>
-          <LazyMotionProvider>
+        <LazyMotionProvider>
+          <ModalProvider>
             <Navbar />
             {children}
-          </LazyMotionProvider>
-        </ModalProvider>
+          </ModalProvider>
+        </LazyMotionProvider>
       </body>
     </html>
   );

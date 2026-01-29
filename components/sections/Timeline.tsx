@@ -61,7 +61,7 @@ export default function Timeline() {
   });
 
   return (
-    <section ref={containerRef} className="bg-zinc-50 py-16 relative">
+    <section ref={containerRef} className="bg-zinc-50 py-5 relative">
       {/* Background Decor */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl pointer-events-none opacity-50 overflow-hidden">
         <div className="absolute top-20 left-10 w-96 h-96 bg-zinc-100 rounded-full blur-3xl mix-blend-multiply" />
@@ -95,7 +95,7 @@ export default function Timeline() {
                 <div className="space-y-12">
                   {phases.map((phase, idx) => (
                     <div key={idx} className="relative flex items-center gap-4 group">
-                      <div className="absolute -left-[29px] w-4 h-4 rounded-full border-2 border-zinc-200 bg-white group-hover:border-brand transition-colors z-10" />
+                      <div className="absolute -left-[29px] w-4 h-4 rounded-full border-2 border-zinc-200 bg-black group-hover:border-brand transition-colors z-10" />
                       <span className="text-sm font-bold text-zinc-400 uppercase tracking-widest group-hover:text-zinc-800 transition-colors">
                         Phase 0{idx + 1}
                       </span>
@@ -145,7 +145,7 @@ export default function Timeline() {
 
                     <div className="relative z-10">
                       <div className="flex items-center gap-4 mb-6">
-                        <div className={`p-3 rounded-xl ${phase.color} bg-opacity-10 text-brand`}>
+                        <div className={`p-3 rounded-xl ${phase.color} bg-opacity-10 text-white`}>
                            <Icon className="w-8 h-8" strokeWidth={1.5} />
                         </div>
                         <div className="flex flex-col">
@@ -194,7 +194,7 @@ export default function Timeline() {
                >
                   {/* Dynamic Gradient Background */}
                   <div className="absolute inset-0 bg-gradient-to-br from-zinc-900 via-zinc-800 to-black z-0" />
-                  <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 mix-blend-overlay" />
+                  <div className="absolute inset-0 bg-[url('/noise.svg')] opacity-20 mix-blend-overlay" />
                   
                   {/* Glowing blobs & Decoration */}
                   <m.div 

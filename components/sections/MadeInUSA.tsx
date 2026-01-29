@@ -3,20 +3,23 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, ShieldCheck } from "lucide-react";
-import { m } from "framer-motion";
+import { m, AnimatePresence } from "framer-motion";
 import { useModal } from "@/components/providers/ModalProvider";
 import { useState, useRef, useEffect } from "react";
+import Link from "next/link";
+import { X } from "lucide-react";
 
 const items = [
   { src: "/DBA.webp", alt: "IBPA Member", label: "Verified Industry Leader", isWide: false },
   { src: "/idpa-img.webp", alt: "State of Texas DBA", label: null, isWide: true },
-  { src: "/duns.webp", alt: "D-U-N-S", label: null, isWide: false },
+  { src: "/duns.webp", alt: "D-U-N-S", label: null, isWide: false, link: "https://www.dnb.com/business-directory/company-profiles.ka_publishing_solutions_llc.8ded2e58b9f5e0379f16b1e2c283897c.html" },
   { src: "/certificate.webp", alt: "Amazon Certificate", label: null, isWide: false },
 ];
 
 export default function MadeInUSA() {
   const { openModal } = useModal();
   const [activeSlide, setActiveSlide] = useState(0);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const handleScroll = () => {
@@ -66,7 +69,8 @@ export default function MadeInUSA() {
             transition={{ delay: 0.2 }}
             className="text-xl text-zinc-600 max-w-3xl mx-auto font-medium"
           >
-            We don&apos;t outsource your legacy. Every editor, designer, and strategist is based right here in the United States, ensuring the highest quality standards and legal protection for your work.
+            We handle everything in-house, with top-tier editors, designers, and strategists based in the USA,
+ensuring the highest quality and full legal protection for your work.
           </m.p>
         </div>
 
@@ -78,7 +82,8 @@ export default function MadeInUSA() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="md:col-span-2 md:row-span-2 bg-white rounded-3xl p-8 flex flex-col items-center justify-center border border-zinc-200 shadow-sm group hover:shadow-xl transition-all duration-500"
+            onClick={() => setSelectedImage("/DBA.webp")}
+            className="md:col-span-2 md:row-span-2 bg-white rounded-3xl p-8 flex flex-col items-center justify-center border border-zinc-200 shadow-sm group hover:shadow-xl transition-all duration-500 cursor-pointer"
           >
             <div className="relative w-full h-full min-h-[200px] group-hover:grayscale transition-all duration-500">
                <Image 
@@ -98,7 +103,8 @@ export default function MadeInUSA() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="md:col-span-2 bg-white rounded-3xl p-8 flex items-center justify-center border border-zinc-200 shadow-sm group hover:shadow-xl transition-all duration-500"
+            onClick={() => setSelectedImage("/idpa-img.webp")}
+            className="md:col-span-2 bg-white rounded-3xl p-8 flex items-center justify-center border border-zinc-200 shadow-sm group hover:shadow-xl transition-all duration-500 cursor-pointer"
           >
             <div className="relative w-full h-full min-h-[120px] group-hover:grayscale transition-all duration-500">
                <Image 
@@ -111,7 +117,7 @@ export default function MadeInUSA() {
             </div>
           </m.div>
 
-          {/* Item 3: DUNS (Square) */}
+          {/* Item 3: DUNS (Square) - HAS LINK, KEEP AS IS */}
           <m.div 
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -119,7 +125,7 @@ export default function MadeInUSA() {
             transition={{ delay: 0.2 }}
             className="bg-white rounded-3xl p-8 flex items-center justify-center border border-zinc-200 shadow-sm group hover:shadow-xl transition-all duration-500"
           >
-            <div className="relative w-full h-full min-h-[100px] group-hover:grayscale transition-all duration-500">
+            <Link target="_blank" href="https://www.dnb.com/business-directory/company-profiles.ka_publishing_solutions_llc.8ded2e58b9f5e0379f16b1e2c283897c.html" className="relative w-full h-full min-h-[100px] group-hover:grayscale transition-all duration-500">
                <Image 
                  src="/duns.webp" 
                  alt="D-U-N-S" 
@@ -127,7 +133,7 @@ export default function MadeInUSA() {
                  className="object-contain"
                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 300px"
                />
-            </div>
+            </Link>
           </m.div>
 
           {/* Item 4: Certificate (Square) */}
@@ -136,7 +142,8 @@ export default function MadeInUSA() {
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="bg-white rounded-3xl p-8 flex items-center justify-center border border-zinc-200 shadow-sm group hover:shadow-xl transition-all duration-500"
+            onClick={() => setSelectedImage("/certificate.webp")}
+            className="bg-white rounded-3xl p-8 flex items-center justify-center border border-zinc-200 shadow-sm group hover:shadow-xl transition-all duration-500 cursor-pointer"
           >
             <div className="relative w-full h-full min-h-[100px] group-hover:grayscale transition-all duration-500">
                <Image 
@@ -162,17 +169,30 @@ export default function MadeInUSA() {
             {items.map((item, idx) => (
               <div 
                 key={idx}
-                className="min-w-full snap-center bg-white rounded-3xl p-8 flex flex-col items-center justify-center border border-zinc-200 shadow-sm h-[300px]"
+                onClick={() => !item.link && setSelectedImage(item.src)}
+                className={`min-w-full snap-center bg-white rounded-3xl p-8 flex flex-col items-center justify-center border border-zinc-200 shadow-sm h-[300px] ${!item.link ? 'cursor-pointer' : ''}`}
               >
-                <div className="relative w-full h-full max-h-[180px]">
-                  <Image 
-                    src={item.src} 
-                    alt={item.alt} 
-                    fill 
-                    className="object-contain"
-                    sizes="(max-width: 768px) 50vw, 300px"
-                  />
-                </div>
+                {item.link ? (
+                  <Link href={item.link} target="_blank" className="relative w-full h-full max-h-[180px]">
+                    <Image 
+                      src={item.src} 
+                      alt={item.alt} 
+                      fill 
+                      className="object-contain"
+                      sizes="(max-width: 768px) 50vw, 300px"
+                    />
+                  </Link>
+                ) : (
+                  <div className="relative w-full h-full max-h-[180px]">
+                    <Image 
+                      src={item.src} 
+                      alt={item.alt} 
+                      fill 
+                      className="object-contain"
+                      sizes="(max-width: 768px) 50vw, 300px"
+                    />
+                  </div>
+                )}
                 {item.label && (
                    <p className="mt-4 text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em]">{item.label}</p>
                 )}
@@ -222,12 +242,49 @@ export default function MadeInUSA() {
             variant="black" 
             size="xl" 
             className="w-full sm:w-auto  px-12"
-            onClick={() => window.location.href = 'tel:+15550000000'}
+            onClick={() => window.location.href = 'tel:+18889080775'}
           >
             <Phone className="mr-2 w-5 h-5" /> Speak to an Expert
           </Button>
         </m.div>
       </div>
+
+      {/* Image Popup Modal */}
+      <AnimatePresence>
+        {selectedImage && (
+          <div className="fixed inset-0 z-[200] flex items-center justify-center p-4">
+            <m.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedImage(null)}
+              className="absolute inset-0 bg-black/90 backdrop-blur-md"
+            />
+            <m.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              className="relative w-full max-w-5xl aspect-video md:aspect-auto md:h-[80vh] bg-white rounded-3xl overflow-hidden shadow-2xl"
+            >
+              <button
+                onClick={() => setSelectedImage(null)}
+                className="absolute top-4 right-4 z-10 p-2 bg-black/10 hover:bg-black/20 rounded-full transition-colors"
+              >
+                <X className="w-6 h-6 text-black" />
+              </button>
+              <div className="relative w-full h-full p-8 md:p-12">
+                <Image
+                  src={selectedImage}
+                  alt="Expanded view"
+                  fill
+                  className="object-contain"
+                  priority
+                />
+              </div>
+            </m.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

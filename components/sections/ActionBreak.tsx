@@ -1,8 +1,9 @@
 "use client";
 
 import { m } from "framer-motion";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useModal } from "@/components/providers/ModalProvider";
 
 interface ActionBreakProps {
   headline: string;
@@ -12,12 +13,7 @@ interface ActionBreakProps {
 }
 
 export default function ActionBreak({ headline, subheadline, buttonText, variant = "light" }: ActionBreakProps) {
-  const scrollToForm = () => {
-    const formElement = document.getElementById("conversion-form");
-    if (formElement) {
-      formElement.scrollIntoView({ behavior: "smooth" });
-    }
-  };
+  const { openModal } = useModal();
 
   const isDark = variant === "dark";
 
@@ -44,15 +40,27 @@ export default function ActionBreak({ headline, subheadline, buttonText, variant
             {subheadline}
           </p>
 
-          <Button
-            onClick={scrollToForm}
-            variant={isDark ? "secondary" : "vibrant"}
-            size="lg"
-            className="mt-4"
-          >
-            {buttonText}
-            <ArrowRight className="w-5 h-5" />
-          </Button>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mt-4 w-full sm:w-auto">
+            <Button
+              onClick={openModal}
+              variant={isDark ? "secondary" : "vibrant"}
+              size="xl"
+              className="w-full sm:w-auto px-10"
+            >
+              {buttonText}
+              <ArrowRight className="w-5 h-5" />
+            </Button>
+
+            <Button
+              onClick={() => window.location.href = 'tel:+18889080775'}
+              variant="vibrant"
+              size="xl"
+              className="w-full sm:w-auto px-10 bg-brand text-white border-none shadow-lg shadow-brand/20"
+            >
+              <Phone className="w-5 h-5 mr-2" />
+              +1 (888) 908-0775
+            </Button>
+          </div>
         </m.div>
       </div>
     </section>

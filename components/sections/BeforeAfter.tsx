@@ -1,8 +1,58 @@
 "use client";
 
-import { Check, X, Star } from "lucide-react";
+import { Check, X } from "lucide-react";
 import { Compare } from "@/components/ui/compare";
 import Image from "next/image";
+
+const ComparisonCard = ({ title, subtitleBefore, subtitleAfter }: { title: string, subtitleBefore: string, subtitleAfter: string }) => (
+  <div className="border border-zinc-200 rounded-[2rem] shadow-xl overflow-hidden bg-zinc-900 h-[400px] md:h-[500px] relative shrink-0 w-full snap-center">
+    <div className="absolute top-4 left-0 right-0 z-20 text-center pointer-events-none">
+       <span className="inline-block px-3 py-1 bg-black/50 backdrop-blur-md rounded-full text-white/90 text-[10px] font-bold uppercase tracking-widest border border-white/10">
+         {title}
+       </span>
+    </div>
+    <Compare
+      className="w-full h-full" 
+      slideMode="hover"
+      autoplay={false}
+      firstImage={
+        <div className="w-full h-full bg-gray-900 flex items-center justify-center">
+          <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
+            <div className="relative w-full h-full shadow-sm scale-90">
+              <Image
+                src="/before.webp"
+                alt="Amateur Publishing"
+                fill
+                className="object-contain"
+              />
+            </div>
+            <div className="absolute bottom-6 left-6 text-left opacity-70">
+              <p className="text-zinc-500 text-[10px] md:text-xs uppercase tracking-widest font-bold bg-black/50 px-2 py-1 rounded">{subtitleBefore}</p>
+            </div>
+          </div>
+        </div>
+      }
+      secondImage={
+        <div className="w-full h-full bg-zinc-900 flex items-center justify-center">
+          <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
+            <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-zinc-800 to-black opacity-50" />
+            <div className="relative z-10 w-full h-full scale-90">
+              <Image
+                src="/after.webp"
+                alt="Professional Publishing"
+                fill
+                className="object-contain"
+              />
+            </div>
+            <div className="absolute bottom-6 right-6 text-right">
+              <p className="text-brand text-[10px] md:text-xs uppercase tracking-widest font-bold bg-black/80 px-2 py-1 rounded border border-brand/20">{subtitleAfter}</p>
+            </div>
+          </div>
+        </div>
+      }
+    />
+  </div>
+);
 
 export default function BeforeAfter() {
   return (
@@ -18,71 +68,22 @@ export default function BeforeAfter() {
           </p>
         </div>
 
-        {/* Comparison Component */}
-        <div className="max-w-5xl mx-auto border border-zinc-200 rounded-[2rem] shadow-2xl overflow-hidden bg-zinc-900">
-          <Compare
-            className="w-full h-[500px] md:h-[600px]" 
-            slideMode="hover"
-            autoplay={false}
-            autoplayDuration={4000}
-            firstImage={
-              <div className="w-full h-full bg-gray-900 flex items-center justify-center">
-                <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
-                  {/* Image Container matching original mockup size */}
-                  <div className="relative w-100 h-100 shadow-sm scale-90 md:scale-100 ">
-                    <Image
-                      src="/before.webp"
-                      alt="Amateur Publishing"
-                      fill
-                      className="object-contain"
-                    />
-                  </div>
-                  
-                  <div className="absolute bottom-8 left-8 text-left opacity-70">
-                    <p className="text-zinc-400 font-black text-2xl md:text-3xl">Low Sales</p>
-                    <p className="text-zinc-500 text-xs md:text-sm uppercase tracking-widest">Unclear Branding</p>
-                  </div>
-                </div>
-              </div>
-            }
-            secondImage={
-              <div className="w-full h-full bg-zinc-900 flex items-center justify-center">
-                <div className="relative w-full h-full flex items-center justify-center overflow-hidden ">
-                  {/* Background Decor */}
-                  <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-zinc-800 to-black opacity-50" />
-                  <div className="absolute -right-20 -top-20 w-96 h-96 bg-brand/20 blur-[100px] rounded-full" />
-                  
-                  <div className="flex flex-col justify-center items-center gap-6  w-full h-full rounded-md p-4">
-                    {/* Image Container */}
-                    <div className="relative z-10 w-2xl h-100  scale-90 md:scale-100">
-                      <Image
-                        src="/after.webp"
-                        alt="Professional Publishing"
-                        fill
-                        className="object-contain w-full "
-                        
-                      />
-                    </div>
-                    
-                    {/* Badges */}
-                    {/* <div className="flex gap-4">
-                      <div className="px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20 flex items-center gap-2 text-white text-xs font-bold uppercase tracking-wider">
-                        <Star className="w-4 h-4 text-brand fill-brand" />
-                        #1 Best Seller
-                      </div>
-                      <div className="hidden md:block px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20 text-white text-xs font-bold uppercase tracking-wider">
-                        Global Distribution
-                      </div>
-                    </div> */}
-                  </div>
-
-                  <div className="absolute bottom-8 right-8 text-right">
-                    <p className="text-brand font-black text-2xl md:text-3xl">High Conversions</p>
-                    <p className="text-zinc-400 text-xs md:text-sm uppercase tracking-widest">Professional Authority</p>
-                  </div>
-                </div>
-              </div>
-            }
+        {/* Comparison Cards Slider/Grid */}
+        <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 lg:grid lg:grid-cols-3 lg:gap-8 lg:pb-0 lg:overflow-visible scrollbar-hide -mx-6 px-6 lg:mx-0 lg:px-0">
+          <ComparisonCard 
+             title="Cover Design" 
+             subtitleBefore="Generic Template" 
+             subtitleAfter="Custom Art" 
+          />
+          <ComparisonCard 
+             title="Interior Layout" 
+             subtitleBefore="Broken Formatting" 
+             subtitleAfter="Pro Typesetting" 
+          />
+          <ComparisonCard 
+             title="Marketing Assets" 
+             subtitleBefore="Low Resolution" 
+             subtitleAfter="Brand Ready" 
           />
         </div>
 

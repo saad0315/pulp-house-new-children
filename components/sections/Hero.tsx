@@ -53,6 +53,10 @@ export default function Hero() {
             We turn your manuscript into a global bestseller in 90 days. 
             You keep <span className="text-foreground font-bold border-b-2 border-brand">100% of your royalties</span> and all creative rights. No exceptions.
           </p>
+          <p className="text-sm text-dark leading-relaxed font-bold">
+            Your Manuscript. A Global Bestseller in 90 Days. Keep 100% Royalties and Creative Rights
+          </p>
+
 
           <div className="flex flex-col sm:flex-row gap-6 mt-4">
             <div className="relative">
@@ -62,7 +66,7 @@ export default function Hero() {
                 className="w-full sm:w-auto " 
                 onClick={openModal}
               >
-                Get Your Publishing Roadmap
+                Start Your Bestseller Journey
                 <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
             </div>
@@ -70,7 +74,7 @@ export default function Hero() {
             <div className="flex flex-col justify-center pl-2">
               <p className="text-sm font-bold text-foreground uppercase tracking-wider flex items-center gap-1">
                 <Star className="w-3 h-3 text-brand fill-brand" />
-                Zero upfront cost options
+                Zero upfront cost
               </p>
               <p className="text-xs text-muted-foreground font-medium">Subject to manuscript approval</p>
             </div>
@@ -78,10 +82,7 @@ export default function Hero() {
         </div>
 
         {/* Right Content - Hero Image */}
-        <m.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+        <div
           className="relative flex justify-center lg:justify-end"
         >
           <div className="relative w-full max-w-[500px] lg:max-w-[600px] aspect-[4/5] lg:aspect-square">
@@ -94,7 +95,7 @@ export default function Hero() {
               sizes="(max-width: 768px) 80vw, (max-width: 1200px) 50vw, 600px"
             />
           </div>
-        </m.div>
+        </div>
       </div>
     </section>
   );
