@@ -170,7 +170,7 @@ export default function MadeInUSA() {
                     alt={item.alt} 
                     fill 
                     className="object-contain"
-                    sizes="(max-width: 768px) 70vw, 300px"
+                    sizes="(max-width: 768px) 50vw, 300px"
                   />
                 </div>
                 {item.label && (

@@ -33,10 +33,7 @@ export default function Hero() {
       
       <div className="container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-center relative z-10">
         {/* Left Content */}
-        <m.div
-          initial={{ opacity: 0, x: -20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut" }}
+        <div
           className="flex flex-col gap-8 max-w-2xl"
         >
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-zinc-50 text-zinc-900 text-sm font-medium w-fit border border-zinc-200 shadow-sm backdrop-blur-sm">
@@ -78,7 +75,7 @@ export default function Hero() {
               <p className="text-xs text-muted-foreground font-medium">Subject to manuscript approval</p>
             </div>
           </div>
-        </m.div>
+        </div>
 
         {/* Right Content - Hero Image */}
         <m.div

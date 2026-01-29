@@ -38,7 +38,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        <link rel="preconnect" href="https://grainy-gradients.vercel.app" />
+        <link rel="preconnect" href="https://grainy-gradients.vercel.app" crossOrigin="anonymous" />
       </head>
       <body
         className={`${poppins.variable} ${lora.variable} antialiased font-sans bg-white text-zinc-900`}
