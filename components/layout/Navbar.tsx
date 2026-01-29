@@ -61,7 +61,7 @@ export default function Navbar() {
                  src="/bbbBadge.webp" 
                  alt="BBB A+ Rating" 
                  fill
-                 className="object-contain object-left mix-blend-multiply w-56 h-8"
+                 className="object-contain object-left mix-blend-multiply w-56 h-32"
                 //  sizes="120px"
                />
                {/* Shine effect on hover */}
@@ -89,13 +89,13 @@ export default function Navbar() {
               variant="outline" 
               size="lg" 
               className={cn(
-                "hidden lg:flex items-center gap-2 font-medium text-zinc-600 hover:text-black hover:bg-zinc-100/50 rounded-full",
+                "hidden lg:flex items-center gap-2 font-medium text-white hover:text-black bg-brand rounded-full",
                 "h-11 md:h-12 px-5" // Matching height to Phone button
               )}
             >
               <div className="relative">
                 <MessageCircle className="w-4 h-4" />
-                <span className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-green-500 rounded-full border-2 border-white" />
+                <span className="absolute -top-0.5 -right-0.5 w-2 h-2 bg-green-500 rounded-full border-2 border-white animate-ping" />
               </div>
               Live Chat
             </Button>
@@ -110,16 +110,16 @@ export default function Navbar() {
                 "bg-black text-white hover:bg-zinc-900",
                 "pl-4 pr-5 h-11 md:h-12"
               )}
-              onClick={() => window.location.href = 'tel:+15550000000'}
+              onClick={() => window.location.href = 'tel:+18889080775'}
             >
               {/* Button Glow Effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-orange-500/0 via-orange-500/10 to-orange-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
               
               <div className="flex items-center gap-3 relative z-10">
                 <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors">
-                  <Phone className="w-3.5 h-3.5 text-white" />
+                  <Phone className="w-3.5 h-3.5 text-white animate-pulse" />
                 </div>
-                <span className="hidden sm:inline">+1 (555) 000-0000</span>
+                <span className="hidden sm:inline">+1 (888) 908-0775</span>
                 <span className="sm:hidden">Call Now</span>
               </div>
             </Button>

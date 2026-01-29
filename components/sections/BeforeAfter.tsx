@@ -2,6 +2,7 @@
 
 import { Check, X, Star } from "lucide-react";
 import { Compare } from "@/components/ui/compare";
+import Image from "next/image";
 
 export default function BeforeAfter() {
   return (
@@ -25,69 +26,59 @@ export default function BeforeAfter() {
             autoplay={false}
             autoplayDuration={4000}
             firstImage={
-              // BEFORE Image (Foreground Layer - Clipped)
-              <div className="w-full h-full bg-zinc-100 flex items-center justify-center">
+              <div className="w-full h-full bg-gray-900 flex items-center justify-center">
                 <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
-                   {/* Content */}
-                   <div className="flex flex-col items-center gap-6 opacity-60 grayscale filter blur-[1px]">
-                      {/* Messy Word Doc Style */}
-                      <div className="w-48 h-72 bg-white border border-zinc-300 shadow-sm flex flex-col p-8 items-center text-center scale-90 md:scale-100">
-                         <p className="font-serif text-black text-xl mb-4">My Book Title</p>
-                         <p className="font-serif text-zinc-500 text-xs mb-8">by Author Name</p>
-                         <div className="w-full space-y-2">
-                            <div className="h-1 bg-zinc-200 w-full" />
-                            <div className="h-1 bg-zinc-200 w-full" />
-                            <div className="h-1 bg-zinc-200 w-3/4" />
-                            <div className="h-1 bg-zinc-200 w-full" />
-                         </div>
-                      </div>
-                      
-                      <div className="flex gap-2 text-zinc-400 text-xs font-mono bg-zinc-200 px-3 py-1 rounded">
-                         <X className="w-3 h-3" /> formatting_error.docx
-                      </div>
-                   </div>
-
-                   {/* Floating Labels */}
-                   <div className="absolute bottom-8 left-8 text-left opacity-70">
-                      <p className="text-zinc-400 font-black text-2xl md:text-3xl">Low Sales</p>
-                      <p className="text-zinc-500 text-xs md:text-sm uppercase tracking-widest">Unclear Branding</p>
-                   </div>
+                  {/* Image Container matching original mockup size */}
+                  <div className="relative w-100 h-100 shadow-sm scale-90 md:scale-100 ">
+                    <Image
+                      src="/before.webp"
+                      alt="Amateur Publishing"
+                      fill
+                      className="object-contain"
+                    />
+                  </div>
+                  
+                  <div className="absolute bottom-8 left-8 text-left opacity-70">
+                    <p className="text-zinc-400 font-black text-2xl md:text-3xl">Low Sales</p>
+                    <p className="text-zinc-500 text-xs md:text-sm uppercase tracking-widest">Unclear Branding</p>
+                  </div>
                 </div>
               </div>
             }
             secondImage={
-              // AFTER Image (Background Layer)
               <div className="w-full h-full bg-zinc-900 flex items-center justify-center">
-                <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
+                <div className="relative w-full h-full flex items-center justify-center overflow-hidden ">
                   {/* Background Decor */}
                   <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-zinc-800 to-black opacity-50" />
                   <div className="absolute -right-20 -top-20 w-96 h-96 bg-brand/20 blur-[100px] rounded-full" />
                   
-                  {/* Content */}
-                  <div className="relative z-10 flex flex-col items-center gap-6 animate-pulse-slow">
-                     {/* 3D Book Mockup Style */}
-                     <div className="w-48 h-72 bg-gradient-to-br from-brand to-brand/80 rounded-r-lg rounded-l-sm shadow-[20px_20px_60px_rgba(0,0,0,0.5)] flex flex-col items-center justify-center text-white p-4 border-l-4 border-brand transform rotate-y-12 scale-90 md:scale-100">
-                        <h3 className="text-2xl font-black italic text-center leading-none mb-2">THE<br/>AUTHORITY<br/>CODE</h3>
-                        <div className="w-full h-0.5 bg-white/30 my-2" />
-                        <p className="text-[10px] uppercase tracking-widest font-bold">Best Seller</p>
-                     </div>
-                     
-                     {/* Badges */}
-                     <div className="flex gap-4">
-                        <div className="px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20 flex items-center gap-2 text-white text-xs font-bold uppercase tracking-wider">
-                           <Star className="w-4 h-4 text-brand fill-brand" />
-                           #1 Best Seller
-                        </div>
-                        <div className="hidden md:block px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20 text-white text-xs font-bold uppercase tracking-wider">
-                           Global Distribution
-                        </div>
-                     </div>
+                  <div className="flex flex-col justify-center items-center gap-6  w-full h-full rounded-md p-4">
+                    {/* Image Container */}
+                    <div className="relative z-10 w-2xl h-100  scale-90 md:scale-100">
+                      <Image
+                        src="/after.webp"
+                        alt="Professional Publishing"
+                        fill
+                        className="object-contain w-full "
+                        
+                      />
+                    </div>
+                    
+                    {/* Badges */}
+                    {/* <div className="flex gap-4">
+                      <div className="px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20 flex items-center gap-2 text-white text-xs font-bold uppercase tracking-wider">
+                        <Star className="w-4 h-4 text-brand fill-brand" />
+                        #1 Best Seller
+                      </div>
+                      <div className="hidden md:block px-4 py-2 bg-white/10 backdrop-blur-md rounded-full border border-white/20 text-white text-xs font-bold uppercase tracking-wider">
+                        Global Distribution
+                      </div>
+                    </div> */}
                   </div>
 
-                  {/* Floating Labels */}
                   <div className="absolute bottom-8 right-8 text-right">
-                     <p className="text-brand font-black text-2xl md:text-3xl">High Conversions</p>
-                     <p className="text-zinc-400 text-xs md:text-sm uppercase tracking-widest">Professional Authority</p>
+                    <p className="text-brand font-black text-2xl md:text-3xl">High Conversions</p>
+                    <p className="text-zinc-400 text-xs md:text-sm uppercase tracking-widest">Professional Authority</p>
                   </div>
                 </div>
               </div>
