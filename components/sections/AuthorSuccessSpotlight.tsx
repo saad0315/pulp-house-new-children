@@ -5,6 +5,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { Star, Award } from "lucide-react";
 import Badge from "@/components/ui/badge";
+import RJHarbor from "@public/R.J. Harbor.webp";
+import ElizabethErnst from "@public/Elizabeth Ernst.webp";
+import BJBPublishing from "@public/BJB Publishing.webp";
+import AlWilsey from "@public/Al Wilsey.webp";
+import SMichaelSmith from "@public/S. Michael Smith.webp";
+import LuluSparkle from "@public/Lulu Sparkle.webp";
+import CielPublishing from "@public/Ciel Publishing.webp";
+import MScElizabethErnst from "@public/MSc Elizabeth Ernst.webp";
 
 const testimonials = [
   {
@@ -13,7 +21,7 @@ const testimonials = [
     role: "Space Adventure Fan",
     quote:
       "The cover design truly captures the essence of the adventure. The professional editing brought Monty's journey to life!",
-    bookCover: "/R.J. Harbor.webp",
+    bookCover: RJHarbor,
     badge: "Amazon Best Seller",
     initials: "SJ",
     color: "bg-blue-100 text-blue-600",
@@ -25,7 +33,7 @@ const testimonials = [
     role: "Parent & Educator",
     quote:
       "The hand-drawn illustrations are absolutely stunning! They perfectly complement the educational content, making learning fun.",
-    bookCover: "/Elizabeth Ernst.webp",
+    bookCover: ElizabethErnst,
     badge: "Readers' Choice 2024",
     initials: "ML",
     color: "bg-emerald-100 text-emerald-600",
@@ -37,7 +45,7 @@ const testimonials = [
     role: "Mom of 2",
     quote:
       "The bright, bold illustrations made it so easy for my little one to enjoy coloring. Perfect for toddlers!",
-    bookCover: "/BJB Publishing.webp",
+    bookCover: BJBPublishing,
     badge: "Top New Release",
     initials: "AK",
     color: "bg-purple-100 text-purple-600",
@@ -49,7 +57,7 @@ const testimonials = [
     role: "Christian Parent",
     quote:
       "The beautiful nature illustrations and heartwarming story helped my child connect with the theme of faith.",
-    bookCover: "/Al Wilsey.webp",
+    bookCover: AlWilsey,
     badge: "Series Best Seller",
     initials: "TS",
     color: "bg-orange-100 text-orange-600",
@@ -61,7 +69,7 @@ const testimonials = [
     role: "Mom of 3",
     quote:
       "The playful illustrations and thoughtful writing make this book a magical bedtime read that sparks joy and kindness.",
-    bookCover: "/S. Michael Smith.webp",
+    bookCover: SMichaelSmith,
     badge: "Series Best Seller",
     initials: "RM",
     color: "bg-orange-100 text-orange-600",
@@ -73,7 +81,7 @@ const testimonials = [
     role: "Dad of an 8-year-old",
     quote:
       "They turned my messy sketches into a professional series. The consistency is unmatched.",
-    bookCover: "/Lulu Sparkle.webp",
+    bookCover: LuluSparkle,
     badge: "Series Best Seller",
     initials: "MF",
     color: "bg-orange-100 text-orange-600",
@@ -85,7 +93,7 @@ const testimonials = [
     role: "Teacher & Parent",
     quote:
       "The jokes are funny and the illustrations are adorable! This book was a hit at our Valentine’s Day celebration.",
-    bookCover: "/Ciel Publishing.webp",
+    bookCover: CielPublishing,
     badge: "Series Best Seller",
     initials: "LB",
     color: "bg-orange-100 text-orange-600",
@@ -97,7 +105,7 @@ const testimonials = [
     role: "Teacher & Parent ",
     quote:
       "The creative illustrations and seamless storytelling kept my kids hooked. It’s an adventure that sparks curiosity!",
-    bookCover: "/MSc Elizabeth Ernst.webp",
+    bookCover: MScElizabethErnst,
     badge: "Series Best Seller",
     initials: "SR",
     color: "bg-orange-100 text-orange-600",

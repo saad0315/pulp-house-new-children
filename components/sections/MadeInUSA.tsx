@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, ShieldCheck } from "lucide-react";
 import { m, AnimatePresence } from "framer-motion";
@@ -8,18 +8,21 @@ import { useModal } from "@/components/providers/ModalProvider";
 import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { X } from "lucide-react";
-
+import DBA from "@public/DBA.webp";
+import idpaImg from "@public/idpa-img.webp";
+import duns from "@public/duns.webp";
+import certificate from "@public/certificate.webp";
 const items = [
-  { src: "/DBA.webp", alt: "IBPA Member", label: "Verified Industry Leader", isWide: false },
-  { src: "/idpa-img.webp", alt: "State of Texas DBA", label: null, isWide: true },
-  { src: "/duns.webp", alt: "D-U-N-S", label: null, isWide: false, link: "https://www.dnb.com/business-directory/company-profiles.ka_publishing_solutions_llc.8ded2e58b9f5e0379f16b1e2c283897c.html" },
-  { src: "/certificate.webp", alt: "Amazon Certificate", label: null, isWide: false },
+  { src: DBA, alt: "IBPA Member", label: "Verified Industry Leader", isWide: false },
+  { src: idpaImg, alt: "State of Texas DBA", label: null, isWide: true },
+  { src: duns, alt: "D-U-N-S", label: null, isWide: false, link: "https://www.dnb.com/business-directory/company-profiles.ka_publishing_solutions_llc.8ded2e58b9f5e0379f16b1e2c283897c.html" },
+  { src: certificate, alt: "Amazon Certificate", label: null, isWide: false },
 ];
 
 export default function MadeInUSA() {
   const { openModal } = useModal();
   const [activeSlide, setActiveSlide] = useState(0);
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedImage, setSelectedImage] = useState<string | StaticImageData | null>(null);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const handleScroll = () => {
@@ -82,12 +85,12 @@ ensuring the highest quality and full legal protection for your work.
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            onClick={() => setSelectedImage("/DBA.webp")}
+            onClick={() => setSelectedImage(DBA)}
             className="md:col-span-2 md:row-span-2 bg-white rounded-3xl p-8 flex flex-col items-center justify-center border border-zinc-200 shadow-sm group hover:shadow-xl transition-all duration-500 cursor-pointer"
           >
             <div className="relative w-full h-full min-h-[200px] group-hover:grayscale transition-all duration-500">
                <Image 
-                 src="/DBA.webp" 
+                 src={DBA} 
                  alt="IBPA Member" 
                  fill 
                  className="object-contain"
@@ -103,12 +106,12 @@ ensuring the highest quality and full legal protection for your work.
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            onClick={() => setSelectedImage("/idpa-img.webp")}
+            onClick={() => setSelectedImage(idpaImg)}
             className="md:col-span-2 bg-white rounded-3xl p-8 flex items-center justify-center border border-zinc-200 shadow-sm group hover:shadow-xl transition-all duration-500 cursor-pointer"
           >
             <div className="relative w-full h-full min-h-[120px] group-hover:grayscale transition-all duration-500">
                <Image 
-                 src="/idpa-img.webp" 
+                 src={idpaImg} 
                  alt="State of Texas DBA" 
                  fill 
                  className="object-contain"
@@ -127,7 +130,7 @@ ensuring the highest quality and full legal protection for your work.
           >
             <Link target="_blank" href="https://www.dnb.com/business-directory/company-profiles.ka_publishing_solutions_llc.8ded2e58b9f5e0379f16b1e2c283897c.html" className="relative w-full h-full min-h-[100px] group-hover:grayscale transition-all duration-500">
                <Image 
-                 src="/duns.webp" 
+                 src={duns} 
                  alt="D-U-N-S" 
                  fill 
                  className="object-contain"
@@ -142,12 +145,12 @@ ensuring the highest quality and full legal protection for your work.
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            onClick={() => setSelectedImage("/certificate.webp")}
+            onClick={() => setSelectedImage(certificate)}
             className="bg-white rounded-3xl p-8 flex items-center justify-center border border-zinc-200 shadow-sm group hover:shadow-xl transition-all duration-500 cursor-pointer"
           >
             <div className="relative w-full h-full min-h-[100px] group-hover:grayscale transition-all duration-500">
                <Image 
-                 src="/certificate.webp" 
+                 src={certificate} 
                  alt="Amazon Certificate" 
                  fill 
                  className="object-contain"

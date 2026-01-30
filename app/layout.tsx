@@ -3,6 +3,7 @@ import { Poppins, Lora } from "next/font/google";
 import "./globals.css";
 import { ModalProvider } from "@/components/providers/ModalProvider";
 import { LazyMotionProvider } from "@/components/providers/LazyMotionProvider";
+import { ZendeskProvider } from "@/components/providers/ZendeskProvider";
 import Navbar from "@/components/layout/Navbar";
 import { Spotlight } from "@/components/ui/spotlight";
 
@@ -42,6 +43,8 @@ export default function RootLayout({
       <body
         className={`${poppins.variable} ${lora.variable} antialiased font-sans bg-white text-zinc-900`}
       >
+        <ZendeskProvider />
+
         <Spotlight
           className="-top-40 left-0 md:-top-20 md:left-60"
           fill="oklch(0.705 0.213 47.6)"

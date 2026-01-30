@@ -5,6 +5,8 @@ import { Button } from "@/components/ui/button";
 import { useModal } from "@/components/providers/ModalProvider";
 import { m } from "framer-motion";
 import Image from "next/image";
+import cross from "@public/cross.webp";
+import tick from "@public/tick.webp";
 
 export default function PainMirror() {
   const { openModal } = useModal();
@@ -55,7 +57,7 @@ export default function PainMirror() {
           >
             {/* 3D Cross Image */}
             <div className="absolute -top-12 -left-10 w-24 h-24 md:w-32 md:h-32 z-20 pointer-events-none drop-shadow-2xl animate-float">
-               <Image src="/cross.webp" alt="Mistake" fill className="object-contain" />
+               <Image src={cross} alt="Mistake" fill className="object-contain" />
             </div>
 
             <h3 className="text-xl md:text-2xl font-bold mb-8 flex items-center gap-3">
@@ -89,7 +91,7 @@ export default function PainMirror() {
           >
             {/* 3D Tick Image */}
             <div className="absolute -top-14 -left-10 w-24 h-24 md:w-32 md:h-32 z-20 pointer-events-none drop-shadow-2xl animate-float-delayed">
-               <Image src="/tick.webp" alt="Success" fill className="object-contain" />
+               <Image src={tick} alt="Success" fill className="object-contain" />
             </div>
 
             <div className="absolute top-0 right-0 bg-brand text-white px-5 md:px-6 py-2 font-black text-[10px] md:text-xs uppercase tracking-[0.2em] rounded-tr-[2rem] rounded-bl-xl">

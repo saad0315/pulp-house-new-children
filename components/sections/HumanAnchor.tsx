@@ -2,6 +2,7 @@
 
 import { m } from "framer-motion";
 import Image from "next/image";
+import side from "@public/side.webp";
 
 export default function HumanAnchor() {
   return (
@@ -17,7 +18,7 @@ export default function HumanAnchor() {
               className="relative aspect-square md:aspect-[4/5] bg-zinc-100 rounded-[1.5rem] md:rounded-[2rem] overflow-hidden shadow-2xl z-10"
             >
               <Image
-                src="/side.webp"
+                src={side}
                 alt="Bestselling Book Example"
                 fill
                 className="object-cover"

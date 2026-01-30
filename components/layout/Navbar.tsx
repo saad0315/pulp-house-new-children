@@ -7,6 +7,15 @@ import { useState } from "react";
 import { cn } from "@/lib/utils";
 import Image from "next/image";
 import Link from "next/link";
+import logo from "@/public/logo.webp";
+import bbbBadge from "@/public/bbbBadge.webp";
+
+// Declare Zendesk type
+declare global {
+  interface Window {
+    zE?: any;
+  }
+}
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -18,6 +27,13 @@ export default function Navbar() {
       setScrolled(isScrolled);
     }
   });
+
+  const handleLiveChatClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (typeof window !== 'undefined' && window.zE) {
+      window.zE('webWidget', 'toggle');
+    }
+  };
 
   return (
     <header
@@ -35,7 +51,7 @@ export default function Navbar() {
           <Link href="/" className="relative block hover:opacity-90 transition-opacity">
             <div className="relative w-32 h-10 md:w-48 md:h-12">
                <Image 
-                 src="/logo.webp" 
+                 src={logo} 
                  alt="The Pulp House" 
                  fill
                  className="object-contain object-left"
@@ -56,7 +72,7 @@ export default function Navbar() {
           >
              <div className="relative w-24 h-10 overflow-hidden rounded-md bg-white/50">
                <Image 
-                 src="/bbbBadge.webp" 
+                 src={bbbBadge} 
                  alt="BBB A+ Rating" 
                  fill
                  className="object-contain object-left mix-blend-multiply w-56 h-32"
@@ -73,7 +89,7 @@ export default function Navbar() {
           {/* BBB Badge - Mobile Only */}
           <div className="block md:hidden relative w-16 h-8">
             <Image 
-                 src="/bbbBadge.webp" 
+                 src={bbbBadge} 
                  alt="BBB" 
                  fill
                  className="object-contain object-right"
@@ -82,12 +98,13 @@ export default function Navbar() {
           </div>
 
           {/* Live Chat - Desktop */}
-                      <m.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-            <Button 
-              variant="outline" 
-              size="lg" 
+          <m.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={handleLiveChatClick}
               className={cn(
-                "hidden lg:flex items-center gap-2 font-medium text-white hover:text-black bg-brand rounded-full",
+                "cht_btn hidden lg:flex items-center gap-2 font-medium text-white hover:text-black bg-brand rounded-full",
                 "h-11 md:h-12 px-5" // Matching height to Phone button
               )}
             >

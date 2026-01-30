@@ -2,16 +2,20 @@
 
 import { Check, X } from "lucide-react";
 import { Compare } from "@/components/ui/compare";
-import Image from "next/image";
+import Image, { StaticImageData } from "next/image";
+import before from "@public/before.webp";
+import after1 from "@public/after1.webp";
+import after2 from "@public/after2.webp";
+import after3 from "@public/after3.webp";
 
 const ComparisonCard = ({
   title,
-  subtitleBefore,
-  subtitleAfter,
+  linkBefore,
+  linkAfter,
 }: {
   title: string;
-  subtitleBefore: string;
-  subtitleAfter: string;
+  linkBefore: string | StaticImageData;
+  linkAfter: string | StaticImageData;
 }) => (
   <div className="border border-zinc-200 rounded-[2rem] shadow-xl overflow-hidden bg-zinc-900 h-[400px] md:h-[500px] relative shrink-0 w-full snap-center">
     <div className="absolute top-4 left-0 right-0 z-20 text-center pointer-events-none">
@@ -28,7 +32,7 @@ const ComparisonCard = ({
           <div className="relative w-full h-full flex items-center justify-center overflow-hidden">
             <div className="relative w-full h-full shadow-sm scale-90">
               <Image
-                src="/before.webp"
+                src={linkBefore}
                 alt="Amateur Publishing"
                 fill
                 className="object-contain"
@@ -36,7 +40,7 @@ const ComparisonCard = ({
             </div>
             <div className="absolute bottom-6 left-6 text-left opacity-70">
               <p className="text-zinc-500 text-[10px] md:text-xs uppercase tracking-widest font-bold bg-black/50 px-2 py-1 rounded">
-                {subtitleBefore}
+                before
               </p>
             </div>
           </div>
@@ -48,7 +52,7 @@ const ComparisonCard = ({
             <div className="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-zinc-800 to-black opacity-50" />
             <div className="relative z-10 w-full h-full scale-90">
               <Image
-                src="/after.webp"
+                src={linkAfter}
                 alt="Professional Publishing"
                 fill
                 className="object-contain"
@@ -56,7 +60,7 @@ const ComparisonCard = ({
             </div>
             <div className="absolute bottom-6 right-6 text-right">
               <p className="text-brand text-[10px] md:text-xs uppercase tracking-widest font-bold bg-black/80 px-2 py-1 rounded border border-brand/20">
-                {subtitleAfter}
+                after
               </p>
             </div>
           </div>
@@ -83,19 +87,19 @@ export default function BeforeAfter() {
         {/* Comparison Cards Slider/Grid */}
         <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 lg:grid lg:grid-cols-3 lg:gap-8 lg:pb-0 lg:overflow-visible scrollbar-hide -mx-6 px-6 lg:mx-0 lg:px-0">
           <ComparisonCard
-            title="Cover Design"
-            subtitleBefore="Generic Template"
-            subtitleAfter="Custom Art"
+            title="Book Design"
+            linkBefore={before}
+            linkAfter={after1}
           />
           <ComparisonCard
-            title="Interior Layout"
-            subtitleBefore="Broken Formatting"
-            subtitleAfter="Pro Typesetting"
+            title="Book Design"
+            linkBefore={before}
+            linkAfter={after2}
           />
           <ComparisonCard
-            title="Marketing Assets"
-            subtitleBefore="Low Resolution"
-            subtitleAfter="Brand Ready"
+            title="Book Design"
+            linkBefore={before}
+            linkAfter={after3}
           />
         </div>
 

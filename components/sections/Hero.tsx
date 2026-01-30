@@ -6,6 +6,7 @@ import { ArrowRight, Star } from "lucide-react";
 import { useModal } from "@/components/providers/ModalProvider";
 import { useEffect } from "react";
 import Image from "next/image";
+import heroImage from "@public/hero-image.webp";
 
 function Counter({ from, to }: { from: number; to: number }) {
   const count = useMotionValue(from);
@@ -87,7 +88,7 @@ export default function Hero() {
         >
           <div className="relative w-full max-w-[500px] lg:max-w-[600px] aspect-[4/5] lg:aspect-square">
             <Image
-              src="/hero-image.webp"
+              src={heroImage}
               alt="The Pulp House Publishing Book Collection"
               fill
               priority
