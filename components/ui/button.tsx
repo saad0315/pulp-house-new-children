@@ -19,17 +19,17 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     };
 
     const sizes = {
-      sm: "h-9 px-4 text-xs !font-normal uppercase tracking-wider",
-      md: "h-11 px-6 text-sm !font-normal uppercase tracking-wider",
-      lg: "h-14 px-8 text-base !font-normal uppercase tracking-wide",
-      xl: "h-16 px-10 text-lg !font-normal font-black uppercase tracking-tight",
+      sm: "h-8 md:h-9 px-3 md:px-4 text-xs  uppercase tracking-wider",
+      md: "h-10 md:h-11 px-5 md:px-6 text-sm  uppercase tracking-wider",
+      lg: "h-12 md:h-14 px-6 md:px-8 text-base  uppercase tracking-wide",
+      xl: "h-14 md:h-16 px-6 md:px-10 text-base md:text-lg font-black uppercase tracking-tight",
     };
 
     return (
       <button
         ref={ref}
         className={cn(
-          "relative inline-flex items-center justify-center rounded-full transition-all duration-200 active:scale-[0.94] hover:scale-[1.05] hover:-translate-y-1 disabled:opacity-50 disabled:pointer-events-none group overflow-hidden cursor-pointer",
+          "relative inline-flex items-center justify-center rounded-full transition-all duration-200 active:scale-[0.94] hover:scale-[1.05] hover:-translate-y-1 disabled:opacity-50 disabled:pointer-events-none group overflow-hidden cursor-pointer !font-semibold",
           variants[variant],
           sizes[size],
           className

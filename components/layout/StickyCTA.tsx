@@ -34,7 +34,7 @@ export default function StickyCTA() {
             animate={{ y: 0 }}
             exit={{ y: 100 }}
             transition={{ type: "spring", stiffness: 260, damping: 20 }}
-            className="fixed bottom-0 left-0 right-0 z-50 p-4 bg-white/90 backdrop-blur-md border-t border-zinc-200 md:hidden shadow-[0_-5px_20px_rgba(0,0,0,0.1)]"
+            className="fixed bottom-0 left-0 right-0 z-50 p-4 bg-white/90 backdrop-blur-md border-t border-zinc-200 md:hidden"
           >
             <div className="flex items-center justify-between gap-4">
                <div className="flex-1">
@@ -75,25 +75,67 @@ export default function StickyCTA() {
           <m.a
             href="tel:+18889080775"
             initial={{ scale: 0, rotate: -180 }}
-            animate={{ scale: 1, rotate: 0 }}
+            animate={{ 
+              scale: 1, 
+              rotate: 0,
+              y: [0, -20, 0] 
+            }}
+            transition={{ 
+              y: {
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              },
+              scale: { duration: 0.5 },
+              rotate: { duration: 0.5 }
+            }}
             exit={{ scale: 0, rotate: 180 }}
             whileHover={{ scale: 1.1 }}
             className="hidden md:flex fixed bottom-8 left-8 z-50 items-center justify-center"
           >
             <div className="relative group">
-              <div className="absolute inset-0 bg-green-600 rounded-full blur opacity-40 group-hover:opacity-70 animate-pulse-slow" />
+              <div className="absolute inset-0 bg-orange-600 rounded-full blur opacity-40 group-hover:opacity-70" />
               <div 
-                className="relative w-16 h-16 bg-gradient-to-br from-green-500 to-green-700 rounded-full flex items-center justify-center text-white shadow-[0_8px_0_rgb(21,128,61),0_15px_20px_rgba(0,0,0,0.2)] active:shadow-[0_0px_0_rgb(21,128,61),0_0px_0_rgba(0,0,0,0)] active:translate-y-2 transition-all duration-150 border-2 border-green-400"
+                className="relative w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-700 rounded-full flex items-center justify-center text-white  active:translate-y-2 transition-all duration-150 border-2 border-orange-400"
               >
-                 <m.div
-                   animate={{ rotate: [0, -10, 10, -10, 10, 0] }}
-                   transition={{ repeat: Infinity, duration: 2, repeatDelay: 3 }}
-                 >
+                 <m.div>
                    <Phone className="w-8 h-8 fill-white" />
                  </m.div>
               </div>
             </div>
           </m.a>
+          {/* <m.a
+            href="tel:+18889080775"
+            initial={{ scale: 0, rotate: -180 }}
+            animate={{ 
+              scale: 1, 
+              rotate: 0,
+              y: [0, -20, 0] 
+            }}
+            transition={{ 
+              y: {
+                duration: 2,
+                repeat: Infinity,
+                ease: "easeInOut"
+              },
+              scale: { duration: 0.5 },
+              rotate: { duration: 0.5 }
+            }}
+            exit={{ scale: 0, rotate: 180 }}
+            whileHover={{ scale: 1.1 }}
+            className="hidden md:flex fixed bottom-8 left-8 z-50 items-center justify-center"
+          >
+            <div className="relative group">
+              <div className="absolute inset-0 bg-orange-600 rounded-full blur opacity-40 group-hover:opacity-70" />
+              <div 
+                className="relative w-16 h-16 bg-gradient-to-br from-orange-500 to-orange-700 rounded-full flex items-center justify-center text-white shadow-[0_8px_0_rgb(194,65,12),0_15px_20px_rgba(0,0,0,0.2)] active:shadow-[0_0px_0_rgb(194,65,12),0_0px_0_rgba(0,0,0,0)] active:translate-y-2 transition-all duration-150 border-2 border-orange-400"
+              >
+                 <m.div>
+                   <Phone className="w-8 h-8 fill-white" />
+                 </m.div>
+              </div>
+            </div>
+          </m.a> */}
         </>
       )}
     </AnimatePresence>

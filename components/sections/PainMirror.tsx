@@ -30,8 +30,8 @@ export default function PainMirror() {
             transition={{ delay: 0.1 }}
             className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 leading-[1.1] tracking-tight"
           >
-            Cheap Publishing is the <br className="hidden md:block" />
-            <span className="text-brand">Most Expensive Mistake</span> You Can Make.
+            Cheap Publishing  <br className="hidden md:block" />
+            <span className="text-brand">Costs You More.</span>
           </m.h2>
           
           <m.p 
@@ -41,8 +41,7 @@ export default function PainMirror() {
             transition={{ delay: 0.2 }}
             className="text-lg md:text-xl text-zinc-400 font-medium leading-relaxed max-w-2xl"
           >
-            95% of self-published books fail because they look &quot;self-published.&quot; 
-            Readers judge your life&apos;s work by its cover and its formatting in under 2 seconds.
+            95% of self-published books fail because they scream self-published. In just 2 seconds, readers judge your book by its cover and layout.
           </m.p>
         </div>
 
@@ -63,15 +62,15 @@ export default function PainMirror() {
               <span className="p-2.5 bg-red-500/10 rounded-xl group-hover:bg-red-500/20 transition-colors">
                 <Circle className="w-5 h-5 md:w-6 md:h-6 text-red-500" fill="red" />
               </span>
-              The &quot;Budget&quot; Route
+              The &quot;Budget&quot; Option
             </h3>
             <ul className="space-y-5 md:space-y-6">
               {[
-                "Template-based covers that look like everyone else's.",
-                "Basic spell-check that misses critical narrative gaps.",
-                "Standard formatting that breaks on Kindle devices.",
-                "Zero distribution strategy beyond 'hitting publish'.",
-                "You keep 100% of a $0 profit book."
+                "Template designs that blend in, not stand out.",
+                "Simple spell-check that misses key narrative flaws.",
+                "Basic formatting that fails on Kindle and other devices.",
+                "No post-launch strategy. Just hitting 'publish'.",
+                "You keep 100% of nothing.",
               ].map((item, i) => (
                 <li key={i} className="flex gap-4 text-zinc-500 items-start">
                   <div className="mt-2 w-1.5 h-1.5 rounded-full bg-zinc-700 shrink-0" />
@@ -100,15 +99,15 @@ export default function PainMirror() {
               <span className="p-2.5 bg-green-500/10 rounded-xl">
                 <Circle className="w-5 h-5 md:w-6 md:h-6 text-green-600" fill="#00aa3d" />
               </span>
-              The Pulp House
+              The Pulp House Advantage
             </h3>
             <ul className="space-y-5 md:space-y-6 mb-10 ">
               {[
-                "Custom 3D-rendered cover art designed to sell.",
-                "3-stage editorial process (Structural, Line, & Copy).",
-                "Device-agnostic formatting for all global retailers.",
-                "Aggressive 90-day launch & metadata optimization.",
-                "100% Royalties + Professional Authority."
+                "Stunning, custom 3D-rendered covers that sell.",
+                "Comprehensive 3-stage editorial process (Structure, Line, & Copy).",
+                "Flawless formatting that works across all devices and retailers.",
+                "Proven 90-day launch strategy with metadata optimization.",
+                "100% Royalties + Expert-Backed Authority.",
               ].map((item, i) => (
                 <li key={i} className="flex gap-4 items-start">
                   <CheckCircle2 className="w-5 h-5 text-green-600 shrink-0 mt-0.5" />
@@ -117,7 +116,7 @@ export default function PainMirror() {
               ))}
             </ul>
             <Button variant="vibrant" size="xl" className="w-full mt-auto shadow-lg shadow-brand/20 py-7 text-lg" onClick={openModal}>
-              Start Your Journey <ArrowRight className="ml-2 w-5 h-5" />
+              Get Started Today <ArrowRight className="ml-2 w-5 h-5" />
             </Button>
           </m.div>
         </div>
@@ -129,7 +128,8 @@ export default function PainMirror() {
           className="mt-16 md:mt-24 text-center"
         >
           <p className="text-zinc-500 italic text-base md:text-lg max-w-xl mx-auto">
-            &quot;Your book isn&apos;t just a PDF; it&apos;s your legacy. Treat it like one.&quot;
+            &quot;Your story deserves more than just a page.&quot; <br />
+            &quot;Your book is your legacy. Treat it like one.&quot;
           </p>
         </m.div>
       </div>

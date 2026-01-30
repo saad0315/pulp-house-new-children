@@ -33,11 +33,11 @@ export default function MadeInUSA() {
   return (
     <section className="bg-white py-12 px-6 lg:px-12 relative overflow-hidden border-b border-zinc-200">
       {/* Absolute USA Flag - Top Left */}
-      <div className="absolute top-0 left-0">
+      {/* <div className="absolute top-0 left-0">
         <div className="relative w-72 h-28 md:w-2xl md:h-100  overflow-hidden">
           <Image src="/usa-flag.webp" alt="USA Flag" fill className="object-cover" sizes="(max-width: 768px) 300px, 672px" />
         </div>
-      </div>
+      </div> */}
 
       <div className="container mx-auto max-w-6xl">
         {/* Header Section (Reverted to Center) */}

@@ -5,10 +5,8 @@ import { m } from "framer-motion";
 import { ArrowRight, Loader2, Sparkles, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
-import { cn } from "@/lib/utils";
 
 export default function InlineLeadForm() {
-  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -23,10 +21,10 @@ export default function InlineLeadForm() {
     try {
       const payload = {
         ...formData,
-        source: "Pulp House Inline Form"
+        companyName: "The Pulp House Publishing"
       };
 
-      const response = await fetch("https://americanseohub.com/api/v1", {
+      const response = await fetch("https://americanseohub.com/api/v1/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -35,9 +33,10 @@ export default function InlineLeadForm() {
       });
 
       if (response.ok) {
-        router.push("/thankyou");
+        window.location.href = "https://thepulphousepublishing.com/thankyou";
       } else {
-        console.error("Submission failed");
+        const errorText = await response.text();
+        console.error("Submission failed:", response.status, errorText);
       }
     } catch (error) {
       console.error("Error submitting form:", error);

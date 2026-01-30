@@ -4,35 +4,34 @@ import { useState } from "react";
 import { m, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ChevronRight, ChevronLeft, ShieldCheck, Loader2 } from "lucide-react";
-import { useRouter } from "next/navigation";
 
 const steps = [
   {
     id: 1,
     key: "manuscript_status",
-    question: "Is your manuscript currently finished?",
+    question: "Where does your manuscript stand?",
     options: [
-      "Yes, it's 100% complete",
-      "Almost, I'm in the final chapter",
-      "I have a solid first draft",
-      "I'm still in the outline phase",
+      "Completely finished and ready for submission.",
+      "Almost there, just finishing the final chapter.",
+      "I have a solid draft, but it needs polishing.",
+      "Still in the outline phase.",
     ],
   },
   {
     id: 2,
     key: "goal",
-    question: "What is your primary goal for this book?",
+    question: "What’s your main objective with this book?",
     options: [
-      "I want to become a full-time author",
-      "I want to build authority in my niche",
-      "I want to leave a legacy for my family",
-      "I just want to see it in print",
+      "I aim to become a full-time author.",
+      "I want to establish myself as an authority in my field.",
+      "I hope to leave a lasting legacy for my family.",
+      "I just want to see it published and in print.",
     ],
   },
   {
     id: 3,
     key: "word_count",
-    question: "What is your approximate word count?",
+    question: "What is the approximate length of your manuscript?",
     options: [
       "Under 20,000 words",
       "20,000 - 50,000 words",
@@ -42,16 +41,15 @@ const steps = [
   },
   {
     id: 4,
-    question: "Ready to see your publishing roadmap?",
+    question: "Are you ready to chart your path to publication?",
     type: "form",
   },
 ];
 
 export default function ConversionForm() {
-  const router = useRouter();
   const [currentStep, setCurrentStep] = useState(0);
   const [loading, setLoading] = useState(false);
-  const [formData, setFormData] = useState({ name: "", email: "" });
+  const [formData, setFormData] = useState({ name: "", email: "", phone: "" });
   const [answers, setAnswers] = useState<Record<string, string>>({});
   
   const progress = ((currentStep + 1) / steps.length) * 100;
@@ -77,10 +75,10 @@ export default function ConversionForm() {
       const payload = {
         ...formData,
         ...answers,
-        source: "Pulp House Conversion Form"
+        companyName: "The Pulp House Publishing"
       };
 
-      const response = await fetch("https://americanseohub.com/api/v1", {
+      const response = await fetch("https://americanseohub.com/api/v1/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -89,9 +87,10 @@ export default function ConversionForm() {
       });
 
       if (response.ok) {
-        router.push("/thankyou");
+          window.location.href = "https://thepulphousepublishing.com/thankyou";
       } else {
-        console.error("Submission failed");
+        const errorText = await response.text();
+        console.error("Submission failed:", response.status, errorText);
         // Optional: Handle error UI
       }
     } catch (error) {
@@ -213,8 +212,18 @@ export default function ConversionForm() {
 
                       </div>
 
+                      <div className="space-y-2">
+                        <label className="text-xs md:text-sm font-bold text-muted-foreground uppercase tracking-widest px-2">Phone Number</label>
+                        <input 
+                          required 
+                          type="tel"
+                          value={formData.phone}
+                          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                          placeholder="+1 (555) 000-0000"
+                          className="w-full p-3 md:p-4 rounded-xl md:rounded-2xl bg-zinc-50 border border-zinc-200 focus:outline-none focus:ring-2 focus:ring-brand transition-all font-bold text-base"
+                        />
+                      </div>
                       
-
                       <div className="pt-6 flex flex-col items-center gap-4 md:gap-6">
 
                         <Button variant="vibrant" size="xl" type="submit" className="w-full group text-lg py-6" disabled={loading}>
@@ -231,7 +240,7 @@ export default function ConversionForm() {
 
                             <>
 
-                              GET MY ROADMAP NOW
+                              Get My Personalized Roadmap 
 
                               <ChevronRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
 

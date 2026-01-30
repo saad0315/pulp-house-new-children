@@ -43,9 +43,9 @@ export default function Home() {
 
       <HumanAnchor />
       <ActionBreak
-        headline="100% Ownership. 0% Risk."
-        subheadline="We've removed all the guesswork. You keep the rights, the royalties, and the peace of mind."
-        buttonText="Secure Your Roadmap"
+        headline="Full Control. No Risk. "
+        subheadline="Say goodbye to uncertainty. With us, you retain 100% ownership, 100% royalties, and the peace of mind that comes with knowing your legacy is secure."
+        buttonText="Claim Your Full Ownership"
         variant="dark"
       />
       <BillOfRights />
@@ -67,15 +67,15 @@ export default function Home() {
             </p>
           </div>
           <div className="flex gap-8 text-sm font-bold uppercase tracking-widest text-zinc-400">
-            <a href="#" className="hover:text-black transition-colors">
+            <a target="_blank" href="https://thepulphousepublishing.com/privacy-policy" className="hover:text-black transition-colors">
               Privacy
             </a>
-            <a href="#" className="hover:text-black transition-colors">
+            <a target="_blank" href="https://thepulphousepublishing.com/terms-conditions" className="hover:text-black transition-colors">
               Terms
             </a>
-            <a href="#" className="hover:text-black transition-colors">
+            {/* <a href="#" className="hover:text-black transition-colors">
               Contact
-            </a>
+            </a> */}
           </div>
         </div>
       </footer>

@@ -63,11 +63,11 @@ export default function Hero() {
               <Button 
                 variant="vibrant" 
                 size="xl" 
-                className="w-full sm:w-auto " 
+                className="w-full sm:w-auto h-auto py-4 sm:py-0 sm:h-16 whitespace-normal " 
                 onClick={openModal}
               >
                 Start Your Bestseller Journey
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform flex-shrink-0" />
               </Button>
             </div>
             

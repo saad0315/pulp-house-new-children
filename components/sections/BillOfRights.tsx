@@ -5,26 +5,26 @@ import { ShieldCheck, Lock, Scale, FileText } from "lucide-react";
 const rights = [
   {
     icon: <Lock className="w-6 h-6 text-black" />,
-    title: "100% Intellectual Property",
-    statement: "You retain all copyrights and creative control. We are your service provider, not your master.",
+    title: "100% Creative Control",
+    statement: "You own all copyrights and creative rights. We’re here to support, not control.",
     isNo: false,
   },
   {
     icon: <Scale className="w-6 h-6 text-black" />,
-    title: "Zero Royalty Sharing",
-    statement: "Every cent of profit from every sale goes directly into your bank account. We take 0%.",
+    title: "100% Royalties, Zero Sharing",
+    statement: "Every penny you earn stays with you. We don’t take a cut.",
     isNo: false,
   },
   {
     icon: <ShieldCheck className="w-6 h-6 text-black" />,
     title: "No Predatory Contracts",
-    statement: "No 'first right of refusal' on future books. No hidden multi-year exclusivity clauses.",
+    statement: "No hidden clauses or exclusive rights that limit your future. Full creative freedom.",
     isNo: true,
   },
   {
     icon: <FileText className="w-6 h-6 text-black" />,
     title: "Full Source Access",
-    statement: "You receive all raw production files, including cover PSDs and interior source files. You own the assets.",
+    statement: "All production files are yours to keep, including cover designs and interior files. Full ownership of your work.",
     isNo: false,
   },
 ];
@@ -37,10 +37,9 @@ export default function BillOfRights() {
           <div className="p-3 bg-zinc-100 rounded-2xl mb-6">
             <ShieldCheck className="w-8 h-8 text-black" />
           </div>
-          <h2 className="text-4xl lg:text-5xl font-serif text-black mb-6 italic">The Author&apos;s Bill of Rights</h2>
+          <h2 className="text-4xl lg:text-5xl font-serif text-black mb-6 italic">The Author&apos;s Freedom Guarantee</h2>
           <p className="text-xl text-zinc-600 max-w-2xl font-medium">
-            Most publishing contracts are designed to trap you. Ours is designed to liberate you. 
-            This is our legal commitment to every author we represent.
+         Most publishing contracts lock you in. Ours is designed to help you. Our commitment is to your success, not ours.
           </p>
         </div>
 

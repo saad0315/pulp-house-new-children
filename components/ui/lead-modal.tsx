@@ -4,7 +4,6 @@ import { m, AnimatePresence } from "framer-motion";
 import { X, CheckCircle2, ArrowRight, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 
 interface LeadModalProps {
   isOpen: boolean;
@@ -12,7 +11,6 @@ interface LeadModalProps {
 }
 
 export function LeadModal({ isOpen, onClose }: LeadModalProps) {
-  const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -27,10 +25,10 @@ export function LeadModal({ isOpen, onClose }: LeadModalProps) {
     try {
       const payload = {
         ...formData,
-        source: "Pulp House Lead Modal"
+        companyName: "The Pulp House Publishing"
       };
 
-      const response = await fetch("https://americanseohub.com/api/v1", {
+      const response = await fetch("https://americanseohub.com/api/v1/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -39,10 +37,10 @@ export function LeadModal({ isOpen, onClose }: LeadModalProps) {
       });
 
       if (response.ok) {
-        onClose();
-        router.push("/thankyou");
+               window.location.href = "https://thepulphousepublishing.com/thankyou";
       } else {
-        console.error("Submission failed");
+        const errorText = await response.text();
+        console.error("Submission failed:", response.status, errorText);
         // Optional: Handle error UI
       }
     } catch (error) {
