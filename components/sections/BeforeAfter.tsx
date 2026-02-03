@@ -5,6 +5,8 @@ import { Check, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { Compare } from "@/components/ui/compare";
 import Image, { StaticImageData } from "next/image";
 import before from "@public/before.webp";
+import before2 from "@public/before2.webp";
+import before3 from "@public/before3.webp";
 import after1 from "@public/after1.webp";
 import after2 from "@public/after2.webp";
 import after3 from "@public/after3.webp";
@@ -73,8 +75,8 @@ const ComparisonCard = ({
 
 const cards = [
   { title: "Book Design", linkBefore: before, linkAfter: after1 },
-  { title: "Illustration", linkBefore: before, linkAfter: after2 },
-  { title: "Cover Art", linkBefore: before, linkAfter: after3 },
+  { title: "Illustration", linkBefore: before2, linkAfter: after2 },
+  { title: "Cover Art", linkBefore: before3, linkAfter: after3 },
 ];
 
 export default function BeforeAfter() {

@@ -8,18 +8,6 @@ import { useEffect } from "react";
 import Image from "next/image";
 import heroImage from "@public/hero-image.webp";
 
-// function Counter({ from, to }: { from: number; to: number }) {
-//   const count = useMotionValue(from);
-//   const rounded = useTransform(count, (latest) => Math.round(latest));
-  
-//   useEffect(() => {
-//     const controls = animate(count, to, { duration: 2, ease: "easeOut" });
-//     return controls.stop;
-//   }, [count, to]);
-
-//   return <m.span>{rounded}</m.span>;
-// }
-
 export default function Hero() {
   const { openModal } = useModal();
   
@@ -78,13 +66,13 @@ export default function Hero() {
               </Button>
             </div>
             
-            <div className="flex flex-col justify-center pl-2">
+            {/* <div className="flex flex-col justify-center pl-2">
               <p className="text-sm font-bold text-foreground uppercase tracking-wider flex items-center gap-1">
                 <Star className="w-3 h-3 text-brand fill-brand" />
                 Zero upfront cost
               </p>
               <p className="text-xs text-muted-foreground font-medium">Subject to manuscript approval</p>
-            </div>
+            </div> */}
           </div>
         </div>
 
