@@ -19,11 +19,14 @@ const AuthorSuccessSpotlight = dynamic(
   () => import("@/components/sections/AuthorSuccessSpotlight"),
 );
 // const TrustCertifications = dynamic(() => import("@/components/sections/TrustCertifications"));
-// const KillerFAQ = dynamic(() => import("@/components/sections/KillerFAQ"));
+const KillerFAQ = dynamic(() => import("@/components/sections/KillerFAQ"));
 const ConversionForm = dynamic(
   () => import("@/components/sections/ConversionForm"),
 );
-const InlineLeadForm = dynamic(() => import("@/components/sections/InlineLeadForm"));
+const InlineLeadForm = dynamic(
+  () => import("@/components/sections/InlineLeadForm"),
+);
+const Packages = dynamic(() => import("@/components/sections/Packages"));
 
 export default function Home() {
   return (
@@ -36,6 +39,7 @@ export default function Home() {
 
       {/* <Portfolio /> */}
       <PainMirror />
+      <Packages />
       <Timeline />
       <BeforeAfter />
 
@@ -52,7 +56,7 @@ export default function Home() {
 
       <Comparison />
       {/* <TrustCertifications /> */}
-      {/* <KillerFAQ /> */}
+      <KillerFAQ />
       <ConversionForm />
 
       {/* Simple Footer */}
@@ -63,14 +67,22 @@ export default function Home() {
               The Pulp House
             </p>
             <p className="text-zinc-400 text-sm font-medium">
-              © 2026 The Pulp House Publishing LLC. All Rights Reserved.
+              © 2026 The Pulp House Publishing. All Rights Reserved.
             </p>
           </div>
           <div className="flex gap-8 text-sm font-bold uppercase tracking-widest text-zinc-400">
-            <a target="_blank" href="https://thepulphousepublishing.com/privacy-policy" className="hover:text-black transition-colors">
+            <a
+              target="_blank"
+              href="https://thepulphousepublishing.com/privacy-policy"
+              className="hover:text-black transition-colors"
+            >
               Privacy
             </a>
-            <a target="_blank" href="https://thepulphousepublishing.com/terms-conditions" className="hover:text-black transition-colors">
+            <a
+              target="_blank"
+              href="https://thepulphousepublishing.com/terms-conditions"
+              className="hover:text-black transition-colors"
+            >
               Terms
             </a>
             {/* <a href="#" className="hover:text-black transition-colors">

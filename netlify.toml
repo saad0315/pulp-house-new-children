@@ -1,0 +1,59 @@
+[[headers]]
+  for = "/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Expires = "Thu, 31 Dec 2037 23:55:55 GMT"
+
+[[headers]]
+  for = "/_next/image/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Expires = "Thu, 31 Dec 2037 23:55:55 GMT"
+
+[[headers]]
+  for = "/children-publications/_next/static/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Expires = "Thu, 31 Dec 2037 23:55:55 GMT"
+
+[[headers]]
+  for = "/children-publications/_next/image/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Expires = "Thu, 31 Dec 2037 23:55:55 GMT"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Expires = "Thu, 31 Dec 2037 23:55:55 GMT"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Expires = "Thu, 31 Dec 2037 23:55:55 GMT"
+
+[[headers]]
+  for = "/*.woff2"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Expires = "Thu, 31 Dec 2037 23:55:55 GMT"
+
+[[headers]]
+  for = "/*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Expires = "Thu, 31 Dec 2037 23:55:55 GMT"
+
+[[headers]]
+  for = "/*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Expires = "Thu, 31 Dec 2037 23:55:55 GMT"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+    Expires = "Thu, 31 Dec 2037 23:55:55 GMT"

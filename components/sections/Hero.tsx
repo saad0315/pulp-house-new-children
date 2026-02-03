@@ -8,17 +8,17 @@ import { useEffect } from "react";
 import Image from "next/image";
 import heroImage from "@public/hero-image.webp";
 
-function Counter({ from, to }: { from: number; to: number }) {
-  const count = useMotionValue(from);
-  const rounded = useTransform(count, (latest) => Math.round(latest));
+// function Counter({ from, to }: { from: number; to: number }) {
+//   const count = useMotionValue(from);
+//   const rounded = useTransform(count, (latest) => Math.round(latest));
   
-  useEffect(() => {
-    const controls = animate(count, to, { duration: 2, ease: "easeOut" });
-    return controls.stop;
-  }, [count, to]);
+//   useEffect(() => {
+//     const controls = animate(count, to, { duration: 2, ease: "easeOut" });
+//     return controls.stop;
+//   }, [count, to]);
 
-  return <m.span>{rounded}</m.span>;
-}
+//   return <m.span>{rounded}</m.span>;
+// }
 
 export default function Hero() {
   const { openModal } = useModal();
@@ -45,17 +45,23 @@ export default function Hero() {
             Accepting new authors for 2026
           </div>
           
-          <h1 className="text-5xl lg:text-7xl font-black text-foreground leading-[1.05] tracking-tight">
-            Full Service Publishing. <br />
-            <span className="text-muted-foreground">100% Ownership.</span>
+          <h1 className="text-5xl lg:text-6xl font-black text-foreground leading-[1.05] tracking-tight">
+            Top Children’s Book Publishers Publish <span className="text-muted-foreground"> Your Bestseller Today </span>
+            
+            {/* Full Service Publishing. <br />
+            <span className="text-muted-foreground">100% Ownership.</span> */}
           </h1>
           
           <p className="text-xl text-muted-foreground leading-relaxed font-medium">
-            We turn your manuscript into a global bestseller in 90 days. 
-            You keep <span className="text-foreground font-bold border-b-2 border-brand">100% of your royalties</span> and all creative rights. No exceptions.
+           With The Pulp House Publishing, your children’s book stays 100% yours. <span className="text-foreground font-bold border-b-2 border-brand"> Keep all creative rights and royalties. </span>  No exceptions, just success.
+           
+           
+           
+            {/* We turn your manuscript into a global bestseller in 90 days. 
+            You keep <span className="text-foreground font-bold border-b-2 border-brand">100% of your royalties</span> and all creative rights. No exceptions. */}
           </p>
           <p className="text-sm text-dark leading-relaxed font-bold">
-            Your Manuscript. A Global Bestseller in 90 Days. Keep 100% Royalties and Creative Rights
+            Your Manuscript. A Global Bestseller in 90 Days. Take Full Ownership of Your Success.
           </p>
 
 
@@ -91,9 +97,11 @@ export default function Hero() {
               src={heroImage}
               alt="The Pulp House Publishing Book Collection"
               fill
-              priority
+              priority={true}
+              fetchPriority="high"
               className="object-contain"
-              sizes="(max-width: 768px) 80vw, (max-width: 1200px) 50vw, 600px"
+              sizes="(max-width: 640px) 500px, (max-width: 1024px) 600px, 600px"
+              quality={90}
             />
           </div>
         </div>

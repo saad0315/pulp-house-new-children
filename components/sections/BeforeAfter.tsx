@@ -1,6 +1,7 @@
 "use client";
 
-import { Check, X } from "lucide-react";
+import { useState } from "react";
+import { Check, X, ChevronLeft, ChevronRight } from "lucide-react";
 import { Compare } from "@/components/ui/compare";
 import Image, { StaticImageData } from "next/image";
 import before from "@public/before.webp";
@@ -17,7 +18,7 @@ const ComparisonCard = ({
   linkBefore: string | StaticImageData;
   linkAfter: string | StaticImageData;
 }) => (
-  <div className="border border-zinc-200 rounded-[2rem] shadow-xl overflow-hidden bg-zinc-900 h-[400px] md:h-[500px] relative shrink-0 w-full snap-center">
+  <div className="border border-zinc-200 rounded-[2rem] shadow-xl overflow-hidden bg-zinc-900 h-[400px] md:h-[500px] relative w-full shrink-0">
     <div className="absolute top-4 left-0 right-0 z-20 text-center pointer-events-none">
       <span className="inline-block px-3 py-1 bg-black/50 backdrop-blur-md rounded-full text-white/90 text-[10px] font-bold uppercase tracking-widest border border-white/10">
         {title}
@@ -70,7 +71,23 @@ const ComparisonCard = ({
   </div>
 );
 
+const cards = [
+  { title: "Book Design", linkBefore: before, linkAfter: after1 },
+  { title: "Illustration", linkBefore: before, linkAfter: after2 },
+  { title: "Cover Art", linkBefore: before, linkAfter: after3 },
+];
+
 export default function BeforeAfter() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev === 0 ? cards.length - 1 : prev - 1));
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev === cards.length - 1 ? 0 : prev + 1));
+  };
+
   return (
     <section className="bg-white py-12 px-6 lg:px-12 overflow-hidden">
       <div className="container mx-auto">
@@ -84,23 +101,39 @@ export default function BeforeAfter() {
           </p>
         </div>
 
-        {/* Comparison Cards Slider/Grid */}
-        <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 pb-8 lg:grid lg:grid-cols-3 lg:gap-8 lg:pb-0 lg:overflow-visible scrollbar-hide -mx-6 px-6 lg:mx-0 lg:px-0">
-          <ComparisonCard
-            title="Book Design"
-            linkBefore={before}
-            linkAfter={after1}
-          />
-          <ComparisonCard
-            title="Book Design"
-            linkBefore={before}
-            linkAfter={after2}
-          />
-          <ComparisonCard
-            title="Book Design"
-            linkBefore={before}
-            linkAfter={after3}
-          />
+        {/* --- DESKTOP VIEW (GRID) --- */}
+        <div className="hidden lg:grid lg:grid-cols-3 lg:gap-8">
+          {cards.map((card, index) => (
+            <ComparisonCard key={index} {...card} />
+          ))}
+        </div>
+
+        {/* --- MOBILE VIEW (SLIDER) --- */}
+        <div className="lg:hidden relative">
+          <div className="overflow-hidden">
+            <div
+              className="flex transition-transform duration-500 ease-in-out"
+              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            >
+              {cards.map((card, index) => (
+                <div key={index} className="w-full flex-shrink-0 px-2">
+                  <ComparisonCard {...card} />
+                </div>
+              ))}
+            </div>
+          </div>
+          <button
+            onClick={prevSlide}
+            className="absolute top-1/2 -translate-y-1/2 left-0 z-10 p-2 bg-black/30 rounded-full text-white"
+          >
+            <ChevronLeft size={24} />
+          </button>
+          <button
+            onClick={nextSlide}
+            className="absolute top-1/2 -translate-y-1/2 right-0 z-10 p-2 bg-black/30 rounded-full text-white"
+          >
+            <ChevronRight size={24} />
+          </button>
         </div>
 
         {/* Feature Comparison Grid */}

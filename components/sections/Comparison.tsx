@@ -19,7 +19,7 @@ const features = [
   {
     name: "Production Speed",
     competitor: "6-18 Months",
-    pulp: "90 Days Guaranteed",
+    pulp: "3-6 months",
   },
   {
     name: "Quality Control",

@@ -190,3 +190,7 @@
     animation: pulse-slow 4s ease-in-out infinite;
   }
 }
+
+/* .swiper-button-next, .swiper-button-prev {
+  color: var(--brand) !important;
+} */

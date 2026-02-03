@@ -73,11 +73,11 @@ export default function StickyCTA() {
 
           {/* Desktop Floating 3D Call Icon (Bottom Left) */}
           <m.a
-            href="tel:+18889080775"
+            href="tel:8889080775"
             initial={{ scale: 0, rotate: -180 }}
             animate={{ 
               scale: 1, 
-              rotate: 0,
+              rotate: 0,  
               y: [0, -20, 0] 
             }}
             transition={{ 
@@ -105,7 +105,7 @@ export default function StickyCTA() {
             </div>
           </m.a>
           {/* <m.a
-            href="tel:+18889080775"
+            href="tel:8889080775"
             initial={{ scale: 0, rotate: -180 }}
             animate={{ 
               scale: 1, 

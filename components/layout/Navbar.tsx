@@ -125,7 +125,7 @@ export default function Navbar() {
                 "bg-black text-white hover:bg-zinc-900",
                 "pl-4 pr-5 h-11 md:h-12"
               )}
-              onClick={() => window.location.href = 'tel:+18889080775'}
+              onClick={() => window.location.href = 'tel:8889080775'}
             >
               {/* Button Glow Effect */}
               <div className="absolute inset-0 bg-gradient-to-r from-orange-500/0 via-orange-500/10 to-orange-500/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-1000 ease-in-out" />
@@ -134,7 +134,7 @@ export default function Navbar() {
                 <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-white/30 transition-colors">
                   <Phone className="w-3.5 h-3.5 text-white animate-pulse" />
                 </div>
-                <span className="hidden sm:inline">+1 (888) 908-0775</span>
+                <span className="hidden sm:inline">888 908-0775</span>
                 <span className="sm:hidden">Call Now</span>
               </div>
             </Button>

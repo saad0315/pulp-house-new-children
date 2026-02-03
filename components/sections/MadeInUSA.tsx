@@ -5,24 +5,38 @@ import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, ShieldCheck } from "lucide-react";
 import { m, AnimatePresence } from "framer-motion";
 import { useModal } from "@/components/providers/ModalProvider";
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import { X } from "lucide-react";
 import DBA from "@public/DBA.webp";
 import idpaImg from "@public/idpa-img.webp";
 import duns from "@public/duns.webp";
 import certificate from "@public/certificate.webp";
+import bbb from "@public/bbbBadge.webp";
 const items = [
-  { src: DBA, alt: "IBPA Member", label: "Verified Industry Leader", isWide: false },
+  {
+    src: DBA,
+    alt: "IBPA Member",
+    label: "Verified Industry Leader",
+    isWide: false,
+  },
   { src: idpaImg, alt: "State of Texas DBA", label: null, isWide: true },
-  { src: duns, alt: "D-U-N-S", label: null, isWide: false, link: "https://www.dnb.com/business-directory/company-profiles.ka_publishing_solutions_llc.8ded2e58b9f5e0379f16b1e2c283897c.html" },
+  {
+    src: duns,
+    alt: "D-U-N-S",
+    label: null,
+    isWide: false,
+    link: "https://www.dnb.com/business-directory/company-profiles.ka_publishing_solutions_llc.8ded2e58b9f5e0379f16b1e2c283897c.html",
+  },
   { src: certificate, alt: "Amazon Certificate", label: null, isWide: false },
 ];
 
 export default function MadeInUSA() {
   const { openModal } = useModal();
   const [activeSlide, setActiveSlide] = useState(0);
-  const [selectedImage, setSelectedImage] = useState<string | StaticImageData | null>(null);
+  const [selectedImage, setSelectedImage] = useState<
+    string | StaticImageData | null
+  >(null);
   const scrollRef = useRef<HTMLDivElement>(null);
 
   const handleScroll = () => {
@@ -54,7 +68,7 @@ export default function MadeInUSA() {
             <ShieldCheck className="w-3.5 h-3.5" />
             Federal & State Verified
           </m.div>
-          
+
           <m.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -64,7 +78,7 @@ export default function MadeInUSA() {
           >
             Proudly Made in the <span className="text-brand">USA</span>
           </m.h2>
-          
+
           <m.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -72,16 +86,16 @@ export default function MadeInUSA() {
             transition={{ delay: 0.2 }}
             className="text-xl text-zinc-600 max-w-3xl mx-auto font-medium"
           >
-            We handle everything in-house, with top-tier editors, designers, and strategists based in the USA,
-ensuring the highest quality and full legal protection for your work.
+            Certified with federal, state, and industry standards, we deliver
+            top-tier children’s book publishing with expert in-house talent and
+            full legal protection.
           </m.p>
         </div>
 
         {/* Desktop Grid Layout */}
         <div className="hidden md:grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 h-auto md:h-[500px] mb-16">
-          
           {/* Item 1: IBPA (Featured) */}
-          <m.div 
+          <m.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -89,58 +103,67 @@ ensuring the highest quality and full legal protection for your work.
             className="md:col-span-2 md:row-span-2 bg-white rounded-3xl p-8 flex flex-col items-center justify-center border border-zinc-200 shadow-sm group hover:shadow-xl transition-all duration-500 cursor-pointer"
           >
             <div className="relative w-full h-full min-h-[200px] group-hover:grayscale transition-all duration-500">
-               <Image 
-                 src={DBA} 
-                 alt="IBPA Member" 
-                 fill 
-                 className="object-contain"
-                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
-               />
+              <Image
+                src={DBA}
+                alt="IBPA Member"
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 90vw, (max-width: 1200px) 320px, 315px"
+                loading="lazy"
+              />
             </div>
-            <p className="mt-4 text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em]">Verified Industry Leader</p>
+            <p className="mt-4 text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em]">
+              Verified Industry Leader
+            </p>
           </m.div>
 
           {/* Item 2: DBA (Wide) */}
-          <m.div 
+          <m.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
             onClick={() => setSelectedImage(idpaImg)}
-            className="md:col-span-2 bg-white rounded-3xl p-8 flex items-center justify-center border border-zinc-200 shadow-sm group hover:shadow-xl transition-all duration-500 cursor-pointer"
+            className=" bg-white rounded-3xl p-8 flex items-center justify-center border border-zinc-200 shadow-sm group hover:shadow-xl transition-all duration-500 cursor-pointer"
           >
             <div className="relative w-full h-full min-h-[120px] group-hover:grayscale transition-all duration-500">
-               <Image 
-                 src={idpaImg} 
-                 alt="State of Texas DBA" 
-                 fill 
-                 className="object-contain"
-                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 300px"
-               />
+              <Image
+                src={idpaImg}
+                alt="State of Texas DBA"
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 90vw, 522px"
+                loading="lazy"
+              />
             </div>
           </m.div>
 
           {/* Item 3: DUNS (Square) - HAS LINK, KEEP AS IS */}
-          <m.div 
+          <m.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
             className="bg-white rounded-3xl p-8 flex items-center justify-center border border-zinc-200 shadow-sm group hover:shadow-xl transition-all duration-500"
           >
-            <Link target="_blank" href="https://www.dnb.com/business-directory/company-profiles.ka_publishing_solutions_llc.8ded2e58b9f5e0379f16b1e2c283897c.html" className="relative w-full h-full min-h-[100px] group-hover:grayscale transition-all duration-500">
-               <Image 
-                 src={duns} 
-                 alt="D-U-N-S" 
-                 fill 
-                 className="object-contain"
-                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 300px"
-               />
+            <Link
+              target="_blank"
+              href="https://www.dnb.com/business-directory/company-profiles.ka_publishing_solutions_llc.8ded2e58b9f5e0379f16b1e2c283897c.html"
+              className="relative w-full h-full min-h-[100px] group-hover:grayscale transition-all duration-500"
+            >
+              <Image
+                src={duns}
+                alt="D-U-N-S"
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 90vw, 300px"
+                loading="lazy"
+              />
             </Link>
           </m.div>
 
           {/* Item 4: Certificate (Square) */}
-          <m.div 
+          <m.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -149,55 +172,86 @@ ensuring the highest quality and full legal protection for your work.
             className="bg-white rounded-3xl p-8 flex items-center justify-center border border-zinc-200 shadow-sm group hover:shadow-xl transition-all duration-500 cursor-pointer"
           >
             <div className="relative w-full h-full min-h-[100px] group-hover:grayscale transition-all duration-500">
-               <Image 
-                 src={certificate} 
-                 alt="Amazon Certificate" 
-                 fill 
-                 className="object-contain"
-                 sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 300px"
-               />
+              <Image
+                src={certificate}
+                alt="Amazon Certificate"
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 90vw, 315px"
+                loading="lazy"
+              />
             </div>
           </m.div>
 
+          <m.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="bg-white rounded-3xl p-8 flex items-center justify-center border border-zinc-200 shadow-sm group hover:shadow-xl transition-all duration-500"
+          >
+            <Link
+              target="_blank"
+              href="https://www.bbb.org/us/tx/austin/profile/publishers-book/the-pulp-house-publishing-0825-1000248365"
+              className="relative w-full h-full min-h-[100px] group-hover:grayscale transition-all duration-500"
+            >
+              <Image
+                src={bbb}
+                alt="BBB Accredited"
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 90vw, 300px"
+                loading="lazy"
+              />
+            </Link>
+          </m.div>
         </div>
 
         {/* Mobile Slider Layout */}
         <div className="block md:hidden mb-16 relative">
-          <div 
+          <div
             ref={scrollRef}
             onScroll={handleScroll}
             className="flex overflow-x-auto snap-x snap-mandatory gap-4 pb-8 hide-scrollbar touch-pan-x"
-            style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
+            style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
           >
             {items.map((item, idx) => (
-              <div 
+              <div
                 key={idx}
                 onClick={() => !item.link && setSelectedImage(item.src)}
-                className={`min-w-full snap-center bg-white rounded-3xl p-8 flex flex-col items-center justify-center border border-zinc-200 shadow-sm h-[300px] ${!item.link ? 'cursor-pointer' : ''}`}
+                className={`min-w-full snap-center bg-white rounded-3xl p-8 flex flex-col items-center justify-center border border-zinc-200 shadow-sm h-[300px] ${!item.link ? "cursor-pointer" : ""}`}
               >
                 {item.link ? (
-                  <Link href={item.link} target="_blank" className="relative w-full h-full max-h-[180px]">
-                    <Image 
-                      src={item.src} 
-                      alt={item.alt} 
-                      fill 
+                  <Link
+                    href={item.link}
+                    target="_blank"
+                    className="relative w-full h-full max-h-[180px]"
+                  >
+                    <Image
+                      src={item.src}
+                      alt={item.alt}
+                      fill
                       className="object-contain"
-                      sizes="(max-width: 768px) 50vw, 300px"
+                      sizes="90vw"
+                      loading="lazy"
                     />
                   </Link>
                 ) : (
                   <div className="relative w-full h-full max-h-[180px]">
-                    <Image 
-                      src={item.src} 
-                      alt={item.alt} 
-                      fill 
+                    <Image
+                      src={item.src}
+                      alt={item.alt}
+                      fill
                       className="object-contain"
-                      sizes="(max-width: 768px) 50vw, 300px"
+                      sizes="90vw"
+                      loading="lazy"
                     />
                   </div>
                 )}
                 {item.label && (
-                   <p className="mt-4 text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em]">{item.label}</p>
+                  <p className="mt-4 text-[10px] font-bold text-zinc-400 uppercase tracking-[0.2em]">
+                    {item.label}
+                  </p>
                 )}
               </div>
             ))}
@@ -212,7 +266,7 @@ ensuring the highest quality and full legal protection for your work.
                   if (scrollRef.current) {
                     scrollRef.current.scrollTo({
                       left: idx * scrollRef.current.clientWidth,
-                      behavior: 'smooth'
+                      behavior: "smooth",
                     });
                   }
                 }}
@@ -226,26 +280,26 @@ ensuring the highest quality and full legal protection for your work.
         </div>
 
         {/* Action Buttons */}
-        <m.div 
+        <m.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <Button 
-            variant="vibrant" 
-            size="xl" 
+          <Button
+            variant="vibrant"
+            size="xl"
             onClick={openModal}
             className="w-full sm:w-auto px-12"
           >
             Start Your Project <ArrowRight className="ml-2 w-5 h-5" />
           </Button>
-          
-          <Button 
-            variant="black" 
-            size="xl" 
+
+          <Button
+            variant="black"
+            size="xl"
             className="w-full sm:w-auto  px-12"
-            onClick={() => window.location.href = 'tel:+18889080775'}
+            onClick={() => (window.location.href = "tel:8889080775")}
           >
             <Phone className="mr-2 w-5 h-5" /> Speak to an Expert
           </Button>

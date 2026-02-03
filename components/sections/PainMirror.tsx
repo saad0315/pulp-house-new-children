@@ -32,7 +32,7 @@ export default function PainMirror() {
             transition={{ delay: 0.1 }}
             className="text-3xl md:text-5xl lg:text-6xl font-black mb-6 leading-[1.1] tracking-tight"
           >
-            Cheap Publishing  <br className="hidden md:block" />
+            Low-cost Publishing  <br className="hidden md:block" />
             <span className="text-brand">Costs You More.</span>
           </m.h2>
           
@@ -57,7 +57,7 @@ export default function PainMirror() {
           >
             {/* 3D Cross Image */}
             <div className="absolute -top-12 -left-10 w-24 h-24 md:w-32 md:h-32 z-20 pointer-events-none drop-shadow-2xl animate-float">
-               <Image src={cross} alt="Mistake" fill className="object-contain" />
+               <Image src={cross} alt="Mistake" fill className="object-contain" sizes="(max-width: 768px) 96px, 128px" loading="lazy" />
             </div>
 
             <h3 className="text-xl md:text-2xl font-bold mb-8 flex items-center gap-3">
@@ -91,7 +91,7 @@ export default function PainMirror() {
           >
             {/* 3D Tick Image */}
             <div className="absolute -top-14 -left-10 w-24 h-24 md:w-32 md:h-32 z-20 pointer-events-none drop-shadow-2xl animate-float-delayed">
-               <Image src={tick} alt="Success" fill className="object-contain" />
+               <Image src={tick} alt="Success" fill className="object-contain" sizes="(max-width: 768px) 96px, 128px" loading="lazy" />
             </div>
 
             <div className="absolute top-0 right-0 bg-brand text-white px-5 md:px-6 py-2 font-black text-[10px] md:text-xs uppercase tracking-[0.2em] rounded-tr-[2rem] rounded-bl-xl">

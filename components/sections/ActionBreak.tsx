@@ -52,13 +52,13 @@ export default function ActionBreak({ headline, subheadline, buttonText, variant
             </Button>
 
             <Button
-              onClick={() => window.location.href = 'tel:+18889080775'}
+              onClick={() => window.location.href = 'tel:8889080775'}
               variant="vibrant"
               size="xl"
               className="w-full sm:w-auto px-10 bg-brand text-white border-none shadow-lg shadow-brand/20"
             >
               <Phone className="w-5 h-5 mr-2" />
-              +1 (888) 908-0775
+              888 908-0775
             </Button>
           </div>
         </m.div>

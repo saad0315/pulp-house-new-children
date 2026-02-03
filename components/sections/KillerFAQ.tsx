@@ -6,24 +6,44 @@ import { Plus, Minus, HelpCircle, ShieldCheck } from "lucide-react";
 
 const faqs = [
   {
-    question: "Who owns the illustrations?",
-    answer: "You do. 100%. Unlike other agencies that hold your rights hostage, we provide full transfer of copyright and all source files upon completion. You are the sole owner of your work."
+    question: "Do you help authors publish on Amazon KDP?",
+    answer: "Yes. We handle full Amazon KDP setup, upload, and approval."
   },
   {
-    question: "Do you take any sales commission?",
-    answer: "Zero. We are a service provider, not a publisher. All royalties and profits from your book sales go directly to your bank account. We take 0% commission."
+    question: "Can you help if my book isn’t complete?",
+    answer: "Yes. We help finalize missing sections before publishing."
   },
   {
-    question: "Can I speak to a human?",
-    answer: "Yes. You get a dedicated Project Manager who guides you through every step. No bots, no automated runarounds. Real human support for your real book."
+    question: "Do you work with fiction and fantasy books?",
+    answer: "Yes. We specialize in fiction, fantasy, and allegorical stories."
   },
   {
-    question: "What if I don't like the illustrations?",
-    answer: "We offer unlimited revisions during the sketching phase. We don't move to coloring until you are 100% satisfied with the structure and composition of every single page."
+    question: "How many pages or word count do you support?",
+    answer: "All lengths — including books around 200 pages or more."
   },
   {
-    question: "How long does the whole process take?",
-    answer: "Our streamlined process is designed to get you published in as little as 90 days. We work efficiently without compromising quality to help you hit the market fast."
+    question: "Can you help with book series publishing?",
+    answer: "Yes. We publish single books and multi-book series."
+  },
+  {
+    question: "Do you offer editing and proofreading?",
+    answer: "Yes. Professional editing and proofreading are available."
+  },
+  {
+    question: "Do you design book covers for Amazon KDP?",
+    answer: "Yes. We design Amazon-ready, genre-specific covers."
+  },
+  {
+    question: "Will my book be formatted correctly?",
+    answer: "Yes. We format for paperback, hardcover, and eBook."
+  },
+  {
+    question: "Do you provide ISBNs?",
+    answer: "Yes. We assist with ISBN setup and registration."
+  },
+  {
+    question: "Will I get support during publishing?",
+    answer: "Yes. A dedicated project manager guides you throughout."
   }
 ];
 

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins, Lora } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 import { ModalProvider } from "@/components/providers/ModalProvider";
 import { LazyMotionProvider } from "@/components/providers/LazyMotionProvider";
@@ -21,11 +22,11 @@ const lora = Lora({
 });
 
 export const metadata: Metadata = {
-  title: "The Pulp House | Full Service Publishing",
+  title: "Top Children’s Book Publishers | Publish Your Bestseller Today",
   description:
-    "We turn your manuscript into a global bestseller in 90 days. Keep 100% of your royalties and rights.",
+    "With The Pulp House Publishing, your children’s book stays 100% yours. Keep all creative rights and royalties. No exceptions, just success.",
   openGraph: {
-    title: "The Pulp House | Full Service Publishing",
+    title: "Top Children’s Book Publishers | Publish Your Bestseller Today",
     description: "Full service publishing with 100% ownership and royalties.",
     type: "website",
   },
@@ -39,10 +40,57 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
+        {/* Resource Hints for Performance */}
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body
         className={`${poppins.variable} ${lora.variable} antialiased font-sans bg-white text-zinc-900`}
       >
+        {/* Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=AW-701839010"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'AW-701839010');
+          `}
+        </Script>
+
+        {/* Click to call conversion tracking */}
+        <Script id="gtag-click-to-call" strategy="afterInteractive">
+          {`
+            function gtag_report_conversion(url) {
+              var callback = function () {
+                if (typeof(url) != 'undefined') {
+                  window.location = url;
+                }
+              };
+              gtag('event', 'conversion', {
+                  'send_to': 'AW-701839010/0By-CNWtu_EbEKLt1M4C',
+                  'value': 1.0,
+                  'currency': 'USD',
+                  'event_callback': callback
+              });
+              return false;
+            }
+          `}
+        </Script>
+
+        {/* Phone conversion configuration */}
+        <Script id="gtag-phone-conversion" strategy="afterInteractive">
+          {`
+            gtag('config', 'AW-701839010/ulsBCNKtu_EbEKLt1M4C', {
+              'phone_conversion_number': '(888) 908-0775'
+            });
+          `}
+        </Script>
+
         <ZendeskProvider />
 
         <Spotlight
