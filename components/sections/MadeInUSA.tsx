@@ -13,7 +13,31 @@ import idpaImg from "@public/idpa-img.webp";
 import duns from "@public/duns.webp";
 import certificate from "@public/certificate.webp";
 import bbb from "@public/bbbBadge.webp";
+import bark from "@public/bark.webp";
+import trustpilot from "@public/trustpilot.svg";
+
 const items = [
+  {
+    src: bbb,
+    alt: "BBB Verified",
+    label: null,
+    isWide: false,
+    link: "https://www.bbb.org/us/tx/dallas/profile/publishing-services/ka-publishing-solutions-llc-0120-1000123456",
+  },
+  {
+    src: bark,
+    alt: "Bark Verified",
+    label: null,
+    isWide: false,
+    link: "https://www.bark.com/en/us/company/the-pulp-house-publishing/p3vlmB/",
+  },
+  {
+    src: trustpilot,
+    alt: "Trustpilot Verified",
+    label: null,
+    isWide: false,
+    link: "https://www.trustpilot.com/review/thepulphousepublishing.com",
+  },
   {
     src: DBA,
     alt: "IBPA Member",
@@ -28,6 +52,7 @@ const items = [
     isWide: false,
     link: "https://www.dnb.com/business-directory/company-profiles.ka_publishing_solutions_llc.8ded2e58b9f5e0379f16b1e2c283897c.html",
   },
+
   { src: certificate, alt: "Amazon Certificate", label: null, isWide: false },
 ];
 
@@ -93,7 +118,7 @@ export default function MadeInUSA() {
         </div>
 
         {/* Desktop Grid Layout */}
-        <div className="hidden md:grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 h-auto md:h-[500px] mb-16">
+        <div className="hidden md:grid grid-cols-1 md:grid-cols-5 grid-rows-2 gap-4 h-auto md:h-[500px] mb-16">
           {/* Item 1: IBPA (Featured) */}
           <m.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -118,6 +143,49 @@ export default function MadeInUSA() {
           </m.div>
 
           {/* Item 2: DBA (Wide) */}
+
+          <m.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            onClick={() => setSelectedImage(certificate)}
+            className=" bg-white rounded-3xl p-8 flex items-center justify-center border border-zinc-200 shadow-sm group hover:shadow-xl transition-all duration-500 cursor-pointer"
+          >
+            <div className="relative w-full h-full min-h-[100px] group-hover:grayscale transition-all duration-500">
+              <Image
+                src={certificate}
+                alt="Amazon Certificate"
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 90vw, 315px"
+                loading="lazy"
+              />
+            </div>
+          </m.div>
+          {/* Item 3: DUNS (Square) - HAS LINK, KEEP AS IS */}
+          <m.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className=" bg-white rounded-3xl p-8 flex items-center justify-center border border-zinc-200 shadow-sm group hover:shadow-xl transition-all duration-500"
+          >
+            <Link
+              target="_blank"
+              href="https://www.dnb.com/business-directory/company-profiles.ka_publishing_solutions_llc.8ded2e58b9f5e0379f16b1e2c283897c.html"
+              className="relative w-full h-full min-h-[100px] group-hover:grayscale transition-all duration-500"
+            >
+              <Image
+                src={duns}
+                alt="D-U-N-S"
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 90vw, 300px"
+                loading="lazy"
+              />
+            </Link>
+          </m.div>
           <m.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -137,52 +205,7 @@ export default function MadeInUSA() {
               />
             </div>
           </m.div>
-
-          {/* Item 3: DUNS (Square) - HAS LINK, KEEP AS IS */}
-          <m.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="bg-white rounded-3xl p-8 flex items-center justify-center border border-zinc-200 shadow-sm group hover:shadow-xl transition-all duration-500"
-          >
-            <Link
-              target="_blank"
-              href="https://www.dnb.com/business-directory/company-profiles.ka_publishing_solutions_llc.8ded2e58b9f5e0379f16b1e2c283897c.html"
-              className="relative w-full h-full min-h-[100px] group-hover:grayscale transition-all duration-500"
-            >
-              <Image
-                src={duns}
-                alt="D-U-N-S"
-                fill
-                className="object-contain"
-                sizes="(max-width: 768px) 90vw, 300px"
-                loading="lazy"
-              />
-            </Link>
-          </m.div>
-
           {/* Item 4: Certificate (Square) */}
-          <m.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-            onClick={() => setSelectedImage(certificate)}
-            className="bg-white rounded-3xl p-8 flex items-center justify-center border border-zinc-200 shadow-sm group hover:shadow-xl transition-all duration-500 cursor-pointer"
-          >
-            <div className="relative w-full h-full min-h-[100px] group-hover:grayscale transition-all duration-500">
-              <Image
-                src={certificate}
-                alt="Amazon Certificate"
-                fill
-                className="object-contain"
-                sizes="(max-width: 768px) 90vw, 315px"
-                loading="lazy"
-              />
-            </div>
-          </m.div>
-
           <m.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -198,6 +221,50 @@ export default function MadeInUSA() {
               <Image
                 src={bbb}
                 alt="BBB Accredited"
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 90vw, 300px"
+                loading="lazy"
+              />
+            </Link>
+          </m.div>
+          <m.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="bg-white rounded-3xl p-8 flex items-center justify-center border border-zinc-200 shadow-sm group hover:shadow-xl transition-all duration-500"
+          >
+            <Link
+              target="_blank"
+              href="https://www.trustpilot.com/review/thepulphousepublishing.com"
+              className="relative w-full h-full min-h-[100px] group-hover:grayscale transition-all duration-500"
+            >
+              <Image
+                src={trustpilot}
+                alt="Trustpilot Verified"
+                fill
+                className="object-contain"
+                sizes="(max-width: 768px) 90vw, 300px"
+                loading="lazy"
+              />
+            </Link>
+          </m.div>
+          <m.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="bg-white rounded-3xl p-8 flex items-center justify-center border border-zinc-200 shadow-sm group hover:shadow-xl transition-all duration-500"
+          >
+            <Link
+              target="_blank"
+              href="https://www.bark.com/en/us/company/the-pulp-house-publishing/p3vlmB/"
+              className="relative w-full h-full min-h-[100px] group-hover:grayscale transition-all duration-500"
+            >
+              <Image
+                src={bark}
+                alt="Bark Verified"
                 fill
                 className="object-contain"
                 sizes="(max-width: 768px) 90vw, 300px"
