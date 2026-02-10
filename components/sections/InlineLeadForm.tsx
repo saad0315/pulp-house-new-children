@@ -11,7 +11,7 @@ export default function InlineLeadForm() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phone: ""
+    phone: "",
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -21,16 +21,20 @@ export default function InlineLeadForm() {
     try {
       const payload = {
         ...formData,
-        companyName: "The Pulp House Publishing"
+        fullPageUrl: window.location.href,
+        companyName: "The Pulp House Publishing",
       };
 
-      const response = await fetch("https://americanseohub.com/api/v1/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        "https://americanseohub.com/api/v1/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
         },
-        body: JSON.stringify(payload),
-      });
+      );
 
       if (response.ok) {
         window.location.href = "https://thepulphousepublishing.com/thankyou";
@@ -57,7 +61,7 @@ export default function InlineLeadForm() {
         <div className="bg-zinc-800/50 backdrop-blur-xl border border-white/10 rounded-[2.5rem] p-8 md:p-12 shadow-2xl relative overflow-hidden group">
           {/* Decorative Glow */}
           <div className="absolute -top-24 -right-24 w-64 h-64 bg-brand/20 blur-[100px] rounded-full group-hover:bg-brand/30 transition-colors duration-1000" />
-          
+
           <div className="flex flex-col lg:flex-row gap-12 items-center">
             {/* Text Content */}
             <div className="lg:w-1/3 text-center lg:text-left">
@@ -69,29 +73,37 @@ export default function InlineLeadForm() {
                 Get Your <span className="text-brand">Free</span> Quote
               </h2>
               <p className="text-zinc-400 font-medium">
-                Skip the line. Enter your details for an instant priority callback and publishing roadmap.
+                Skip the line. Enter your details for an instant priority
+                callback and publishing roadmap.
               </p>
             </div>
 
             {/* Horizontal Form */}
             <div className="lg:w-2/3 w-full">
-              <form onSubmit={handleSubmit} className="flex flex-col md:flex-row gap-4 items-stretch">
+              <form
+                onSubmit={handleSubmit}
+                className="flex flex-col md:flex-row gap-4 items-stretch"
+              >
                 <div className="flex-1 relative group/input">
                   <input
                     required
                     value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
                     placeholder="Full Name"
                     className="w-full h-14 pl-4 pr-4 rounded-xl bg-zinc-900/80 border border-zinc-700 text-white placeholder:text-zinc-500 focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-all font-medium"
                   />
                 </div>
-                
+
                 <div className="flex-1 relative group/input">
                   <input
                     required
                     type="email"
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
                     placeholder="Email Address"
                     className="w-full h-14 pl-4 pr-4 rounded-xl bg-zinc-900/80 border border-zinc-700 text-white placeholder:text-zinc-500 focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-all font-medium"
                   />
@@ -102,15 +114,17 @@ export default function InlineLeadForm() {
                     required
                     type="tel"
                     value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, phone: e.target.value })
+                    }
                     placeholder="Phone Number"
                     className="w-full h-14 pl-4 pr-4 rounded-xl bg-zinc-900/80 border border-zinc-700 text-white placeholder:text-zinc-500 focus:border-brand focus:ring-1 focus:ring-brand outline-none transition-all font-medium"
                   />
                 </div>
 
-                <Button 
-                  variant="vibrant" 
-                  size="xl" 
+                <Button
+                  variant="vibrant"
+                  size="xl"
                   className="h-14 px-8 shrink-0 shadow-lg shadow-brand/20"
                   disabled={loading}
                   type="submit"

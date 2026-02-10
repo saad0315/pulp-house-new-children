@@ -75,6 +75,7 @@ export default function ConversionForm() {
       const payload = {
         ...formData,
         ...answers,
+        fullPageUrl: window.location.href,
         companyName: "The Pulp House Publishing"
       };
 

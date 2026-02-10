@@ -15,29 +15,33 @@ export function LeadModal({ isOpen, onClose }: LeadModalProps) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phone: ""
+    phone: "",
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    
+
     try {
       const payload = {
         ...formData,
-        companyName: "The Pulp House Publishing"
+        fullPageUrl: window.location.href,
+        companyName: "The Pulp House Publishing",
       };
 
-      const response = await fetch("https://americanseohub.com/api/v1/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+      const response = await fetch(
+        "https://americanseohub.com/api/v1/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(payload),
         },
-        body: JSON.stringify(payload),
-      });
+      );
 
       if (response.ok) {
-               window.location.href = "https://thepulphousepublishing.com/thankyou";
+        window.location.href = "https://thepulphousepublishing.com/thankyou";
       } else {
         const errorText = await response.text();
         console.error("Submission failed:", response.status, errorText);
@@ -83,50 +87,63 @@ export function LeadModal({ isOpen, onClose }: LeadModalProps) {
                   Get Your Publishing Roadmap
                 </h3>
                 <p className="text-zinc-600 text-sm">
-                  Enter your details below to schedule a free strategy session with our editorial team.
+                  Enter your details below to schedule a free strategy session
+                  with our editorial team.
                 </p>
               </div>
 
               <form onSubmit={handleSubmit} className="space-y-4">
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-zinc-500 uppercase tracking-widest ml-1">Full Name</label>
+                  <label className="text-xs font-bold text-zinc-500 uppercase tracking-widest ml-1">
+                    Full Name
+                  </label>
                   <input
                     required
                     value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
                     placeholder="e.g. Jameson Vance"
                     className="w-full p-3 rounded-xl bg-white border border-zinc-200 focus:border-orange-500 focus:ring-4 focus:ring-orange-500/10 outline-none transition-all font-medium"
                   />
                 </div>
-                
+
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-zinc-500 uppercase tracking-widest ml-1">Email Address</label>
+                  <label className="text-xs font-bold text-zinc-500 uppercase tracking-widest ml-1">
+                    Email Address
+                  </label>
                   <input
                     required
                     type="email"
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
                     placeholder="name@example.com"
                     className="w-full p-3 rounded-xl bg-white border border-zinc-200 focus:border-orange-500 focus:ring-4 focus:ring-orange-500/10 outline-none transition-all font-medium"
                   />
                 </div>
 
                 <div className="space-y-1">
-                  <label className="text-xs font-bold text-zinc-500 uppercase tracking-widest ml-1">Phone Number</label>
+                  <label className="text-xs font-bold text-zinc-500 uppercase tracking-widest ml-1">
+                    Phone Number
+                  </label>
                   <input
                     required
                     type="tel"
                     value={formData.phone}
-                    onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, phone: e.target.value })
+                    }
                     placeholder="+1 (555) 000-0000"
                     className="w-full p-3 rounded-xl bg-white border border-zinc-200 focus:border-orange-500 focus:ring-4 focus:ring-orange-500/10 outline-none transition-all font-medium"
                   />
                 </div>
 
                 <div className="pt-4">
-                  <Button 
-                    variant="vibrant" 
-                    size="lg" 
+                  <Button
+                    variant="vibrant"
+                    size="lg"
                     className="w-full relative overflow-hidden"
                     disabled={loading}
                     type="submit"

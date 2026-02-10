@@ -10,12 +10,14 @@ declare global {
 
 export function ZendeskProvider() {
   const handleZendeskLoad = () => {
-    // 1️⃣ Auto-open chat after 10 seconds
-    setTimeout(() => {
-      if (window.zE) {
-        window.zE('webWidget', 'open');
-      }
-    }, 10000); // 10 seconds
+    // Open chat widget when agent sends a message
+    if (window.zE) {
+      window.zE("webWidget:on", "chat:unreadMessages", (count: number) => {
+        if (count > 0) {
+          window.zE("webWidget", "open");
+        }
+      });
+    }
   };
 
   return (

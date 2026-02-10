@@ -22,11 +22,11 @@ const lora = Lora({
 });
 
 export const metadata: Metadata = {
-  title: "Top Children’s Book Publishers | Publish Your Bestseller Today",
+  title: "Pulp House Publishing - Children Publications",
   description:
     "With The Pulp House Publishing, your children’s book stays 100% yours. Keep all creative rights and royalties. No exceptions, just success.",
   openGraph: {
-    title: "Top Children’s Book Publishers | Publish Your Bestseller Today",
+    title: "Pulp House Publishing - Children Publications",
     description: "Full service publishing with 100% ownership and royalties.",
     type: "website",
   },
