@@ -1,32 +1,32 @@
+"use client";
+
 import dynamic from "next/dynamic";
 import Hero from "@/components/sections/Hero";
 import TrustAnchor from "@/components/sections/TrustAnchor";
 import StickyCTA from "@/components/layout/StickyCTA";
 
 // Lazy Load Components
-const MadeInUSA = dynamic(() => import("@/components/sections/MadeInUSA"));
-// const Portfolio = dynamic(() => import("@/components/sections/Portfolio"));
-const PainMirror = dynamic(() => import("@/components/sections/PainMirror"));
-const BeforeAfter = dynamic(() => import("@/components/sections/BeforeAfter"));
-const ActionBreak = dynamic(() => import("@/components/sections/ActionBreak"));
-const HumanAnchor = dynamic(() => import("@/components/sections/HumanAnchor"));
-const Timeline = dynamic(() => import("@/components/sections/Timeline"));
+const MadeInUSA = dynamic(() => import("@/components/sections/MadeInUSA"), { ssr: false });
+const PainMirror = dynamic(() => import("@/components/sections/PainMirror"), { ssr: false });
+const BeforeAfter = dynamic(() => import("@/components/sections/BeforeAfter"), { ssr: false });
+const ActionBreak = dynamic(() => import("@/components/sections/ActionBreak"), { ssr: false });
+const HumanAnchor = dynamic(() => import("@/components/sections/HumanAnchor"), { ssr: false });
+const Timeline = dynamic(() => import("@/components/sections/Timeline"), { ssr: false });
 const BillOfRights = dynamic(
-  () => import("@/components/sections/BillOfRights"),
+  () => import("@/components/sections/BillOfRights"), { ssr: false }
 );
-const Comparison = dynamic(() => import("@/components/sections/Comparison"));
+const Comparison = dynamic(() => import("@/components/sections/Comparison"), { ssr: false });
 const AuthorSuccessSpotlight = dynamic(
-  () => import("@/components/sections/AuthorSuccessSpotlight"),
+  () => import("@/components/sections/AuthorSuccessSpotlight"), { ssr: false }
 );
-// const TrustCertifications = dynamic(() => import("@/components/sections/TrustCertifications"));
-const KillerFAQ = dynamic(() => import("@/components/sections/KillerFAQ"));
+const KillerFAQ = dynamic(() => import("@/components/sections/KillerFAQ"), { ssr: false });
 const ConversionForm = dynamic(
-  () => import("@/components/sections/ConversionForm"),
+  () => import("@/components/sections/ConversionForm"), { ssr: false }
 );
 const InlineLeadForm = dynamic(
-  () => import("@/components/sections/InlineLeadForm"),
+  () => import("@/components/sections/InlineLeadForm"), { ssr: false }
 );
-const Packages = dynamic(() => import("@/components/sections/Packages"));
+const Packages = dynamic(() => import("@/components/sections/Packages"), { ssr: false });
 
 export default function Home() {
   return (

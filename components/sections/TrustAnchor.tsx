@@ -7,12 +7,16 @@ function Counter({ from, to }: { from: number; to: number }) {
   const count = useMotionValue(from);
   const rounded = useTransform(count, (latest) => Math.round(latest));
   
-  useEffect(() => {
-    const controls = animate(count, to, { duration: 2, ease: "easeOut" });
-    return controls.stop;
-  }, [count, to]);
-
-  return <m.span>{rounded}</m.span>;
+  return (
+    <m.span
+      onViewportEnter={() => {
+        animate(count, to, { duration: 2, ease: "easeOut" });
+      }}
+      viewport={{ once: true }}
+    >
+      {rounded}
+    </m.span>
+  );
 }
 
 const authorities = [

@@ -127,12 +127,14 @@ export default function BeforeAfter() {
           <button
             onClick={prevSlide}
             className="absolute top-1/2 -translate-y-1/2 left-0 z-10 p-2 bg-black/30 rounded-full text-white"
+            aria-label="Previous comparison"
           >
             <ChevronLeft size={24} />
           </button>
           <button
             onClick={nextSlide}
             className="absolute top-1/2 -translate-y-1/2 right-0 z-10 p-2 bg-black/30 rounded-full text-white"
+            aria-label="Next comparison"
           >
             <ChevronRight size={24} />
           </button>

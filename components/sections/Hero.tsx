@@ -88,8 +88,8 @@ export default function Hero() {
               priority={true}
               fetchPriority="high"
               className="object-contain"
-              sizes="(max-width: 640px) 500px, (max-width: 1024px) 600px, 600px"
-              quality={90}
+              sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 600px"
+              quality={85}
             />
           </div>
         </div>

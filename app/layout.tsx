@@ -9,7 +9,7 @@ import Navbar from "@/components/layout/Navbar";
 import { Spotlight } from "@/components/ui/spotlight";
 
 const poppins = Poppins({
-  weight: ["300", "400", "500", "600", "700", "800", "900"],
+  weight: ["400", "500", "600", "700", "900"],
   subsets: ["latin"],
   variable: "--font-poppins",
   display: "swap",
@@ -42,8 +42,6 @@ export default function RootLayout({
       <head>
         {/* Resource Hints for Performance */}
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body
         className={`${poppins.variable} ${lora.variable} antialiased font-sans bg-white text-zinc-900`}
@@ -51,9 +49,9 @@ export default function RootLayout({
         {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=AW-701839010"
-          strategy="afterInteractive"
+          strategy="lazyOnload"
         />
-        <Script id="google-analytics" strategy="afterInteractive">
+        <Script id="google-analytics" strategy="lazyOnload">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
@@ -63,7 +61,7 @@ export default function RootLayout({
         </Script>
 
         {/* Click to call conversion tracking */}
-        <Script id="gtag-click-to-call" strategy="afterInteractive">
+        <Script id="gtag-click-to-call" strategy="lazyOnload">
           {`
             function gtag_report_conversion(url) {
               var callback = function () {
@@ -83,7 +81,7 @@ export default function RootLayout({
         </Script>
 
         {/* Phone conversion configuration */}
-        <Script id="gtag-phone-conversion" strategy="afterInteractive">
+        <Script id="gtag-phone-conversion" strategy="lazyOnload">
           {`
             gtag('config', 'AW-701839010/ulsBCNKtu_EbEKLt1M4C', {
               'phone_conversion_number': '(888) 908-0775'

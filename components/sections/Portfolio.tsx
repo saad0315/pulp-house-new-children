@@ -184,12 +184,20 @@ export default function Portfolio() {
         >
            {/* Navigation Buttons (Desktop) */}
            <div className="hidden lg:block absolute top-1/2 -left-12 -translate-y-1/2 z-20">
-              <button onClick={prevSlide} className="p-3 bg-white border border-zinc-200 shadow-xl rounded-full hover:bg-zinc-50 transition-colors">
+              <button 
+                onClick={prevSlide} 
+                className="p-3 bg-white border border-zinc-200 shadow-xl rounded-full hover:bg-zinc-50 transition-colors"
+                aria-label="Previous success story"
+              >
                  <ChevronLeft className="w-6 h-6 text-zinc-600" />
               </button>
            </div>
            <div className="hidden lg:block absolute top-1/2 -right-12 -translate-y-1/2 z-20">
-              <button onClick={nextSlide} className="p-3 bg-white border border-zinc-200 shadow-xl rounded-full hover:bg-zinc-50 transition-colors">
+              <button 
+                onClick={nextSlide} 
+                className="p-3 bg-white border border-zinc-200 shadow-xl rounded-full hover:bg-zinc-50 transition-colors"
+                aria-label="Next success story"
+              >
                  <ChevronRight className="w-6 h-6 text-zinc-600" />
               </button>
            </div>

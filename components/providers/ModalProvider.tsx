@@ -1,7 +1,9 @@
 "use client";
 
 import React, { createContext, useContext, useState, ReactNode, useEffect } from "react";
-import { LeadModal } from "@/components/ui/lead-modal";
+import dynamic from "next/dynamic";
+
+const LeadModal = dynamic(() => import("@/components/ui/lead-modal").then(mod => mod.LeadModal), { ssr: false });
 
 interface ModalContextType {
   openModal: () => void;

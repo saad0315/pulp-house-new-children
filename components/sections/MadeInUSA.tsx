@@ -133,7 +133,7 @@ export default function MadeInUSA() {
                 alt="IBPA Member"
                 fill
                 className="object-contain"
-                sizes="(max-width: 768px) 90vw, (max-width: 1200px) 320px, 315px"
+                sizes="(max-width: 768px) 80vw, 320px"
                 loading="lazy"
               />
             </div>
@@ -158,7 +158,7 @@ export default function MadeInUSA() {
                 alt="Amazon Certificate"
                 fill
                 className="object-contain"
-                sizes="(max-width: 768px) 90vw, 315px"
+                sizes="(max-width: 768px) 80vw, 160px"
                 loading="lazy"
               />
             </div>
@@ -181,7 +181,7 @@ export default function MadeInUSA() {
                 alt="D-U-N-S"
                 fill
                 className="object-contain"
-                sizes="(max-width: 768px) 90vw, 300px"
+                sizes="(max-width: 768px) 80vw, 160px"
                 loading="lazy"
               />
             </Link>
@@ -200,7 +200,7 @@ export default function MadeInUSA() {
                 alt="State of Texas DBA"
                 fill
                 className="object-contain"
-                sizes="(max-width: 768px) 90vw, 522px"
+                sizes="(max-width: 768px) 80vw, 160px"
                 loading="lazy"
               />
             </div>
@@ -223,7 +223,7 @@ export default function MadeInUSA() {
                 alt="BBB Accredited"
                 fill
                 className="object-contain"
-                sizes="(max-width: 768px) 90vw, 300px"
+                sizes="(max-width: 768px) 80vw, 160px"
                 loading="lazy"
               />
             </Link>
@@ -245,7 +245,7 @@ export default function MadeInUSA() {
                 alt="Trustpilot Verified"
                 fill
                 className="object-contain"
-                sizes="(max-width: 768px) 90vw, 300px"
+                sizes="(max-width: 768px) 80vw, 160px"
                 loading="lazy"
               />
             </Link>
@@ -267,7 +267,7 @@ export default function MadeInUSA() {
                 alt="Bark Verified"
                 fill
                 className="object-contain"
-                sizes="(max-width: 768px) 90vw, 300px"
+                sizes="(max-width: 768px) 80vw, 160px"
                 loading="lazy"
               />
             </Link>

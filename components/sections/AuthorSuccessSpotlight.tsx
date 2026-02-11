@@ -211,8 +211,8 @@ export default function AuthorSuccessSpotlight() {
                     alt={`Book cover by ${item.author}`}
                     fill
                     className="object-contain p-4 group-hover/slide:scale-105 transition-transform duration-500"
-                    sizes="(max-width: 640px) 280px, (max-width: 1024px) 320px, 340px"
-                    quality={85}
+                    sizes="(max-width: 640px) 260px, (max-width: 1024px) 310px, 340px"
+                    quality={75}
                   />
                 </div>
 

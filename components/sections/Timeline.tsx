@@ -169,6 +169,7 @@ export default function Timeline() {
                       <div className="flex items-start sm:items-center gap-3 sm:gap-4 mb-4 lg:mb-6">
                         <div
                           className={`p-2.5 sm:p-3 rounded-xl flex-shrink-0 ${phase.color} bg-opacity-10 text-white`}
+                          aria-hidden="true"
                         >
                           <Icon className="w-6 h-6 sm:w-7 sm:h-7 lg:w-8 lg:h-8" strokeWidth={1.5} />
                         </div>

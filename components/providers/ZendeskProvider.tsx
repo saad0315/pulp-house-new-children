@@ -24,7 +24,7 @@ export function ZendeskProvider() {
     <Script
       id="ze-snippet"
       src="https://static.zdassets.com/ekr/snippet.js?key=37ff574c-9995-4c33-a0be-8b424905c4a0"
-      strategy="afterInteractive"
+      strategy="lazyOnload"
       onLoad={handleZendeskLoad}
     />
   );
