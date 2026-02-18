@@ -48,7 +48,7 @@ export default function RootLayout({
       >
         {/* Google Analytics */}
         <Script
-          src="https://www.googletagmanager.com/gtag/js?id=AW-701839010"
+          src="https://www.googletagmanager.com/gtag/js?id=AW-17775399716"
           strategy="lazyOnload"
         />
         <Script id="google-analytics" strategy="lazyOnload">
@@ -56,12 +56,12 @@ export default function RootLayout({
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'AW-701839010');
+            gtag('config', 'AW-17775399716');
           `}
         </Script>
 
         {/* Click to call conversion tracking */}
-        <Script id="gtag-click-to-call" strategy="lazyOnload">
+        {/* <Script id="gtag-click-to-call" strategy="lazyOnload">
           {`
             function gtag_report_conversion(url) {
               var callback = function () {
@@ -70,7 +70,7 @@ export default function RootLayout({
                 }
               };
               gtag('event', 'conversion', {
-                  'send_to': 'AW-701839010/0By-CNWtu_EbEKLt1M4C',
+                  'send_to': 'AW-17775399716/0By-CNWtu_EbEKLt1M4C',
                   'value': 1.0,
                   'currency': 'USD',
                   'event_callback': callback
@@ -78,16 +78,16 @@ export default function RootLayout({
               return false;
             }
           `}
-        </Script>
+        </Script> */}
 
         {/* Phone conversion configuration */}
-        <Script id="gtag-phone-conversion" strategy="lazyOnload">
+        {/* <Script id="gtag-phone-conversion" strategy="lazyOnload">
           {`
-            gtag('config', 'AW-701839010/ulsBCNKtu_EbEKLt1M4C', {
+            gtag('config', 'AW-17775399716/ulsBCNKtu_EbEKLt1M4C', {
               'phone_conversion_number': '(888) 908-0775'
             });
           `}
-        </Script>
+        </Script> */}
 
         <ZendeskProvider />
 
