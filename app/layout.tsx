@@ -89,6 +89,12 @@ export default function RootLayout({
           `}
         </Script> */}
 
+        {/* Crazy Egg */}
+        <Script
+          src="//script.crazyegg.com/pages/scripts/0132/1968.js"
+          strategy="lazyOnload"
+        />
+
         <ZendeskProvider />
 
         <Spotlight
