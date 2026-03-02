@@ -111,9 +111,7 @@ export default function MadeInUSA() {
             transition={{ delay: 0.2 }}
             className="text-xl text-zinc-600 max-w-3xl mx-auto font-medium"
           >
-            Certified with federal, state, and industry standards, we deliver
-            top-tier children’s book publishing with expert in-house talent and
-            full legal protection.
+            Certified with federal, state, and industry standards, we are among the elite Children’s publishers delivering top-tier services with expert in-house talent.
           </m.p>
         </div>
 

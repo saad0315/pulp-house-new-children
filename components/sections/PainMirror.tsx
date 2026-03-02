@@ -43,7 +43,7 @@ export default function PainMirror() {
             transition={{ delay: 0.2 }}
             className="text-lg md:text-xl text-zinc-400 font-medium leading-relaxed max-w-2xl"
           >
-            95% of self-published books fail because they scream self-published. In just 2 seconds, readers judge your book by its cover and layout.
+            95% of books from amateur Kids book publishers fail because they scream self-published. In just 2 seconds, readers judge your book by its cover and layout.
           </m.p>
         </div>
 

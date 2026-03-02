@@ -7,7 +7,7 @@ import { Plus, Minus, HelpCircle, ShieldCheck } from "lucide-react";
 const faqs = [
   {
     question: "Do you help authors publish on Amazon KDP?",
-    answer: "Yes. We handle full Amazon KDP setup, upload, and approval."
+    answer: "Yes. As leading Kids book publishers, we handle full Amazon KDP setup, upload, and approval."
   },
   {
     question: "Can you help if my book isn’t complete?",

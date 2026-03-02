@@ -34,14 +34,14 @@ export default function Hero() {
           </div>
           
           <h1 className="text-5xl lg:text-6xl font-black text-foreground leading-[1.05] tracking-tight">
-            Top Children’s Book Publishers Publish <span className="text-muted-foreground"> Your Bestseller Today </span>
+            Top Children's Book Publishing Companies Help You Publish <span className="text-muted-foreground"> Your Bestseller Today </span>
             
             {/* Full Service Publishing. <br />
             <span className="text-muted-foreground">100% Ownership.</span> */}
           </h1>
           
           <p className="text-xl text-muted-foreground leading-relaxed font-medium">
-           With The Pulp House Publishing, your children’s book stays 100% yours. <span className="text-foreground font-bold border-b-2 border-brand"> Keep all creative rights and royalties. </span>  No exceptions, just success.
+           With The Pulp House, our Children's Book Publishing process ensures your book stays 100% yours. <span className="text-foreground font-bold border-b-2 border-brand"> Keep all creative rights and royalties. </span>  No exceptions, just success.
            
            
            

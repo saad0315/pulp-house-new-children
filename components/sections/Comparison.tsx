@@ -69,7 +69,7 @@ export default function Comparison() {
             transition={{ delay: 0.1 }}
             className="text-lg md:text-xl text-zinc-400 max-w-2xl mx-auto font-medium"
           >
-            When it comes to publishing, one path costs you everything. The
+            When it comes to Children's Book Publishing Companies, one path costs you everything. The
             other? It’s an investment in your future.
           </m.p>
         </div>

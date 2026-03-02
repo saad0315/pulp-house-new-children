@@ -31,7 +31,7 @@ const packages = [
         ],
       },
       {
-        category: "Preparing Your Illustrations",
+        category: "Children's Book Illustration",
         items: [
           "Mid-Level Illustrator (2 Years of Experience)",
           "(10) Illustrations",
@@ -49,7 +49,7 @@ const packages = [
         ],
       },
       {
-        category: "Book Publication",
+        category: "Children’s publishers & Publication",
         items: [
           "Account Creation",
           "Account Verification",
@@ -71,7 +71,7 @@ const packages = [
     badge: "Most Popular",
     features: [
       {
-        category: "Preparing Your Illustrations",
+        category: "Children's Book Illustration",
         items: [
           "Senior-Level Illustrator (4 Years of Experience)",
           "Graphic + 2D Illustrations",
@@ -102,7 +102,7 @@ const packages = [
         ],
       },
       {
-        category: "Book Publication",
+        category: "Children’s publishers & Publication",
         items: [
           "Account Creation",
           "Account Verification",
@@ -122,7 +122,7 @@ const packages = [
     highlight: false,
     features: [
       {
-        category: "Preparing Your Illustrations",
+        category: "Children's Book Illustration",
         items: [
           "Senior-Level Illustrator (6 Years of Experience)",
           "Graphic + 2D Illustrations",
@@ -152,7 +152,7 @@ const packages = [
         ],
       },
       {
-        category: "Book Publication",
+        category: "Children’s publishers & Publication",
         items: [
           "Account Creation",
           "Account Verification",

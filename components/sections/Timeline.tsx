@@ -92,7 +92,7 @@ export default function Timeline() {
                   The 90-Day <span className="text-brand">Launch Machine</span>
                 </h2>
                 <p className="text-base sm:text-lg lg:text-lg xl:text-xl text-muted-foreground font-medium leading-relaxed lg:max-w-sm xl:max-w-md">
-                  Publishing is a 4-phase system that turns your manuscript into
+                  Children's Book Publishing is a 4-phase system that turns your manuscript into
                   a market leader.
 
                   <br />With our 90-Day Validator, we ensure every
