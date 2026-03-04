@@ -17,27 +17,27 @@ import bark from "@public/bark.webp";
 import trustpilot from "@public/trustpilot.svg";
 
 const items = [
-  {
-    src: bbb,
-    alt: "BBB Verified",
-    label: null,
-    isWide: false,
-    link: "https://www.bbb.org/us/tx/dallas/profile/publishing-services/ka-publishing-solutions-llc-0120-1000123456",
-  },
-  {
-    src: bark,
-    alt: "Bark Verified",
-    label: null,
-    isWide: false,
-    link: "https://www.bark.com/en/us/company/the-pulp-house-publishing/p3vlmB/",
-  },
-  {
-    src: trustpilot,
-    alt: "Trustpilot Verified",
-    label: null,
-    isWide: false,
-    link: "https://www.trustpilot.com/review/thepulphousepublishing.com",
-  },
+  // {
+  //   src: bbb,
+  //   alt: "BBB Verified",
+  //   label: null,
+  //   isWide: false,
+  //   link: "https://www.bbb.org/us/tx/dallas/profile/publishing-services/ka-publishing-solutions-llc-0120-1000123456",
+  // },
+  // {
+  //   src: bark,
+  //   alt: "Bark Verified",
+  //   label: null,
+  //   isWide: false,
+  //   link: "https://www.bark.com/en/us/company/the-pulp-house-publishing/p3vlmB/",
+  // },
+  // {
+  //   src: trustpilot,
+  //   alt: "Trustpilot Verified",
+  //   label: null,
+  //   isWide: false,
+  //   link: "https://www.trustpilot.com/review/thepulphousepublishing.com",
+  // },
   {
     src: DBA,
     alt: "IBPA Member",
@@ -148,7 +148,7 @@ export default function MadeInUSA() {
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
             onClick={() => setSelectedImage(certificate)}
-            className=" bg-white rounded-3xl p-8 flex items-center justify-center border border-zinc-200 shadow-sm group hover:shadow-xl transition-all duration-500 cursor-pointer"
+            className="md:col-span-2 md:row-span-2 bg-white rounded-3xl p-8 flex items-center justify-center border border-zinc-200 shadow-sm group hover:shadow-xl transition-all duration-500 cursor-pointer"
           >
             <div className="relative w-full h-full min-h-[100px] group-hover:grayscale transition-all duration-500">
               <Image
@@ -204,7 +204,7 @@ export default function MadeInUSA() {
             </div>
           </m.div>
           {/* Item 4: Certificate (Square) */}
-          <m.div
+          {/* <m.div
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
@@ -269,7 +269,7 @@ export default function MadeInUSA() {
                 loading="lazy"
               />
             </Link>
-          </m.div>
+          </m.div> */}
         </div>
 
         {/* Mobile Slider Layout */}

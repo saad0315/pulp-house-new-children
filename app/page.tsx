@@ -6,6 +6,9 @@ import TrustAnchor from "@/components/sections/TrustAnchor";
 import StickyCTA from "@/components/layout/StickyCTA";
 
 // Lazy Load Components
+const TrustBadges = dynamic(
+  () => import("@/components/sections/TrustBadges"), { ssr: false }
+);
 const MadeInUSA = dynamic(() => import("@/components/sections/MadeInUSA"), { ssr: false });
 const PainMirror = dynamic(() => import("@/components/sections/PainMirror"), { ssr: false });
 const BeforeAfter = dynamic(() => import("@/components/sections/BeforeAfter"), { ssr: false });
@@ -18,6 +21,9 @@ const BillOfRights = dynamic(
 const Comparison = dynamic(() => import("@/components/sections/Comparison"), { ssr: false });
 const AuthorSuccessSpotlight = dynamic(
   () => import("@/components/sections/AuthorSuccessSpotlight"), { ssr: false }
+);
+const VideoTestimonials = dynamic(
+  () => import("@/components/sections/VideoTestimonials"), { ssr: false }
 );
 const KillerFAQ = dynamic(() => import("@/components/sections/KillerFAQ"), { ssr: false });
 const ConversionForm = dynamic(
@@ -34,6 +40,7 @@ export default function Home() {
       <StickyCTA />
       <Hero />
       <TrustAnchor />
+      <TrustBadges />
       <MadeInUSA />
       <AuthorSuccessSpotlight />
 
@@ -42,6 +49,7 @@ export default function Home() {
       <Packages />
       <Timeline />
       <BeforeAfter />
+      <VideoTestimonials />
 
       <InlineLeadForm />
 
